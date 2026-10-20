@@ -373,7 +373,12 @@
 		<!-- A Dragon Peltast skill. A ranged attack. -->
 		<icon>icon.skill0000</icon>
 		<operateType>A1</operateType>
-		<castRange>450</castRange>
+		<targetType>ENEMY</targetType>
+		<affectScope>SINGLE</affectScope>
+		<castRange>
+			<value fromLevel="1" toLevel="1">450</value>
+			<value fromLevel="2" toLevel="3">900</value>
+		</castRange>
 		<coolTime>500</coolTime>
 		<effectPoint>-111</effectPoint>
 		<hitTime>
@@ -382,6 +387,16 @@
 			<value level="3">1000</value>
 		</hitTime>
 		<isDebuff>true</isDebuff>
+		<reuseDelay>
+			<value fromLevel="1" toLevel="1">0</value>
+			<value fromLevel="2" toLevel="3">5000</value>
+		</reuseDelay>
+		<effects>
+			<effect name="PhysicalDamage">
+				<power>28833</power>
+				<overHit>true</overHit>
+			</effect>
+		</effects>
 	</skill>
 	<skill id="32923" toLevel="2" name="Mortal Blow Strike">
 		<!-- A physical AoE attack. -->

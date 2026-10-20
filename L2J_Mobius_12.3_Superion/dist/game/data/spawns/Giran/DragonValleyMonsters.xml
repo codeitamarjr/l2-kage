@@ -6,10 +6,10 @@
 				<node x="79591" y="115522" />
 			</territory>
 		</territories>
-		<npc id="24664" count="3" respawnTime="10sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Graveyard Death Lich -->
-		<npc id="24665" count="3" respawnTime="10sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Graveyard Death Berserker -->
-		<npc id="24666" count="3" respawnTime="10sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Graveyard Death Soldier -->
-		<npc id="24667" count="3" respawnTime="10sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Graveyard Death Knight -->
+		<npc id="24664" count="2" respawnTime="3sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Graveyard Death Lich -->
+		<npc id="24665" count="1" respawnTime="3sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Graveyard Death Berserker -->
+		<npc id="24666" count="2" respawnTime="3sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Graveyard Death Soldier -->
+		<npc id="24667" count="1" respawnTime="3sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Graveyard Death Knight -->
 	</spawn>
 	<spawn>
 		<territories>
@@ -17,10 +17,10 @@
 				<node x="83128" y="118378" />
 			</territory>
 		</territories>
-		<npc id="24664" count="3" respawnTime="10sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Graveyard Death Lich -->
-		<npc id="24665" count="3" respawnTime="10sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Graveyard Death Berserker -->
-		<npc id="24666" count="3" respawnTime="10sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Graveyard Death Soldier -->
-		<npc id="24667" count="3" respawnTime="10sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Graveyard Death Knight -->
+		<npc id="24664" count="2" respawnTime="3sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Graveyard Death Lich -->
+		<npc id="24665" count="1" respawnTime="3sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Graveyard Death Berserker -->
+		<npc id="24666" count="2" respawnTime="3sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Graveyard Death Soldier -->
+		<npc id="24667" count="1" respawnTime="3sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Graveyard Death Knight -->
 	</spawn>
 	<spawn>
 		<territories>
@@ -28,10 +28,10 @@
 				<node x="84745" y="116521" />
 			</territory>
 		</territories>
-		<npc id="24664" count="3" respawnTime="10sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Graveyard Death Lich -->
-		<npc id="24665" count="3" respawnTime="10sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Graveyard Death Berserker -->
-		<npc id="24666" count="3" respawnTime="10sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Graveyard Death Soldier -->
-		<npc id="24667" count="3" respawnTime="10sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Graveyard Death Knight -->
+		<npc id="24664" count="2" respawnTime="3sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Graveyard Death Lich -->
+		<npc id="24665" count="1" respawnTime="3sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Graveyard Death Berserker -->
+		<npc id="24666" count="2" respawnTime="3sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Graveyard Death Soldier -->
+		<npc id="24667" count="1" respawnTime="3sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Graveyard Death Knight -->
 	</spawn>
 	<spawn>
 		<territories>
@@ -39,10 +39,10 @@
 				<node x="84199" y="120463" />
 			</territory>
 		</territories>
-		<npc id="24664" count="3" respawnTime="10sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Graveyard Death Lich -->
-		<npc id="24665" count="3" respawnTime="10sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Graveyard Death Berserker -->
-		<npc id="24666" count="3" respawnTime="10sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Graveyard Death Soldier -->
-		<npc id="24667" count="3" respawnTime="10sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Graveyard Death Knight -->
+		<npc id="24664" count="2" respawnTime="3sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Graveyard Death Lich -->
+		<npc id="24665" count="1" respawnTime="3sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Graveyard Death Berserker -->
+		<npc id="24666" count="2" respawnTime="3sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Graveyard Death Soldier -->
+		<npc id="24667" count="1" respawnTime="3sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Graveyard Death Knight -->
 	</spawn>
 	<spawn>
 		<territories>
@@ -50,10 +50,10 @@
 				<node x="86490" y="120737" />
 			</territory>
 		</territories>
-		<npc id="24664" count="3" respawnTime="10sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Graveyard Death Lich -->
-		<npc id="24665" count="3" respawnTime="10sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Graveyard Death Berserker -->
-		<npc id="24666" count="3" respawnTime="10sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Graveyard Death Soldier -->
-		<npc id="24667" count="3" respawnTime="10sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Graveyard Death Knight -->
+		<npc id="24664" count="2" respawnTime="3sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Graveyard Death Lich -->
+		<npc id="24665" count="1" respawnTime="3sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Graveyard Death Berserker -->
+		<npc id="24666" count="2" respawnTime="3sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Graveyard Death Soldier -->
+		<npc id="24667" count="1" respawnTime="3sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Graveyard Death Knight -->
 	</spawn>
 	<spawn>
 		<territories>
@@ -61,10 +61,10 @@
 				<node x="88926" y="119497" />
 			</territory>
 		</territories>
-		<npc id="24664" count="3" respawnTime="10sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Graveyard Death Lich -->
-		<npc id="24665" count="3" respawnTime="10sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Graveyard Death Berserker -->
-		<npc id="24666" count="3" respawnTime="10sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Graveyard Death Soldier -->
-		<npc id="24667" count="3" respawnTime="10sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Graveyard Death Knight -->
+		<npc id="24664" count="2" respawnTime="3sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Graveyard Death Lich -->
+		<npc id="24665" count="1" respawnTime="3sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Graveyard Death Berserker -->
+		<npc id="24666" count="2" respawnTime="3sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Graveyard Death Soldier -->
+		<npc id="24667" count="1" respawnTime="3sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Graveyard Death Knight -->
 	</spawn>
 	<spawn>
 		<territories>
@@ -72,10 +72,10 @@
 				<node x="90929" y="118266" />
 			</territory>
 		</territories>
-		<npc id="24664" count="3" respawnTime="10sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Graveyard Death Lich -->
-		<npc id="24665" count="3" respawnTime="10sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Graveyard Death Berserker -->
-		<npc id="24666" count="3" respawnTime="10sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Graveyard Death Soldier -->
-		<npc id="24667" count="3" respawnTime="10sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Graveyard Death Knight -->
+		<npc id="24664" count="2" respawnTime="3sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Graveyard Death Lich -->
+		<npc id="24665" count="1" respawnTime="3sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Graveyard Death Berserker -->
+		<npc id="24666" count="2" respawnTime="3sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Graveyard Death Soldier -->
+		<npc id="24667" count="1" respawnTime="3sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Graveyard Death Knight -->
 	</spawn>
 	<spawn>
 		<territories>
@@ -83,10 +83,10 @@
 				<node x="91195" y="120308" />
 			</territory>
 		</territories>
-		<npc id="24664" count="3" respawnTime="10sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Graveyard Death Lich -->
-		<npc id="24665" count="3" respawnTime="10sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Graveyard Death Berserker -->
-		<npc id="24666" count="3" respawnTime="10sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Graveyard Death Soldier -->
-		<npc id="24667" count="3" respawnTime="10sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Graveyard Death Knight -->
+		<npc id="24664" count="2" respawnTime="3sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Graveyard Death Lich -->
+		<npc id="24665" count="1" respawnTime="3sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Graveyard Death Berserker -->
+		<npc id="24666" count="2" respawnTime="3sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Graveyard Death Soldier -->
+		<npc id="24667" count="1" respawnTime="3sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Graveyard Death Knight -->
 	</spawn>
 	<spawn>
 		<territories>
@@ -94,10 +94,10 @@
 				<node x="92994" y="119077" />
 			</territory>
 		</territories>
-		<npc id="24664" count="3" respawnTime="10sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Graveyard Death Lich -->
-		<npc id="24665" count="3" respawnTime="10sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Graveyard Death Berserker -->
-		<npc id="24666" count="3" respawnTime="10sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Graveyard Death Soldier -->
-		<npc id="24667" count="3" respawnTime="10sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Graveyard Death Knight -->
+		<npc id="24664" count="2" respawnTime="3sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Graveyard Death Lich -->
+		<npc id="24665" count="1" respawnTime="3sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Graveyard Death Berserker -->
+		<npc id="24666" count="2" respawnTime="3sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Graveyard Death Soldier -->
+		<npc id="24667" count="1" respawnTime="3sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Graveyard Death Knight -->
 	</spawn>
 	<spawn>
 		<territories>
@@ -105,10 +105,10 @@
 				<node x="94924" y="116198" />
 			</territory>
 		</territories>
-		<npc id="24664" count="3" respawnTime="10sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Graveyard Death Lich -->
-		<npc id="24665" count="3" respawnTime="10sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Graveyard Death Berserker -->
-		<npc id="24666" count="3" respawnTime="10sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Graveyard Death Soldier -->
-		<npc id="24667" count="3" respawnTime="10sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Graveyard Death Knight -->
+		<npc id="24664" count="2" respawnTime="3sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Graveyard Death Lich -->
+		<npc id="24665" count="1" respawnTime="3sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Graveyard Death Berserker -->
+		<npc id="24666" count="2" respawnTime="3sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Graveyard Death Soldier -->
+		<npc id="24667" count="1" respawnTime="3sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Graveyard Death Knight -->
 	</spawn>
 	<spawn>
 		<territories>
@@ -116,10 +116,10 @@
 				<node x="92468" y="114995" />
 			</territory>
 		</territories>
-		<npc id="24664" count="3" respawnTime="10sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Graveyard Death Lich -->
-		<npc id="24665" count="3" respawnTime="10sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Graveyard Death Berserker -->
-		<npc id="24666" count="3" respawnTime="10sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Graveyard Death Soldier -->
-		<npc id="24667" count="3" respawnTime="10sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Graveyard Death Knight -->
+		<npc id="24664" count="2" respawnTime="3sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Graveyard Death Lich -->
+		<npc id="24665" count="1" respawnTime="3sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Graveyard Death Berserker -->
+		<npc id="24666" count="2" respawnTime="3sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Graveyard Death Soldier -->
+		<npc id="24667" count="1" respawnTime="3sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Graveyard Death Knight -->
 	</spawn>
 	<spawn>
 		<territories>
@@ -127,10 +127,10 @@
 				<node x="90891" y="113329" />
 			</territory>
 		</territories>
-		<npc id="24664" count="3" respawnTime="10sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Graveyard Death Lich -->
-		<npc id="24665" count="3" respawnTime="10sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Graveyard Death Berserker -->
-		<npc id="24666" count="3" respawnTime="10sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Graveyard Death Soldier -->
-		<npc id="24667" count="3" respawnTime="10sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Graveyard Death Knight -->
+		<npc id="24664" count="2" respawnTime="3sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Graveyard Death Lich -->
+		<npc id="24665" count="1" respawnTime="3sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Graveyard Death Berserker -->
+		<npc id="24666" count="2" respawnTime="3sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Graveyard Death Soldier -->
+		<npc id="24667" count="1" respawnTime="3sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Graveyard Death Knight -->
 	</spawn>
 	<spawn>
 		<territories>
@@ -138,10 +138,10 @@
 				<node x="92766" y="111938" />
 			</territory>
 		</territories>
-		<npc id="24664" count="3" respawnTime="10sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Graveyard Death Lich -->
-		<npc id="24665" count="3" respawnTime="10sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Graveyard Death Berserker -->
-		<npc id="24666" count="3" respawnTime="10sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Graveyard Death Soldier -->
-		<npc id="24667" count="3" respawnTime="10sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Graveyard Death Knight -->
+		<npc id="24664" count="2" respawnTime="3sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Graveyard Death Lich -->
+		<npc id="24665" count="1" respawnTime="3sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Graveyard Death Berserker -->
+		<npc id="24666" count="2" respawnTime="3sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Graveyard Death Soldier -->
+		<npc id="24667" count="1" respawnTime="3sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Graveyard Death Knight -->
 	</spawn>
 	<spawn>
 		<territories>
@@ -149,10 +149,10 @@
 				<node x="88374" y="112291" />
 			</territory>
 		</territories>
-		<npc id="24664" count="3" respawnTime="10sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Graveyard Death Lich -->
-		<npc id="24665" count="3" respawnTime="10sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Graveyard Death Berserker -->
-		<npc id="24666" count="3" respawnTime="10sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Graveyard Death Soldier -->
-		<npc id="24667" count="3" respawnTime="10sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Graveyard Death Knight -->
+		<npc id="24664" count="2" respawnTime="3sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Graveyard Death Lich -->
+		<npc id="24665" count="1" respawnTime="3sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Graveyard Death Berserker -->
+		<npc id="24666" count="2" respawnTime="3sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Graveyard Death Soldier -->
+		<npc id="24667" count="1" respawnTime="3sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Graveyard Death Knight -->
 	</spawn>
 	<spawn>
 		<territories>
@@ -160,10 +160,10 @@
 				<node x="85567" y="112128" />
 			</territory>
 		</territories>
-		<npc id="24664" count="3" respawnTime="10sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Graveyard Death Lich -->
-		<npc id="24665" count="3" respawnTime="10sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Graveyard Death Berserker -->
-		<npc id="24666" count="3" respawnTime="10sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Graveyard Death Soldier -->
-		<npc id="24667" count="3" respawnTime="10sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Graveyard Death Knight -->
+		<npc id="24664" count="2" respawnTime="3sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Graveyard Death Lich -->
+		<npc id="24665" count="1" respawnTime="3sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Graveyard Death Berserker -->
+		<npc id="24666" count="2" respawnTime="3sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Graveyard Death Soldier -->
+		<npc id="24667" count="1" respawnTime="3sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Graveyard Death Knight -->
 	</spawn>
 	<spawn>
 		<territories>
@@ -171,10 +171,10 @@
 				<node x="83288" y="113027" />
 			</territory>
 		</territories>
-		<npc id="24664" count="3" respawnTime="10sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Graveyard Death Lich -->
-		<npc id="24665" count="3" respawnTime="10sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Graveyard Death Berserker -->
-		<npc id="24666" count="3" respawnTime="10sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Graveyard Death Soldier -->
-		<npc id="24667" count="3" respawnTime="10sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Graveyard Death Knight -->
+		<npc id="24664" count="2" respawnTime="3sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Graveyard Death Lich -->
+		<npc id="24665" count="1" respawnTime="3sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Graveyard Death Berserker -->
+		<npc id="24666" count="2" respawnTime="3sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Graveyard Death Soldier -->
+		<npc id="24667" count="1" respawnTime="3sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Graveyard Death Knight -->
 	</spawn>
 	<spawn>
 		<territories>
@@ -182,10 +182,10 @@
 				<node x="90031" y="108254" />
 			</territory>
 		</territories>
-		<npc id="24664" count="3" respawnTime="10sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Graveyard Death Lich -->
-		<npc id="24665" count="3" respawnTime="10sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Graveyard Death Berserker -->
-		<npc id="24666" count="3" respawnTime="10sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Graveyard Death Soldier -->
-		<npc id="24667" count="3" respawnTime="10sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Graveyard Death Knight -->
+		<npc id="24664" count="2" respawnTime="3sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Graveyard Death Lich -->
+		<npc id="24665" count="1" respawnTime="3sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Graveyard Death Berserker -->
+		<npc id="24666" count="2" respawnTime="3sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Graveyard Death Soldier -->
+		<npc id="24667" count="1" respawnTime="3sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Graveyard Death Knight -->
 	</spawn>
 	<spawn>
 		<territories>
@@ -193,10 +193,10 @@
 				<node x="89737" y="105801" />
 			</territory>
 		</territories>
-		<npc id="24664" count="3" respawnTime="10sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Graveyard Death Lich -->
-		<npc id="24665" count="3" respawnTime="10sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Graveyard Death Berserker -->
-		<npc id="24666" count="3" respawnTime="10sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Graveyard Death Soldier -->
-		<npc id="24667" count="3" respawnTime="10sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Graveyard Death Knight -->
+		<npc id="24664" count="2" respawnTime="3sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Graveyard Death Lich -->
+		<npc id="24665" count="1" respawnTime="3sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Graveyard Death Berserker -->
+		<npc id="24666" count="2" respawnTime="3sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Graveyard Death Soldier -->
+		<npc id="24667" count="1" respawnTime="3sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Graveyard Death Knight -->
 	</spawn>
 	<spawn>
 		<territories>
@@ -204,10 +204,10 @@
 				<node x="87688" y="107141" />
 			</territory>
 		</territories>
-		<npc id="24664" count="3" respawnTime="10sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Graveyard Death Lich -->
-		<npc id="24665" count="3" respawnTime="10sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Graveyard Death Berserker -->
-		<npc id="24666" count="3" respawnTime="10sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Graveyard Death Soldier -->
-		<npc id="24667" count="3" respawnTime="10sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Graveyard Death Knight -->
+		<npc id="24664" count="2" respawnTime="3sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Graveyard Death Lich -->
+		<npc id="24665" count="1" respawnTime="3sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Graveyard Death Berserker -->
+		<npc id="24666" count="2" respawnTime="3sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Graveyard Death Soldier -->
+		<npc id="24667" count="1" respawnTime="3sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Graveyard Death Knight -->
 	</spawn>
 	<spawn>
 		<territories>
@@ -215,10 +215,10 @@
 				<node x="85457" y="108284" />
 			</territory>
 		</territories>
-		<npc id="24664" count="3" respawnTime="10sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Graveyard Death Lich -->
-		<npc id="24665" count="3" respawnTime="10sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Graveyard Death Berserker -->
-		<npc id="24666" count="3" respawnTime="10sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Graveyard Death Soldier -->
-		<npc id="24667" count="3" respawnTime="10sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Graveyard Death Knight -->
+		<npc id="24664" count="2" respawnTime="3sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Graveyard Death Lich -->
+		<npc id="24665" count="1" respawnTime="3sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Graveyard Death Berserker -->
+		<npc id="24666" count="2" respawnTime="3sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Graveyard Death Soldier -->
+		<npc id="24667" count="1" respawnTime="3sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Graveyard Death Knight -->
 	</spawn>
 	<spawn>
 		<territories>
@@ -226,10 +226,10 @@
 				<node x="81451" y="109348" />
 			</territory>
 		</territories>
-		<npc id="24664" count="3" respawnTime="10sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Graveyard Death Lich -->
-		<npc id="24665" count="3" respawnTime="10sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Graveyard Death Berserker -->
-		<npc id="24666" count="3" respawnTime="10sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Graveyard Death Soldier -->
-		<npc id="24667" count="3" respawnTime="10sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Graveyard Death Knight -->
+		<npc id="24664" count="2" respawnTime="3sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Graveyard Death Lich -->
+		<npc id="24665" count="1" respawnTime="3sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Graveyard Death Berserker -->
+		<npc id="24666" count="2" respawnTime="3sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Graveyard Death Soldier -->
+		<npc id="24667" count="1" respawnTime="3sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Graveyard Death Knight -->
 	</spawn>
 	<spawn>
 		<territories>
@@ -237,10 +237,10 @@
 				<node x="81675" y="111776" />
 			</territory>
 		</territories>
-		<npc id="24664" count="3" respawnTime="10sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Graveyard Death Lich -->
-		<npc id="24665" count="3" respawnTime="10sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Graveyard Death Berserker -->
-		<npc id="24666" count="3" respawnTime="10sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Graveyard Death Soldier -->
-		<npc id="24667" count="3" respawnTime="10sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Graveyard Death Knight -->
+		<npc id="24664" count="2" respawnTime="3sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Graveyard Death Lich -->
+		<npc id="24665" count="1" respawnTime="3sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Graveyard Death Berserker -->
+		<npc id="24666" count="2" respawnTime="3sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Graveyard Death Soldier -->
+		<npc id="24667" count="1" respawnTime="3sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Graveyard Death Knight -->
 	</spawn>
 	<spawn>
 		<territories>
@@ -248,10 +248,10 @@
 				<node x="111776" y="111776" />
 			</territory>
 		</territories>
-		<npc id="24664" count="3" respawnTime="10sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Graveyard Death Lich -->
-		<npc id="24665" count="3" respawnTime="10sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Graveyard Death Berserker -->
-		<npc id="24666" count="3" respawnTime="10sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Graveyard Death Soldier -->
-		<npc id="24667" count="3" respawnTime="10sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Graveyard Death Knight -->
+		<npc id="24664" count="2" respawnTime="3sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Graveyard Death Lich -->
+		<npc id="24665" count="1" respawnTime="3sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Graveyard Death Berserker -->
+		<npc id="24666" count="2" respawnTime="3sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Graveyard Death Soldier -->
+		<npc id="24667" count="1" respawnTime="3sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Graveyard Death Knight -->
 	</spawn>
 	<spawn>
 		<territories>
@@ -259,10 +259,10 @@
 				<node x="83926" y="110580" />
 			</territory>
 		</territories>
-		<npc id="24664" count="3" respawnTime="10sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Graveyard Death Lich -->
-		<npc id="24665" count="3" respawnTime="10sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Graveyard Death Berserker -->
-		<npc id="24666" count="3" respawnTime="10sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Graveyard Death Soldier -->
-		<npc id="24667" count="3" respawnTime="10sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Graveyard Death Knight -->
+		<npc id="24664" count="2" respawnTime="3sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Graveyard Death Lich -->
+		<npc id="24665" count="1" respawnTime="3sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Graveyard Death Berserker -->
+		<npc id="24666" count="2" respawnTime="3sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Graveyard Death Soldier -->
+		<npc id="24667" count="1" respawnTime="3sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Graveyard Death Knight -->
 	</spawn>
 	<spawn>
 		<territories>
@@ -270,10 +270,10 @@
 				<node x="86763" y="110259" />
 			</territory>
 		</territories>
-		<npc id="24664" count="3" respawnTime="10sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Graveyard Death Lich -->
-		<npc id="24665" count="3" respawnTime="10sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Graveyard Death Berserker -->
-		<npc id="24666" count="3" respawnTime="10sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Graveyard Death Soldier -->
-		<npc id="24667" count="3" respawnTime="10sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Graveyard Death Knight -->
+		<npc id="24664" count="2" respawnTime="3sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Graveyard Death Lich -->
+		<npc id="24665" count="1" respawnTime="3sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Graveyard Death Berserker -->
+		<npc id="24666" count="2" respawnTime="3sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Graveyard Death Soldier -->
+		<npc id="24667" count="1" respawnTime="3sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Graveyard Death Knight -->
 	</spawn>
 	<spawn>
 		<territories>
@@ -281,10 +281,10 @@
 				<node x="90334" y="111208" />
 			</territory>
 		</territories>
-		<npc id="24664" count="3" respawnTime="10sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Graveyard Death Lich -->
-		<npc id="24665" count="3" respawnTime="10sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Graveyard Death Berserker -->
-		<npc id="24666" count="3" respawnTime="10sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Graveyard Death Soldier -->
-		<npc id="24667" count="3" respawnTime="10sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Graveyard Death Knight -->
+		<npc id="24664" count="2" respawnTime="3sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Graveyard Death Lich -->
+		<npc id="24665" count="1" respawnTime="3sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Graveyard Death Berserker -->
+		<npc id="24666" count="2" respawnTime="3sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Graveyard Death Soldier -->
+		<npc id="24667" count="1" respawnTime="3sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Graveyard Death Knight -->
 	</spawn>
 	<spawn>
 		<territories>
@@ -292,10 +292,10 @@
 				<node x="91928" y="109497" />
 			</territory>
 		</territories>
-		<npc id="24664" count="3" respawnTime="10sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Graveyard Death Lich -->
-		<npc id="24665" count="3" respawnTime="10sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Graveyard Death Berserker -->
-		<npc id="24666" count="3" respawnTime="10sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Graveyard Death Soldier -->
-		<npc id="24667" count="3" respawnTime="10sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Graveyard Death Knight -->
+		<npc id="24664" count="2" respawnTime="3sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Graveyard Death Lich -->
+		<npc id="24665" count="1" respawnTime="3sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Graveyard Death Berserker -->
+		<npc id="24666" count="2" respawnTime="3sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Graveyard Death Soldier -->
+		<npc id="24667" count="1" respawnTime="3sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Graveyard Death Knight -->
 	</spawn>
 	<spawn>
 		<territories>
@@ -303,10 +303,10 @@
 				<node x="94480" y="109835" />
 			</territory>
 		</territories>
-		<npc id="24664" count="3" respawnTime="10sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Graveyard Death Lich -->
-		<npc id="24665" count="3" respawnTime="10sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Graveyard Death Berserker -->
-		<npc id="24666" count="3" respawnTime="10sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Graveyard Death Soldier -->
-		<npc id="24667" count="3" respawnTime="10sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Graveyard Death Knight -->
+		<npc id="24664" count="2" respawnTime="3sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Graveyard Death Lich -->
+		<npc id="24665" count="1" respawnTime="3sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Graveyard Death Berserker -->
+		<npc id="24666" count="2" respawnTime="3sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Graveyard Death Soldier -->
+		<npc id="24667" count="1" respawnTime="3sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Graveyard Death Knight -->
 	</spawn>
 	<spawn>
 		<territories>
@@ -314,10 +314,10 @@
 				<node x="97401" y="109542" />
 			</territory>
 		</territories>
-		<npc id="24664" count="3" respawnTime="10sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Graveyard Death Lich -->
-		<npc id="24665" count="3" respawnTime="10sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Graveyard Death Berserker -->
-		<npc id="24666" count="3" respawnTime="10sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Graveyard Death Soldier -->
-		<npc id="24667" count="3" respawnTime="10sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Graveyard Death Knight -->
+		<npc id="24664" count="2" respawnTime="3sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Graveyard Death Lich -->
+		<npc id="24665" count="1" respawnTime="3sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Graveyard Death Berserker -->
+		<npc id="24666" count="2" respawnTime="3sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Graveyard Death Soldier -->
+		<npc id="24667" count="1" respawnTime="3sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Graveyard Death Knight -->
 	</spawn>
 	<spawn>
 		<territories>
@@ -325,7 +325,7 @@
 				<node x="85207" y="118680" />
 			</territory>
 		</territories>
-		<npc id="24663" count="1" respawnTime="10sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Graveyard Death Archer -->
+		<npc id="24663" count="1" respawnTime="3sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Graveyard Death Archer -->
 	</spawn>
 	<spawn>
 		<territories>
@@ -333,7 +333,7 @@
 				<node x="88785" y="120992" />
 			</territory>
 		</territories>
-		<npc id="24663" count="1" respawnTime="10sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Graveyard Death Archer -->
+		<npc id="24663" count="1" respawnTime="3sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Graveyard Death Archer -->
 	</spawn>
 	<spawn>
 		<territories>
@@ -341,7 +341,7 @@
 				<node x="90199" y="119457" />
 			</territory>
 		</territories>
-		<npc id="24663" count="1" respawnTime="10sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Graveyard Death Archer -->
+		<npc id="24663" count="1" respawnTime="3sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Graveyard Death Archer -->
 	</spawn>
 	<spawn>
 		<territories>
@@ -349,7 +349,7 @@
 				<node x="91641" y="119216" />
 			</territory>
 		</territories>
-		<npc id="24663" count="1" respawnTime="10sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Graveyard Death Archer -->
+		<npc id="24663" count="1" respawnTime="3sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Graveyard Death Archer -->
 	</spawn>
 	<spawn>
 		<territories>
@@ -357,7 +357,7 @@
 				<node x="94452" y="117888" />
 			</territory>
 		</territories>
-		<npc id="24663" count="1" respawnTime="10sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Graveyard Death Archer -->
+		<npc id="24663" count="1" respawnTime="3sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Graveyard Death Archer -->
 	</spawn>
 	<spawn>
 		<territories>
@@ -365,7 +365,7 @@
 				<node x="93976" y="113995" />
 			</territory>
 		</territories>
-		<npc id="24663" count="1" respawnTime="10sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Graveyard Death Archer -->
+		<npc id="24663" count="1" respawnTime="3sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Graveyard Death Archer -->
 	</spawn>
 	<spawn>
 		<territories>
@@ -373,7 +373,7 @@
 				<node x="92311" y="113236" />
 			</territory>
 		</territories>
-		<npc id="24663" count="1" respawnTime="10sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Graveyard Death Archer -->
+		<npc id="24663" count="1" respawnTime="3sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Graveyard Death Archer -->
 	</spawn>
 	<spawn>
 		<territories>
@@ -381,7 +381,7 @@
 				<node x="91403" y="112019" />
 			</territory>
 		</territories>
-		<npc id="24663" count="1" respawnTime="10sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Graveyard Death Archer -->
+		<npc id="24663" count="1" respawnTime="3sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Graveyard Death Archer -->
 	</spawn>
 	<spawn>
 		<territories>
@@ -389,7 +389,7 @@
 				<node x="89795" y="112053" />
 			</territory>
 		</territories>
-		<npc id="24663" count="1" respawnTime="10sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Graveyard Death Archer -->
+		<npc id="24663" count="1" respawnTime="3sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Graveyard Death Archer -->
 	</spawn>
 	<spawn>
 		<territories>
@@ -397,7 +397,7 @@
 				<node x="87151" y="111434" />
 			</territory>
 		</territories>
-		<npc id="24663" count="1" respawnTime="10sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Graveyard Death Archer -->
+		<npc id="24663" count="1" respawnTime="3sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Graveyard Death Archer -->
 	</spawn>
 	<spawn>
 		<territories>
@@ -405,7 +405,7 @@
 				<node x="84084" y="111691" />
 			</territory>
 		</territories>
-		<npc id="24663" count="1" respawnTime="10sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Graveyard Death Archer -->
+		<npc id="24663" count="1" respawnTime="3sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Graveyard Death Archer -->
 	</spawn>
 	<spawn>
 		<territories>
@@ -413,7 +413,7 @@
 				<node x="89119" y="107093" />
 			</territory>
 		</territories>
-		<npc id="24663" count="1" respawnTime="10sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Graveyard Death Archer -->
+		<npc id="24663" count="1" respawnTime="3sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Graveyard Death Archer -->
 	</spawn>
 	<spawn>
 		<territories>
@@ -421,7 +421,7 @@
 				<node x="87145" y="108624" />
 			</territory>
 		</territories>
-		<npc id="24663" count="1" respawnTime="10sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Graveyard Death Archer -->
+		<npc id="24663" count="1" respawnTime="3sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Graveyard Death Archer -->
 	</spawn>
 	<spawn>
 		<territories>
@@ -429,7 +429,7 @@
 				<node x="84207" y="109743" />
 			</territory>
 		</territories>
-		<npc id="24663" count="1" respawnTime="10sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Graveyard Death Archer -->
+		<npc id="24663" count="1" respawnTime="3sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Graveyard Death Archer -->
 	</spawn>
 	<spawn>
 		<territories>
@@ -437,7 +437,7 @@
 				<node x="82416" y="110606" />
 			</territory>
 		</territories>
-		<npc id="24663" count="1" respawnTime="10sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Graveyard Death Archer -->
+		<npc id="24663" count="1" respawnTime="3sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Graveyard Death Archer -->
 	</spawn>
 	<spawn>
 		<territories>
@@ -445,7 +445,7 @@
 				<node x="100525" y="111772" />
 			</territory>
 		</territories>
-		<npc id="24663" count="1" respawnTime="10sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Graveyard Death Archer -->
+		<npc id="24663" count="1" respawnTime="3sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Graveyard Death Archer -->
 	</spawn>
 	<spawn>
 		<territories>
@@ -453,7 +453,7 @@
 				<node x="101117" y="112511" />
 			</territory>
 		</territories>
-		<npc id="24663" count="1" respawnTime="10sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Graveyard Death Archer -->
+		<npc id="24663" count="1" respawnTime="3sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Graveyard Death Archer -->
 	</spawn>
 	<spawn>
 		<territories>
@@ -461,10 +461,10 @@
 				<node x="99679" y="110404" />
 			</territory>
 		</territories>
-		<npc id="24669" count="3" respawnTime="10sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Dragon Officer -->
-		<npc id="24670" count="3" respawnTime="10sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Dragon Beast -->
-		<npc id="24671" count="3" respawnTime="10sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Dragon Centurion -->
-		<npc id="24672" count="3" respawnTime="10sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Elite Dragon Guard -->
+		<npc id="24669" count="2" respawnTime="3sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Dragon Officer -->
+		<npc id="24670" count="1" respawnTime="3sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Dragon Beast -->
+		<npc id="24671" count="2" respawnTime="3sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Dragon Centurion -->
+		<npc id="24672" count="1" respawnTime="3sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Elite Dragon Guard -->
 	</spawn>
 	<spawn>
 		<territories>
@@ -472,10 +472,10 @@
 				<node x="102087" y="111301" />
 			</territory>
 		</territories>
-		<npc id="24669" count="3" respawnTime="10sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Dragon Officer -->
-		<npc id="24670" count="3" respawnTime="10sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Dragon Beast -->
-		<npc id="24671" count="3" respawnTime="10sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Dragon Centurion -->
-		<npc id="24672" count="3" respawnTime="10sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Elite Dragon Guard -->
+		<npc id="24669" count="2" respawnTime="3sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Dragon Officer -->
+		<npc id="24670" count="1" respawnTime="3sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Dragon Beast -->
+		<npc id="24671" count="2" respawnTime="3sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Dragon Centurion -->
+		<npc id="24672" count="1" respawnTime="3sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Elite Dragon Guard -->
 	</spawn>
 	<spawn>
 		<territories>
@@ -483,10 +483,10 @@
 				<node x="101713" y="113857" />
 			</territory>
 		</territories>
-		<npc id="24669" count="3" respawnTime="10sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Dragon Officer -->
-		<npc id="24670" count="3" respawnTime="10sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Dragon Beast -->
-		<npc id="24671" count="3" respawnTime="10sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Dragon Centurion -->
-		<npc id="24672" count="3" respawnTime="10sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Elite Dragon Guard -->
+		<npc id="24669" count="2" respawnTime="3sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Dragon Officer -->
+		<npc id="24670" count="1" respawnTime="3sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Dragon Beast -->
+		<npc id="24671" count="2" respawnTime="3sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Dragon Centurion -->
+		<npc id="24672" count="1" respawnTime="3sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Elite Dragon Guard -->
 	</spawn>
 	<spawn>
 		<territories>
@@ -494,10 +494,10 @@
 				<node x="101490" y="121819" />
 			</territory>
 		</territories>
-		<npc id="24669" count="3" respawnTime="10sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Dragon Officer -->
-		<npc id="24670" count="3" respawnTime="10sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Dragon Beast -->
-		<npc id="24671" count="3" respawnTime="10sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Dragon Centurion -->
-		<npc id="24672" count="3" respawnTime="10sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Elite Dragon Guard -->
+		<npc id="24669" count="2" respawnTime="3sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Dragon Officer -->
+		<npc id="24670" count="1" respawnTime="3sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Dragon Beast -->
+		<npc id="24671" count="2" respawnTime="3sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Dragon Centurion -->
+		<npc id="24672" count="1" respawnTime="3sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Elite Dragon Guard -->
 	</spawn>
 	<spawn>
 		<territories>
@@ -505,10 +505,10 @@
 				<node x="102442" y="124140" />
 			</territory>
 		</territories>
-		<npc id="24669" count="3" respawnTime="10sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Dragon Officer -->
-		<npc id="24670" count="3" respawnTime="10sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Dragon Beast -->
-		<npc id="24671" count="3" respawnTime="10sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Dragon Centurion -->
-		<npc id="24672" count="3" respawnTime="10sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Elite Dragon Guard -->
+		<npc id="24669" count="2" respawnTime="3sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Dragon Officer -->
+		<npc id="24670" count="1" respawnTime="3sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Dragon Beast -->
+		<npc id="24671" count="2" respawnTime="3sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Dragon Centurion -->
+		<npc id="24672" count="1" respawnTime="3sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Elite Dragon Guard -->
 	</spawn>
 	<spawn>
 		<territories>
@@ -516,10 +516,10 @@
 				<node x="104278" y="120442" />
 			</territory>
 		</territories>
-		<npc id="24669" count="3" respawnTime="10sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Dragon Officer -->
-		<npc id="24670" count="3" respawnTime="10sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Dragon Beast -->
-		<npc id="24671" count="3" respawnTime="10sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Dragon Centurion -->
-		<npc id="24672" count="3" respawnTime="10sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Elite Dragon Guard -->
+		<npc id="24669" count="2" respawnTime="3sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Dragon Officer -->
+		<npc id="24670" count="1" respawnTime="3sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Dragon Beast -->
+		<npc id="24671" count="2" respawnTime="3sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Dragon Centurion -->
+		<npc id="24672" count="1" respawnTime="3sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Elite Dragon Guard -->
 	</spawn>
 	<spawn>
 		<territories>
@@ -527,10 +527,10 @@
 				<node x="104455" y="122634" />
 			</territory>
 		</territories>
-		<npc id="24669" count="3" respawnTime="10sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Dragon Officer -->
-		<npc id="24670" count="3" respawnTime="10sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Dragon Beast -->
-		<npc id="24671" count="3" respawnTime="10sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Dragon Centurion -->
-		<npc id="24672" count="3" respawnTime="10sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Elite Dragon Guard -->
+		<npc id="24669" count="2" respawnTime="3sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Dragon Officer -->
+		<npc id="24670" count="1" respawnTime="3sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Dragon Beast -->
+		<npc id="24671" count="2" respawnTime="3sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Dragon Centurion -->
+		<npc id="24672" count="1" respawnTime="3sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Elite Dragon Guard -->
 	</spawn>
 	<spawn>
 		<territories>
@@ -538,10 +538,10 @@
 				<node x="106753" y="122847" />
 			</territory>
 		</territories>
-		<npc id="24669" count="3" respawnTime="10sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Dragon Officer -->
-		<npc id="24670" count="3" respawnTime="10sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Dragon Beast -->
-		<npc id="24671" count="3" respawnTime="10sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Dragon Centurion -->
-		<npc id="24672" count="3" respawnTime="10sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Elite Dragon Guard -->
+		<npc id="24669" count="2" respawnTime="3sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Dragon Officer -->
+		<npc id="24670" count="1" respawnTime="3sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Dragon Beast -->
+		<npc id="24671" count="2" respawnTime="3sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Dragon Centurion -->
+		<npc id="24672" count="1" respawnTime="3sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Elite Dragon Guard -->
 	</spawn>
 	<spawn>
 		<territories>
@@ -549,10 +549,10 @@
 				<node x="106776" y="120510" />
 			</territory>
 		</territories>
-		<npc id="24669" count="3" respawnTime="10sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Dragon Officer -->
-		<npc id="24670" count="3" respawnTime="10sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Dragon Beast -->
-		<npc id="24671" count="3" respawnTime="10sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Dragon Centurion -->
-		<npc id="24672" count="3" respawnTime="10sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Elite Dragon Guard -->
+		<npc id="24669" count="2" respawnTime="3sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Dragon Officer -->
+		<npc id="24670" count="1" respawnTime="3sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Dragon Beast -->
+		<npc id="24671" count="2" respawnTime="3sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Dragon Centurion -->
+		<npc id="24672" count="1" respawnTime="3sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Elite Dragon Guard -->
 	</spawn>
 	<spawn>
 		<territories>
@@ -560,10 +560,10 @@
 				<node x="109034" y="121369" />
 			</territory>
 		</territories>
-		<npc id="24669" count="3" respawnTime="10sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Dragon Officer -->
-		<npc id="24670" count="3" respawnTime="10sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Dragon Beast -->
-		<npc id="24671" count="3" respawnTime="10sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Dragon Centurion -->
-		<npc id="24672" count="3" respawnTime="10sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Elite Dragon Guard -->
+		<npc id="24669" count="2" respawnTime="3sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Dragon Officer -->
+		<npc id="24670" count="1" respawnTime="3sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Dragon Beast -->
+		<npc id="24671" count="2" respawnTime="3sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Dragon Centurion -->
+		<npc id="24672" count="1" respawnTime="3sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Elite Dragon Guard -->
 	</spawn>
 	<spawn>
 		<territories>
@@ -571,10 +571,10 @@
 				<node x="109927" y="123372" />
 			</territory>
 		</territories>
-		<npc id="24669" count="3" respawnTime="10sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Dragon Officer -->
-		<npc id="24670" count="3" respawnTime="10sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Dragon Beast -->
-		<npc id="24671" count="3" respawnTime="10sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Dragon Centurion -->
-		<npc id="24672" count="3" respawnTime="10sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Elite Dragon Guard -->
+		<npc id="24669" count="2" respawnTime="3sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Dragon Officer -->
+		<npc id="24670" count="1" respawnTime="3sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Dragon Beast -->
+		<npc id="24671" count="2" respawnTime="3sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Dragon Centurion -->
+		<npc id="24672" count="1" respawnTime="3sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Elite Dragon Guard -->
 	</spawn>
 	<spawn>
 		<territories>
@@ -582,10 +582,10 @@
 				<node x="110230" y="125797" />
 			</territory>
 		</territories>
-		<npc id="24669" count="3" respawnTime="10sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Dragon Officer -->
-		<npc id="24670" count="3" respawnTime="10sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Dragon Beast -->
-		<npc id="24671" count="3" respawnTime="10sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Dragon Centurion -->
-		<npc id="24672" count="3" respawnTime="10sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Elite Dragon Guard -->
+		<npc id="24669" count="2" respawnTime="3sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Dragon Officer -->
+		<npc id="24670" count="1" respawnTime="3sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Dragon Beast -->
+		<npc id="24671" count="2" respawnTime="3sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Dragon Centurion -->
+		<npc id="24672" count="1" respawnTime="3sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Elite Dragon Guard -->
 	</spawn>
 	<spawn>
 		<territories>
@@ -593,10 +593,10 @@
 				<node x="112006" y="122479" />
 			</territory>
 		</territories>
-		<npc id="24669" count="3" respawnTime="10sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Dragon Officer -->
-		<npc id="24670" count="3" respawnTime="10sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Dragon Beast -->
-		<npc id="24671" count="3" respawnTime="10sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Dragon Centurion -->
-		<npc id="24672" count="3" respawnTime="10sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Elite Dragon Guard -->
+		<npc id="24669" count="2" respawnTime="3sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Dragon Officer -->
+		<npc id="24670" count="1" respawnTime="3sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Dragon Beast -->
+		<npc id="24671" count="2" respawnTime="3sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Dragon Centurion -->
+		<npc id="24672" count="1" respawnTime="3sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Elite Dragon Guard -->
 	</spawn>
 	<spawn>
 		<territories>
@@ -604,10 +604,10 @@
 				<node x="113799" y="120547" />
 			</territory>
 		</territories>
-		<npc id="24669" count="3" respawnTime="10sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Dragon Officer -->
-		<npc id="24670" count="3" respawnTime="10sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Dragon Beast -->
-		<npc id="24671" count="3" respawnTime="10sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Dragon Centurion -->
-		<npc id="24672" count="3" respawnTime="10sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Elite Dragon Guard -->
+		<npc id="24669" count="2" respawnTime="3sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Dragon Officer -->
+		<npc id="24670" count="1" respawnTime="3sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Dragon Beast -->
+		<npc id="24671" count="2" respawnTime="3sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Dragon Centurion -->
+		<npc id="24672" count="1" respawnTime="3sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Elite Dragon Guard -->
 	</spawn>
 	<spawn>
 		<territories>
@@ -615,10 +615,10 @@
 				<node x="116256" y="120400" />
 			</territory>
 		</territories>
-		<npc id="24669" count="3" respawnTime="10sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Dragon Officer -->
-		<npc id="24670" count="3" respawnTime="10sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Dragon Beast -->
-		<npc id="24671" count="3" respawnTime="10sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Dragon Centurion -->
-		<npc id="24672" count="3" respawnTime="10sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Elite Dragon Guard -->
+		<npc id="24669" count="2" respawnTime="3sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Dragon Officer -->
+		<npc id="24670" count="1" respawnTime="3sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Dragon Beast -->
+		<npc id="24671" count="2" respawnTime="3sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Dragon Centurion -->
+		<npc id="24672" count="1" respawnTime="3sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Elite Dragon Guard -->
 	</spawn>
 	<spawn>
 		<territories>
@@ -626,10 +626,10 @@
 				<node x="117975" y="118773" />
 			</territory>
 		</territories>
-		<npc id="24669" count="3" respawnTime="10sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Dragon Officer -->
-		<npc id="24670" count="3" respawnTime="10sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Dragon Beast -->
-		<npc id="24671" count="3" respawnTime="10sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Dragon Centurion -->
-		<npc id="24672" count="3" respawnTime="10sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Elite Dragon Guard -->
+		<npc id="24669" count="2" respawnTime="3sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Dragon Officer -->
+		<npc id="24670" count="1" respawnTime="3sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Dragon Beast -->
+		<npc id="24671" count="2" respawnTime="3sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Dragon Centurion -->
+		<npc id="24672" count="1" respawnTime="3sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Elite Dragon Guard -->
 	</spawn>
 	<spawn>
 		<territories>
@@ -637,10 +637,10 @@
 				<node x="116198" y="117226" />
 			</territory>
 		</territories>
-		<npc id="24669" count="3" respawnTime="10sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Dragon Officer -->
-		<npc id="24670" count="3" respawnTime="10sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Dragon Beast -->
-		<npc id="24671" count="3" respawnTime="10sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Dragon Centurion -->
-		<npc id="24672" count="3" respawnTime="10sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Elite Dragon Guard -->
+		<npc id="24669" count="2" respawnTime="3sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Dragon Officer -->
+		<npc id="24670" count="1" respawnTime="3sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Dragon Beast -->
+		<npc id="24671" count="2" respawnTime="3sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Dragon Centurion -->
+		<npc id="24672" count="1" respawnTime="3sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Elite Dragon Guard -->
 	</spawn>
 	<spawn>
 		<territories>
@@ -648,10 +648,10 @@
 				<node x="120672" y="116831" />
 			</territory>
 		</territories>
-		<npc id="24669" count="3" respawnTime="10sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Dragon Officer -->
-		<npc id="24670" count="3" respawnTime="10sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Dragon Beast -->
-		<npc id="24671" count="3" respawnTime="10sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Dragon Centurion -->
-		<npc id="24672" count="3" respawnTime="10sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Elite Dragon Guard -->
+		<npc id="24669" count="2" respawnTime="3sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Dragon Officer -->
+		<npc id="24670" count="1" respawnTime="3sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Dragon Beast -->
+		<npc id="24671" count="2" respawnTime="3sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Dragon Centurion -->
+		<npc id="24672" count="1" respawnTime="3sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Elite Dragon Guard -->
 	</spawn>
 	<spawn>
 		<territories>
@@ -659,10 +659,10 @@
 				<node x="122809" y="115622" />
 			</territory>
 		</territories>
-		<npc id="24669" count="3" respawnTime="10sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Dragon Officer -->
-		<npc id="24670" count="3" respawnTime="10sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Dragon Beast -->
-		<npc id="24671" count="3" respawnTime="10sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Dragon Centurion -->
-		<npc id="24672" count="3" respawnTime="10sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Elite Dragon Guard -->
+		<npc id="24669" count="2" respawnTime="3sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Dragon Officer -->
+		<npc id="24670" count="1" respawnTime="3sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Dragon Beast -->
+		<npc id="24671" count="2" respawnTime="3sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Dragon Centurion -->
+		<npc id="24672" count="1" respawnTime="3sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Elite Dragon Guard -->
 	</spawn>
 	<spawn>
 		<territories>
@@ -670,10 +670,10 @@
 				<node x="120004" y="114601" />
 			</territory>
 		</territories>
-		<npc id="24669" count="3" respawnTime="10sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Dragon Officer -->
-		<npc id="24670" count="3" respawnTime="10sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Dragon Beast -->
-		<npc id="24671" count="3" respawnTime="10sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Dragon Centurion -->
-		<npc id="24672" count="3" respawnTime="10sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Elite Dragon Guard -->
+		<npc id="24669" count="2" respawnTime="3sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Dragon Officer -->
+		<npc id="24670" count="1" respawnTime="3sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Dragon Beast -->
+		<npc id="24671" count="2" respawnTime="3sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Dragon Centurion -->
+		<npc id="24672" count="1" respawnTime="3sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Elite Dragon Guard -->
 	</spawn>
 	<spawn>
 		<territories>
@@ -681,10 +681,10 @@
 				<node x="121983" y="113102" />
 			</territory>
 		</territories>
-		<npc id="24669" count="3" respawnTime="10sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Dragon Officer -->
-		<npc id="24670" count="3" respawnTime="10sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Dragon Beast -->
-		<npc id="24671" count="3" respawnTime="10sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Dragon Centurion -->
-		<npc id="24672" count="3" respawnTime="10sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Elite Dragon Guard -->
+		<npc id="24669" count="2" respawnTime="3sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Dragon Officer -->
+		<npc id="24670" count="1" respawnTime="3sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Dragon Beast -->
+		<npc id="24671" count="2" respawnTime="3sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Dragon Centurion -->
+		<npc id="24672" count="1" respawnTime="3sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Elite Dragon Guard -->
 	</spawn>
 	<spawn>
 		<territories>
@@ -692,10 +692,10 @@
 				<node x="122643" y="111026" />
 			</territory>
 		</territories>
-		<npc id="24669" count="3" respawnTime="10sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Dragon Officer -->
-		<npc id="24670" count="3" respawnTime="10sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Dragon Beast -->
-		<npc id="24671" count="3" respawnTime="10sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Dragon Centurion -->
-		<npc id="24672" count="3" respawnTime="10sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Elite Dragon Guard -->
+		<npc id="24669" count="2" respawnTime="3sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Dragon Officer -->
+		<npc id="24670" count="1" respawnTime="3sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Dragon Beast -->
+		<npc id="24671" count="2" respawnTime="3sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Dragon Centurion -->
+		<npc id="24672" count="1" respawnTime="3sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Elite Dragon Guard -->
 	</spawn>
 	<spawn>
 		<territories>
@@ -703,10 +703,10 @@
 				<node x="120912" y="119934" />
 			</territory>
 		</territories>
-		<npc id="24669" count="3" respawnTime="10sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Dragon Officer -->
-		<npc id="24670" count="3" respawnTime="10sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Dragon Beast -->
-		<npc id="24671" count="3" respawnTime="10sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Dragon Centurion -->
-		<npc id="24672" count="3" respawnTime="10sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Elite Dragon Guard -->
+		<npc id="24669" count="2" respawnTime="3sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Dragon Officer -->
+		<npc id="24670" count="1" respawnTime="3sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Dragon Beast -->
+		<npc id="24671" count="2" respawnTime="3sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Dragon Centurion -->
+		<npc id="24672" count="1" respawnTime="3sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Elite Dragon Guard -->
 	</spawn>
 	<spawn>
 		<territories>
@@ -714,10 +714,10 @@
 				<node x="119820" y="122114" />
 			</territory>
 		</territories>
-		<npc id="24669" count="3" respawnTime="10sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Dragon Officer -->
-		<npc id="24670" count="3" respawnTime="10sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Dragon Beast -->
-		<npc id="24671" count="3" respawnTime="10sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Dragon Centurion -->
-		<npc id="24672" count="3" respawnTime="10sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Elite Dragon Guard -->
+		<npc id="24669" count="2" respawnTime="3sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Dragon Officer -->
+		<npc id="24670" count="1" respawnTime="3sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Dragon Beast -->
+		<npc id="24671" count="2" respawnTime="3sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Dragon Centurion -->
+		<npc id="24672" count="1" respawnTime="3sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Elite Dragon Guard -->
 	</spawn>
 	<spawn>
 		<territories>
@@ -725,10 +725,10 @@
 				<node x="117238" y="123075" />
 			</territory>
 		</territories>
-		<npc id="24669" count="3" respawnTime="10sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Dragon Officer -->
-		<npc id="24670" count="3" respawnTime="10sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Dragon Beast -->
-		<npc id="24671" count="3" respawnTime="10sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Dragon Centurion -->
-		<npc id="24672" count="3" respawnTime="10sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Elite Dragon Guard -->
+		<npc id="24669" count="2" respawnTime="3sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Dragon Officer -->
+		<npc id="24670" count="1" respawnTime="3sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Dragon Beast -->
+		<npc id="24671" count="2" respawnTime="3sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Dragon Centurion -->
+		<npc id="24672" count="1" respawnTime="3sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Elite Dragon Guard -->
 	</spawn>
 	<spawn>
 		<territories>
@@ -736,10 +736,10 @@
 				<node x="109045" y="116384" />
 			</territory>
 		</territories>
-		<npc id="24669" count="3" respawnTime="10sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Dragon Officer -->
-		<npc id="24670" count="3" respawnTime="10sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Dragon Beast -->
-		<npc id="24671" count="3" respawnTime="10sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Dragon Centurion -->
-		<npc id="24672" count="3" respawnTime="10sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Elite Dragon Guard -->
+		<npc id="24669" count="2" respawnTime="3sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Dragon Officer -->
+		<npc id="24670" count="1" respawnTime="3sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Dragon Beast -->
+		<npc id="24671" count="2" respawnTime="3sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Dragon Centurion -->
+		<npc id="24672" count="1" respawnTime="3sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Elite Dragon Guard -->
 	</spawn>
 	<spawn>
 		<territories>
@@ -747,10 +747,10 @@
 				<node x="109493" y="113662" />
 			</territory>
 		</territories>
-		<npc id="24669" count="3" respawnTime="10sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Dragon Officer -->
-		<npc id="24670" count="3" respawnTime="10sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Dragon Beast -->
-		<npc id="24671" count="3" respawnTime="10sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Dragon Centurion -->
-		<npc id="24672" count="3" respawnTime="10sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Elite Dragon Guard -->
+		<npc id="24669" count="2" respawnTime="3sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Dragon Officer -->
+		<npc id="24670" count="1" respawnTime="3sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Dragon Beast -->
+		<npc id="24671" count="2" respawnTime="3sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Dragon Centurion -->
+		<npc id="24672" count="1" respawnTime="3sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Elite Dragon Guard -->
 	</spawn>
 	<spawn>
 		<territories>
@@ -758,10 +758,10 @@
 				<node x="108778" y="111418" />
 			</territory>
 		</territories>
-		<npc id="24669" count="3" respawnTime="10sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Dragon Officer -->
-		<npc id="24670" count="3" respawnTime="10sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Dragon Beast -->
-		<npc id="24671" count="3" respawnTime="10sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Dragon Centurion -->
-		<npc id="24672" count="3" respawnTime="10sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Elite Dragon Guard -->
+		<npc id="24669" count="2" respawnTime="3sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Dragon Officer -->
+		<npc id="24670" count="1" respawnTime="3sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Dragon Beast -->
+		<npc id="24671" count="2" respawnTime="3sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Dragon Centurion -->
+		<npc id="24672" count="1" respawnTime="3sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Elite Dragon Guard -->
 	</spawn>
 	<spawn>
 		<territories>
@@ -769,10 +769,10 @@
 				<node x="112527" y="110084" />
 			</territory>
 		</territories>
-		<npc id="24669" count="3" respawnTime="10sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Dragon Officer -->
-		<npc id="24670" count="3" respawnTime="10sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Dragon Beast -->
-		<npc id="24671" count="3" respawnTime="10sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Dragon Centurion -->
-		<npc id="24672" count="3" respawnTime="10sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Elite Dragon Guard -->
+		<npc id="24669" count="2" respawnTime="3sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Dragon Officer -->
+		<npc id="24670" count="1" respawnTime="3sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Dragon Beast -->
+		<npc id="24671" count="2" respawnTime="3sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Dragon Centurion -->
+		<npc id="24672" count="1" respawnTime="3sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Elite Dragon Guard -->
 	</spawn>
 	<spawn>
 		<territories>
@@ -780,10 +780,10 @@
 				<node x="114175" y="112200" />
 			</territory>
 		</territories>
-		<npc id="24669" count="3" respawnTime="10sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Dragon Officer -->
-		<npc id="24670" count="3" respawnTime="10sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Dragon Beast -->
-		<npc id="24671" count="3" respawnTime="10sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Dragon Centurion -->
-		<npc id="24672" count="3" respawnTime="10sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Elite Dragon Guard -->
+		<npc id="24669" count="2" respawnTime="3sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Dragon Officer -->
+		<npc id="24670" count="1" respawnTime="3sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Dragon Beast -->
+		<npc id="24671" count="2" respawnTime="3sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Dragon Centurion -->
+		<npc id="24672" count="1" respawnTime="3sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Elite Dragon Guard -->
 	</spawn>
 	<spawn>
 		<territories>
@@ -791,10 +791,10 @@
 				<node x="111737" y="112385" />
 			</territory>
 		</territories>
-		<npc id="24669" count="3" respawnTime="10sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Dragon Officer -->
-		<npc id="24670" count="3" respawnTime="10sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Dragon Beast -->
-		<npc id="24671" count="3" respawnTime="10sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Dragon Centurion -->
-		<npc id="24672" count="3" respawnTime="10sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Elite Dragon Guard -->
+		<npc id="24669" count="2" respawnTime="3sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Dragon Officer -->
+		<npc id="24670" count="1" respawnTime="3sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Dragon Beast -->
+		<npc id="24671" count="2" respawnTime="3sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Dragon Centurion -->
+		<npc id="24672" count="1" respawnTime="3sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Elite Dragon Guard -->
 	</spawn>
 	<spawn>
 		<territories>
@@ -802,10 +802,10 @@
 				<node x="115070" y="110033" />
 			</territory>
 		</territories>
-		<npc id="24669" count="3" respawnTime="10sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Dragon Officer -->
-		<npc id="24670" count="3" respawnTime="10sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Dragon Beast -->
-		<npc id="24671" count="3" respawnTime="10sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Dragon Centurion -->
-		<npc id="24672" count="3" respawnTime="10sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Elite Dragon Guard -->
+		<npc id="24669" count="2" respawnTime="3sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Dragon Officer -->
+		<npc id="24670" count="1" respawnTime="3sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Dragon Beast -->
+		<npc id="24671" count="2" respawnTime="3sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Dragon Centurion -->
+		<npc id="24672" count="1" respawnTime="3sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Elite Dragon Guard -->
 	</spawn>
 	<spawn>
 		<territories>
@@ -813,10 +813,10 @@
 				<node x="118198" y="110121" />
 			</territory>
 		</territories>
-		<npc id="24669" count="3" respawnTime="10sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Dragon Officer -->
-		<npc id="24670" count="3" respawnTime="10sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Dragon Beast -->
-		<npc id="24671" count="3" respawnTime="10sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Dragon Centurion -->
-		<npc id="24672" count="3" respawnTime="10sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Elite Dragon Guard -->
+		<npc id="24669" count="2" respawnTime="3sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Dragon Officer -->
+		<npc id="24670" count="1" respawnTime="3sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Dragon Beast -->
+		<npc id="24671" count="2" respawnTime="3sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Dragon Centurion -->
+		<npc id="24672" count="1" respawnTime="3sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Elite Dragon Guard -->
 	</spawn>
 	<spawn>
 		<territories>
@@ -824,10 +824,10 @@
 				<node x="120291" y="109726" />
 			</territory>
 		</territories>
-		<npc id="24669" count="3" respawnTime="10sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Dragon Officer -->
-		<npc id="24670" count="3" respawnTime="10sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Dragon Beast -->
-		<npc id="24671" count="3" respawnTime="10sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Dragon Centurion -->
-		<npc id="24672" count="3" respawnTime="10sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Elite Dragon Guard -->
+		<npc id="24669" count="2" respawnTime="3sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Dragon Officer -->
+		<npc id="24670" count="1" respawnTime="3sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Dragon Beast -->
+		<npc id="24671" count="2" respawnTime="3sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Dragon Centurion -->
+		<npc id="24672" count="1" respawnTime="3sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Elite Dragon Guard -->
 	</spawn>
 	<spawn>
 		<territories>
@@ -835,10 +835,10 @@
 				<node x="122438" y="108496" />
 			</territory>
 		</territories>
-		<npc id="24669" count="3" respawnTime="10sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Dragon Officer -->
-		<npc id="24670" count="3" respawnTime="10sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Dragon Beast -->
-		<npc id="24671" count="3" respawnTime="10sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Dragon Centurion -->
-		<npc id="24672" count="3" respawnTime="10sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Elite Dragon Guard -->
+		<npc id="24669" count="2" respawnTime="3sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Dragon Officer -->
+		<npc id="24670" count="1" respawnTime="3sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Dragon Beast -->
+		<npc id="24671" count="2" respawnTime="3sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Dragon Centurion -->
+		<npc id="24672" count="1" respawnTime="3sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Elite Dragon Guard -->
 	</spawn>
 	<spawn>
 		<territories>
@@ -846,10 +846,10 @@
 				<node x="124691" y="109473" />
 			</territory>
 		</territories>
-		<npc id="24669" count="3" respawnTime="10sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Dragon Officer -->
-		<npc id="24670" count="3" respawnTime="10sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Dragon Beast -->
-		<npc id="24671" count="3" respawnTime="10sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Dragon Centurion -->
-		<npc id="24672" count="3" respawnTime="10sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Elite Dragon Guard -->
+		<npc id="24669" count="2" respawnTime="3sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Dragon Officer -->
+		<npc id="24670" count="1" respawnTime="3sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Dragon Beast -->
+		<npc id="24671" count="2" respawnTime="3sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Dragon Centurion -->
+		<npc id="24672" count="1" respawnTime="3sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Elite Dragon Guard -->
 	</spawn>
 	<spawn>
 		<territories>
@@ -857,10 +857,10 @@
 				<node x="125021" y="112061" />
 			</territory>
 		</territories>
-		<npc id="24669" count="3" respawnTime="10sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Dragon Officer -->
-		<npc id="24670" count="3" respawnTime="10sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Dragon Beast -->
-		<npc id="24671" count="3" respawnTime="10sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Dragon Centurion -->
-		<npc id="24672" count="3" respawnTime="10sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Elite Dragon Guard -->
+		<npc id="24669" count="2" respawnTime="3sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Dragon Officer -->
+		<npc id="24670" count="1" respawnTime="3sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Dragon Beast -->
+		<npc id="24671" count="2" respawnTime="3sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Dragon Centurion -->
+		<npc id="24672" count="1" respawnTime="3sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Elite Dragon Guard -->
 	</spawn>
 	<spawn>
 		<territories>
@@ -868,10 +868,10 @@
 				<node x="116048" y="114673" />
 			</territory>
 		</territories>
-		<npc id="24669" count="3" respawnTime="10sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Dragon Officer -->
-		<npc id="24670" count="3" respawnTime="10sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Dragon Beast -->
-		<npc id="24671" count="3" respawnTime="10sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Dragon Centurion -->
-		<npc id="24672" count="3" respawnTime="10sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Elite Dragon Guard -->
+		<npc id="24669" count="2" respawnTime="3sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Dragon Officer -->
+		<npc id="24670" count="1" respawnTime="3sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Dragon Beast -->
+		<npc id="24671" count="2" respawnTime="3sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Dragon Centurion -->
+		<npc id="24672" count="1" respawnTime="3sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Elite Dragon Guard -->
 	</spawn>
 	<spawn>
 		<territories>
@@ -879,10 +879,10 @@
 				<node x="113302" y="115434" />
 			</territory>
 		</territories>
-		<npc id="24669" count="3" respawnTime="10sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Dragon Officer -->
-		<npc id="24670" count="3" respawnTime="10sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Dragon Beast -->
-		<npc id="24671" count="3" respawnTime="10sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Dragon Centurion -->
-		<npc id="24672" count="3" respawnTime="10sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Elite Dragon Guard -->
+		<npc id="24669" count="2" respawnTime="3sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Dragon Officer -->
+		<npc id="24670" count="1" respawnTime="3sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Dragon Beast -->
+		<npc id="24671" count="2" respawnTime="3sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Dragon Centurion -->
+		<npc id="24672" count="1" respawnTime="3sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Elite Dragon Guard -->
 	</spawn>
 	<spawn>
 		<territories>
@@ -890,10 +890,10 @@
 				<node x="112336" y="118189" />
 			</territory>
 		</territories>
-		<npc id="24669" count="3" respawnTime="10sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Dragon Officer -->
-		<npc id="24670" count="3" respawnTime="10sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Dragon Beast -->
-		<npc id="24671" count="3" respawnTime="10sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Dragon Centurion -->
-		<npc id="24672" count="3" respawnTime="10sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Elite Dragon Guard -->
+		<npc id="24669" count="2" respawnTime="3sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Dragon Officer -->
+		<npc id="24670" count="1" respawnTime="3sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Dragon Beast -->
+		<npc id="24671" count="2" respawnTime="3sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Dragon Centurion -->
+		<npc id="24672" count="1" respawnTime="3sec" respawnRandom="0sec" chaseRange="1200" /> <!-- Elite Dragon Guard -->
 	</spawn>
 	<spawn>
 		<territories>

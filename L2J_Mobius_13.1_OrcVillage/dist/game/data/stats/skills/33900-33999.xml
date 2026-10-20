@@ -137,7 +137,23 @@
 		<!-- A Dragon Peltast skill. Focuses on a target at the front and inflicts a long range attack. -->
 		<icon>icon.skill10771</icon>
 		<operateType>A1</operateType>
+		<targetType>ENEMY</targetType>
+		<affectLimit>5-12</affectLimit>
+		<affectObject>NOT_FRIEND</affectObject>
+		<affectRange>900</affectRange>
+		<affectScope>FAN</affectScope>
+		<castRange>1100</castRange>
+		<coolTime>500</coolTime>
 		<effectPoint>-711</effectPoint>
+		<effectRange>1200</effectRange>
+		<hitTime>1000</hitTime>
+		<reuseDelay>5000</reuseDelay>
+		<effects>
+			<effect name="PhysicalDamage">
+				<power>28833</power>
+				<overHit>true</overHit>
+			</effect>
+		</effects>
 	</skill>
 	<skill id="33921" toLevel="2" name="Explosive Shot">
 		<!-- A ranged magic attack. -->

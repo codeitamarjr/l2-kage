@@ -970,23 +970,82 @@
 		<!-- A ranged physical attack. -->
 		<icon>icon.skill0000</icon>
 		<operateType>A1</operateType>
+		<targetType>SELF</targetType>
+		<affectLimit>5-12</affectLimit>
+		<affectObject>NOT_FRIEND</affectObject>
+		<affectRange>150</affectRange>
+		<affectScope>POINT_BLANK</affectScope>
+		<coolTime>500</coolTime>
 		<effectPoint>-100</effectPoint>
-		<mpConsume>1</mpConsume>
+		<effectRange>400</effectRange>
+		<hitTime>1000</hitTime>
+		<magicCriticalRate>5</magicCriticalRate>
+		<magicLevel>105</magicLevel>
+		<effects>
+			<effect name="PhysicalDamage">
+				<power>100</power>
+				<pAtkMod>0.015</pAtkMod>
+				<pDefMod>0.01</pDefMod>
+				<ignoreShieldDefence>true</ignoreShieldDefence>
+				<overHit>true</overHit>
+			</effect>
+		</effects>
 	</skill>
 	<skill id="34373" toLevel="2" name="Dark Strike">
 		<!-- Level 1: A physical attack. -->
 		<!-- Level 2: An attack on a single target. -->
 		<icon>icon.skill0000</icon>
 		<operateType>A1</operateType>
+		<targetType>ENEMY</targetType>
+		<affectScope>SINGLE</affectScope>
+		<castRange>
+			<value level="1">40</value>
+			<value level="2">80</value>
+		</castRange>
+		<coolTime>500</coolTime>
 		<effectPoint>-100</effectPoint>
+		<effectRange>400</effectRange>
+		<hitTime>1000</hitTime>
 		<mpConsume>1</mpConsume>
+		<reuseDelay>
+			<value level="1">500</value>
+			<value level="2">1000</value>
+		</reuseDelay>
+		<effects>
+			<effect name="PhysicalDamage">
+				<power>100</power>
+				<pAtkMod>
+					<value level="1">0.016</value>
+					<value level="2">0.018</value>
+				</pAtkMod>
+				<pDefMod>0.01</pDefMod>
+				<ignoreShieldDefence>true</ignoreShieldDefence>
+				<overHit>true</overHit>
+			</effect>
+		</effects>
 	</skill>
 	<skill id="34374" toLevel="1" name="Arrow of Darkness">
 		<!-- A long-ranged attack. -->
 		<icon>icon.skill0096</icon>
 		<operateType>A1</operateType>
+		<targetType>ENEMY</targetType>
+		<affectScope>SINGLE</affectScope>
+		<castRange>600</castRange>
+		<coolTime>500</coolTime>
 		<effectPoint>-100</effectPoint>
+		<effectRange>1000</effectRange>
+		<hitTime>1000</hitTime>
 		<mpConsume>1</mpConsume>
+		<reuseDelay>500</reuseDelay>
+		<effects>
+			<effect name="PhysicalDamage">
+				<power>100</power>
+				<pAtkMod>0.013</pAtkMod>
+				<pDefMod>0.01</pDefMod>
+				<ignoreShieldDefence>true</ignoreShieldDefence>
+				<overHit>true</overHit>
+			</effect>
+		</effects>
 	</skill>
 	<skill id="34375" toLevel="1" name="Shot of Darkness">
 		<!-- A magic counterattack in response to a basic one. -->
@@ -999,9 +1058,11 @@
 		<effectPoint>-20</effectPoint>
 		<effectRange>100</effectRange>
 		<hitTime>500</hitTime>
+		<mpConsume>1</mpConsume>
+		<reuseDelay>500</reuseDelay>
 		<effects>
 			<effect name="MagicalDamage">
-				<power>999</power>
+				<power>30000</power>
 				<overHit>true</overHit>
 			</effect>
 		</effects>
@@ -1010,8 +1071,25 @@
 		<!-- A ranged magic attack. -->
 		<icon>icon.skill0000</icon>
 		<operateType>A1</operateType>
+		<targetType>ENEMY</targetType>
+		<affectRange>200</affectRange>
+		<affectScope>SINGLE</affectScope>
+		<attributeType>DARK</attributeType>
+		<attributeValue>300</attributeValue>
+		<castRange>600</castRange>
+		<coolTime>500</coolTime>
 		<effectPoint>-100</effectPoint>
-		<mpConsume>1</mpConsume>
+		<effectRange>1000</effectRange>
+		<hitTime>1000</hitTime>
+		<isMagic>1</isMagic>
+		<nextAction>ATTACK</nextAction>
+		<reuseDelay>0</reuseDelay>
+		<effects>
+			<effect name="MagicalDamage">
+				<power>38000</power>
+				<overHit>true</overHit>
+			</effect>
+		</effects>
 	</skill>
 	<skill id="34377" toLevel="10" name="AoE Attack Resistance">
 		<!-- Level 1: Slightly increases AoE Attack Resistance. -->
@@ -1025,7 +1103,25 @@
 		<!-- Level 9: Greatly increases AoE Attack Resistance. -->
 		<!-- Level 10: Greatly increases AoE Attack Resistance. -->
 		<icon>icon.skill34377</icon>
-		<operateType>A1</operateType>
+		<operateType>P</operateType>
+		<magicCriticalRate>-5</magicCriticalRate>
+		<magicLevel>105</magicLevel>
+		<effects>
+			<effect name="AreaOfEffectDamageDefence">
+				<amount>
+					<value level="1">5</value>
+					<value level="2">10</value>
+					<value level="3">15</value>
+					<value level="4">20</value>
+					<value level="5">25</value>
+					<value level="6">30</value>
+					<value level="7">40</value>
+					<value level="8">50</value>
+					<value level="9">60</value>
+					<value level="10">70</value>
+				</amount>
+			</effect>
+		</effects>
 	</skill>
 	<skill id="34378" toLevel="5" name="TEST_Archangel Cometh_1">
 		<!-- Level 1: Required level: 1-84. Acquired XP/ SP +10%, P. Atk./ M. Atk./ P. Def./ M. Def. +1%. Not for pets or servitors. -->

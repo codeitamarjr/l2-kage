@@ -792,8 +792,26 @@
 		<!-- An attack on a single target. -->
 		<icon>icon.skill0000</icon>
 		<operateType>A1</operateType>
+		<targetType>ENEMY</targetType>
+		<affectScope>SINGLE</affectScope>
+		<attributeType>EARTH</attributeType>
+		<attributeValue>200</attributeValue>
+		<castRange>40</castRange>
+		<coolTime>500</coolTime>
 		<effectPoint>-1000</effectPoint>
+		<effectRange>400</effectRange>
+		<hitTime>1500</hitTime>
 		<mpConsume>1</mpConsume>
+		<reuseDelay>1000</reuseDelay>
+		<effects>
+			<effect name="PhysicalDamage">
+				<power>100</power>
+				<pAtkMod>0.018</pAtkMod>
+				<pDefMod>0.01</pDefMod>
+				<ignoreShieldDefence>true</ignoreShieldDefence>
+				<overHit>true</overHit>
+			</effect>
+		</effects>
 	</skill>
 	<skill id="34456" toLevel="1" name="Frosty Storm">
 		<!-- An animation skill of cancelling earth beauty of the Frosty Command statue. -->

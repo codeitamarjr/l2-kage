@@ -4191,7 +4191,7 @@
 			<radius normal="32.4" />
 			<height normal="37.8" />
 		</collision>
-		<ai type="FIGHTER" aggroRange="300" isAggressive="true" />
+		<ai type="FIGHTER" aggroRange="400" isAggressive="true" />
 	</npc>
 	<npc id="24660" level="124" type="Monster" name="Fierce Water Dragon" title="Bare Fang">
 		<race>DRAGON</race>
@@ -4326,7 +4326,7 @@
 			<hitTime>600</hitTime>
 		</stats>
 		<status attackable="true" />
-		<ai type="ARCHER" aggroRange="300" isAggressive="true" />
+		<ai type="ARCHER" aggroRange="600" isAggressive="true" />
 		<collision>
 			<radius normal="16.9" />
 			<height normal="54.2" />
@@ -4340,6 +4340,8 @@
 			<skill id="14818" level="1" /> <!-- Instant Kill Resistance -->
 			<skill id="16547" level="10" /> <!-- Danger Zone Resistance -->
 			<skill id="5599" level="12" /> <!-- Confusion Resistance -->
+			<skill id="32922" level="2" /> <!-- Throw Pilum -->
+			<skill id="33920" level="1" /> <!-- Multiple Arrow -->
 		</skillList>
 	</npc>
 	<npc id="24664" level="124" type="Monster" name="Grave Lich of Death">
@@ -4362,6 +4364,7 @@
 			<hitTime>600</hitTime>
 		</stats>
 		<status attackable="true" />
+		<ai type="MAGE" aggroRange="600" isAggressive="true" />
 		<collision>
 			<radius normal="28.6" />
 			<height normal="67.2" />
@@ -4375,6 +4378,8 @@
 			<skill id="14818" level="1" /> <!-- Instant Kill Resistance -->
 			<skill id="16547" level="10" /> <!-- Danger Zone Resistance -->
 			<skill id="5599" level="12" /> <!-- Confusion Resistance -->
+			<skill id="16207" level="5" /> <!-- Unholy Spike -->
+			<skill id="16219" level="5" /> <!-- Unholy Blast -->
 		</skillList>
 		<dropLists>
 			<drop>
@@ -4464,6 +4469,7 @@
 			<hitTime>600</hitTime>
 		</stats>
 		<status attackable="true" />
+		<ai aggroRange="600" isAggressive="true" />
 		<collision>
 			<radius normal="49.5" />
 			<height normal="78" />
@@ -4477,6 +4483,7 @@
 			<skill id="14818" level="1" /> <!-- Instant Kill Resistance -->
 			<skill id="16547" level="10" /> <!-- Danger Zone Resistance -->
 			<skill id="5599" level="12" /> <!-- Confusion Resistance -->
+			<skill id="32471" level="3" /> <!-- Unholy Fatal Blow -->
 		</skillList>
 		<dropLists>
 			<drop>
@@ -4552,7 +4559,7 @@
 		<acquire exp="1243654" sp="1119" />
 		<stats str="88" int="79" dex="55" wit="78" con="82" men="78">
 			<vitals hp="3338344" hpRegen="13.4" mp="3190" mpRegen="30" />
-			<attack physical="1599215" magical="145753" random="30" critical="4.75" accuracy="4.75" attackSpeed="250" type="SWORD" range="40" distance="80" width="120" />
+			<attack physical="1599215" magical="145753" random="30" critical="4.75" accuracy="4.75" attackSpeed="250" type="POLE" range="100" distance="140" width="120" />
 			<defence physical="753240" magical="364523" />
 			<attribute>
 				<attack type="DARK" value="2050" />
@@ -4566,6 +4573,7 @@
 			<hitTime>600</hitTime>
 		</stats>
 		<status attackable="true" />
+		<ai aggroRange="600" isAggressive="true" />
 		<collision>
 			<radius normal="16.9" />
 			<height normal="54.2" />
@@ -4578,6 +4586,7 @@
 			<skill id="33123" level="2" /> <!-- Gloomy Night of Valley -->
 			<skill id="14818" level="1" /> <!-- Instant Kill Resistance -->
 			<skill id="16547" level="10" /> <!-- Danger Zone Resistance -->
+			<skill id="34373" level="2" /> <!-- Unholy Spear -->
 		</skillList>
 		<dropLists>
 			<drop>
@@ -4668,6 +4677,7 @@
 			<hitTime>600</hitTime>
 		</stats>
 		<status attackable="true" />
+		<ai aggroRange="600" isAggressive="true" />
 		<collision>
 			<radius normal="27.3" grown="31.2" />
 			<height normal="41.2" grown="50.3" />
@@ -4680,6 +4690,7 @@
 			<skill id="33123" level="2" /> <!-- Gloomy Night of Valley -->
 			<skill id="14818" level="1" /> <!-- Instant Kill Resistance -->
 			<skill id="16547" level="10" /> <!-- Danger Zone Resistance -->
+			<skill id="32204" level="2" /> <!-- Unholy Stigma -->
 		</skillList>
 		<dropLists>
 			<drop>
@@ -4769,7 +4780,7 @@
 			<hitTime>600</hitTime>
 		</stats>
 		<status attackable="true" />
-		<ai type="FIGHTER" aggroRange="300" isAggressive="true" />
+		<ai type="FIGHTER" aggroRange="600" isAggressive="true" />
 		<collision>
 			<radius normal="32.5" />
 			<height normal="61.35" />
@@ -4783,6 +4794,8 @@
 			<skill id="14818" level="1" /> <!-- Instant Kill Resistance -->
 			<skill id="16547" level="10" /> <!-- Danger Zone Resistance -->
 			<skill id="5599" level="12" /> <!-- Confusion Resistance -->
+			<skill id="32922" level="2" /> <!-- Throw Pilum -->
+			<skill id="33920" level="1" /> <!-- Multiple Arrow -->
 		</skillList>
 	</npc>
 	<npc id="24669" level="124" type="Monster" name="Dragon Officer">
@@ -4805,6 +4818,7 @@
 			<hitTime>600</hitTime>
 		</stats>
 		<status attackable="true" />
+		<ai type="MAGE" aggroRange="600" isAggressive="true" />
 		<collision>
 			<radius normal="36.4" />
 			<height normal="69.8" />
@@ -4818,6 +4832,8 @@
 			<skill id="14818" level="1" /> <!-- Instant Kill Resistance -->
 			<skill id="16547" level="10" /> <!-- Danger Zone Resistance -->
 			<skill id="5599" level="12" /> <!-- Confusion Resistance -->
+			<skill id="16207" level="6" /> <!-- Deadly Spike -->
+			<skill id="16219" level="6" /> <!-- Deadly Blast -->
 		</skillList>
 		<dropLists>
 			<drop>
@@ -4893,7 +4909,7 @@
 		<acquire exp="1243654" sp="1119" />
 		<stats str="88" int="79" dex="55" wit="78" con="82" men="78">
 			<vitals hp="3338344" hpRegen="13.4" mp="3190" mpRegen="30" />
-			<attack physical="1599215" magical="145753" random="40" critical="4.75" accuracy="8" attackSpeed="250" type="SWORD" range="40" distance="80" width="120" />
+			<attack physical="1599215" magical="145753" random="40" critical="4.75" accuracy="8" attackSpeed="250" type="SWORD" range="120" distance="150" width="120" />
 			<defence physical="753240" magical="364523" />
 			<attribute>
 				<attack type="EARTH" value="2250" />
@@ -4907,6 +4923,7 @@
 			<hitTime>600</hitTime>
 		</stats>
 		<status attackable="true" />
+		<ai aggroRange="600" isAggressive="true" />
 		<collision>
 			<radius normal="75.6" />
 			<height normal="65.4" />
@@ -4920,6 +4937,7 @@
 			<skill id="14818" level="1" /> <!-- Instant Kill Resistance -->
 			<skill id="16547" level="10" /> <!-- Danger Zone Resistance -->
 			<skill id="5599" level="12" /> <!-- Confusion Resistance -->
+			<skill id="34455" level="1" /> <!-- Deadly Earth Strike -->
 		</skillList>
 		<dropLists>
 			<drop>
@@ -4996,7 +5014,7 @@
 		<acquire exp="1243654" sp="1119" />
 		<stats str="88" int="79" dex="55" wit="78" con="82" men="78">
 			<vitals hp="3338344" hpRegen="13.4" mp="3190" mpRegen="30" />
-			<attack physical="1599215" magical="145753" random="40" critical="4.75" accuracy="8" attackSpeed="250" type="SWORD" range="40" distance="80" width="120" />
+			<attack physical="1599215" magical="145753" random="40" critical="4.75" accuracy="8" attackSpeed="250" type="POLE" range="100" distance="140" width="120" />
 			<defence physical="753240" magical="364523" />
 			<attribute>
 				<attack type="EARTH" value="2250" />
@@ -5010,6 +5028,7 @@
 			<hitTime>600</hitTime>
 		</stats>
 		<status attackable="true" />
+		<ai aggroRange="600" isAggressive="true" />
 		<collision>
 			<radius normal="30" />
 			<height normal="51" />
@@ -5111,6 +5130,7 @@
 			<hitTime>600</hitTime>
 		</stats>
 		<status attackable="true" />
+		<ai aggroRange="600" isAggressive="true" />
 		<collision>
 			<radius normal="30" />
 			<height normal="55" />
