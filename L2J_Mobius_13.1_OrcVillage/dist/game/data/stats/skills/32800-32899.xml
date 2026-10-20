@@ -1716,15 +1716,15 @@
 		<effects>
 			<effect name="StatUp">
 				<amount>1</amount>
-				<stat>CON</stat>
-			</effect>
-			<effect name="StatUp">
-				<amount>1</amount>
-				<stat>MEN</stat>
-			</effect>
-			<effect name="StatUp">
-				<amount>1</amount>
 				<stat>STR</stat>
+			</effect>
+			<effect name="StatUp">
+				<amount>1</amount>
+				<stat>DEX</stat>
+			</effect>
+			<effect name="StatUp">
+				<amount>1</amount>
+				<stat>CON</stat>
 			</effect>
 			<effect name="StatUp">
 				<amount>1</amount>
@@ -1736,7 +1736,11 @@
 			</effect>
 			<effect name="StatUp">
 				<amount>1</amount>
-				<stat>DEX</stat>
+				<stat>MEN</stat>
+			</effect>
+			<effect name="StatUp">
+				<amount>1</amount>
+				<stat>LUC</stat>
 			</effect>
 			<effect name="StatUp">
 				<amount>1</amount>
@@ -1755,14 +1759,14 @@
 				<mode>DIFF</mode>
 			</effect>
 			<effect name="CriticalRate">
-				<amount>50</amount>
+				<amount>30</amount>
 				<mode>DIFF</mode>
 			</effect>
 			<effect name="MagicCriticalRate">
-				<amount>50</amount>
+				<amount>3</amount>
 				<mode>DIFF</mode>
 			</effect>
-			<effect name="SpeedLimit">
+			<effect name="Speed">
 				<amount>20</amount>
 				<mode>DIFF</mode>
 			</effect>
@@ -1797,15 +1801,15 @@
 		<effects>
 			<effect name="StatUp">
 				<amount>1</amount>
-				<stat>CON</stat>
-			</effect>
-			<effect name="StatUp">
-				<amount>1</amount>
-				<stat>MEN</stat>
-			</effect>
-			<effect name="StatUp">
-				<amount>1</amount>
 				<stat>STR</stat>
+			</effect>
+			<effect name="StatUp">
+				<amount>1</amount>
+				<stat>DEX</stat>
+			</effect>
+			<effect name="StatUp">
+				<amount>1</amount>
+				<stat>CON</stat>
 			</effect>
 			<effect name="StatUp">
 				<amount>1</amount>
@@ -1817,7 +1821,11 @@
 			</effect>
 			<effect name="StatUp">
 				<amount>1</amount>
-				<stat>DEX</stat>
+				<stat>MEN</stat>
+			</effect>
+			<effect name="StatUp">
+				<amount>1</amount>
+				<stat>LUC</stat>
 			</effect>
 			<effect name="StatUp">
 				<amount>1</amount>
@@ -1836,14 +1844,14 @@
 				<mode>DIFF</mode>
 			</effect>
 			<effect name="CriticalRate">
-				<amount>50</amount>
+				<amount>30</amount>
 				<mode>DIFF</mode>
 			</effect>
 			<effect name="MagicCriticalRate">
-				<amount>50</amount>
+				<amount>3</amount>
 				<mode>DIFF</mode>
 			</effect>
-			<effect name="SpeedLimit">
+			<effect name="Speed">
 				<amount>20</amount>
 				<mode>DIFF</mode>
 			</effect>
@@ -1870,15 +1878,15 @@
 		<effects>
 			<effect name="StatUp">
 				<amount>1</amount>
-				<stat>CON</stat>
-			</effect>
-			<effect name="StatUp">
-				<amount>1</amount>
-				<stat>MEN</stat>
-			</effect>
-			<effect name="StatUp">
-				<amount>1</amount>
 				<stat>STR</stat>
+			</effect>
+			<effect name="StatUp">
+				<amount>1</amount>
+				<stat>DEX</stat>
+			</effect>
+			<effect name="StatUp">
+				<amount>1</amount>
+				<stat>CON</stat>
 			</effect>
 			<effect name="StatUp">
 				<amount>1</amount>
@@ -1890,7 +1898,11 @@
 			</effect>
 			<effect name="StatUp">
 				<amount>1</amount>
-				<stat>DEX</stat>
+				<stat>MEN</stat>
+			</effect>
+			<effect name="StatUp">
+				<amount>1</amount>
+				<stat>LUC</stat>
 			</effect>
 			<effect name="StatUp">
 				<amount>1</amount>
@@ -2180,78 +2192,16 @@
 		<!-- All stats +1, Recovery Potions' Effect +500. -->
 		<icon>icon.UI_server_ranking_1</icon>
 		<operateType>P</operateType>
-		<effects>
-			<effect name="StatUp">
-				<amount>1</amount>
-				<stat>CON</stat>
-			</effect>
-			<effect name="StatUp">
-				<amount>1</amount>
-				<stat>MEN</stat>
-			</effect>
-			<effect name="StatUp">
-				<amount>1</amount>
-				<stat>STR</stat>
-			</effect>
-			<effect name="StatUp">
-				<amount>1</amount>
-				<stat>INT</stat>
-			</effect>
-			<effect name="StatUp">
-				<amount>1</amount>
-				<stat>WIT</stat>
-			</effect>
-			<effect name="StatUp">
-				<amount>1</amount>
-				<stat>DEX</stat>
-			</effect>
-			<effect name="StatUp">
-				<amount>1</amount>
-				<stat>LUC</stat>
-			</effect>
-			<effect name="StatUp">
-				<amount>1</amount>
-				<stat>CHA</stat>
-			</effect>
-			<effect name="HealEffect">
-				<amount>+500</amount>
-				<mode>DIFF</mode>
-			</effect>
-		</effects>
 	</skill>
 	<skill id="32885" toLevel="1" name="Server Level Ranking - 2nd Bonus">
 		<!-- Absolute Critical Rate for basic attacks and absolute P./ M. Skill Critical Rate +3%, Speed +20. -->
 		<icon>icon.UI_server_ranking_2</icon>
 		<operateType>P</operateType>
-		<effects>
-			<effect name="CriticalRate">
-				<amount>50</amount>
-				<mode>DIFF</mode>
-			</effect>
-			<effect name="MagicCriticalRate">
-				<amount>50</amount>
-				<mode>DIFF</mode>
-			</effect>
-			<effect name="SpeedLimit">
-				<amount>20</amount>
-				<mode>DIFF</mode>
-			</effect>
-		</effects>
 	</skill>
 	<skill id="32886" toLevel="1" name="Server Level Ranking - 3rd Bonus">
 		<!-- Max HP limit +30,000, Max HP +15,000. -->
 		<icon>icon.UI_server_ranking_3</icon>
 		<operateType>P</operateType>
-		<effects>
-			<effect name="MaxHp">
-				<amount>15000</amount>
-				<mode>DIFF</mode>
-			</effect>
-			<effect name="HpLimit">
-				<amount>30000</amount>
-				<mode>DIFF</mode>
-			</effect>
-		</effects>
 	</skill>
 	<skill id="32887" toLevel="1" name="Race Ranking Effect">
 		<!-- Humans: P. Atk./ M. Atk./ P. Def./ M. Def./ Max HP/ Max MP +1%. Elves: Speed out of combat +8, received damage -1%. Dark Elves: CHA +1, STR/ DEX/ CON/ INT/ WIT/ MEN +2 at night. Orcs: P. Atk./ Max HP +2%. Dwarves: Weapon/ armor enchant success rate +1%, Max HP/ P. Def./ M. Def. +2%. Kamaels: PvP damage +2%. Ertheias: P./ M. Skill Power +1%, Skill Cooldown -1% -->
