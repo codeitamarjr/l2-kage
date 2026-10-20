@@ -3472,7 +3472,7 @@
 		<equipment rhand="193" /> <!-- Transparent Bow (NPC) -->
 		<stats str="88" int="79" dex="55" wit="78" con="82" men="78">
 			<vitals hp="1604217" hpRegen="10.5" mp="3107" mpRegen="3.6" />
-			<attack physical="1230165" magical="112118" random="30" critical="4.75" accuracy="4.75" attackSpeed="250" type="SWORD" range="40" distance="80" width="120" />
+			<attack physical="1230165" magical="112118" random="30" critical="4.75" accuracy="8" attackSpeed="250" type="SWORD" range="40" distance="80" width="120" />
 			<defence physical="502160" magical="247796" />
 			<attribute>
 				<attack type="HOLY" value="1600" />
@@ -3484,7 +3484,7 @@
 			</speed>
 		</stats>
 		<status attackable="true" />
-		<ai type="BALANCED" clanHelpRange="450" aggroRange="450" isAggressive="false">
+		<ai type="BALANCED" clanHelpRange="600" aggroRange="600" isAggressive="true">
 			<clanList>
 				<clan>VALLEY_OF_SAINTS</clan>
 			</clanList>
@@ -3572,7 +3572,7 @@
 		<acquire exp="750442" sp="675" />
 		<stats str="88" int="79" dex="55" wit="78" con="82" men="78">
 			<vitals hp="1604217" hpRegen="10.5" mp="3107" mpRegen="3.6" />
-			<attack physical="1230165" magical="112118" random="30" critical="4.75" accuracy="4.75" attackSpeed="250" type="SWORD" range="40" distance="80" width="120" />
+			<attack physical="1230165" magical="112118" random="30" critical="4.75" accuracy="8" attackSpeed="250" type="SWORD" range="40" distance="80" width="120" />
 			<defence physical="502160" magical="247796" />
 			<attribute>
 				<attack type="HOLY" value="1600" />
@@ -3584,7 +3584,7 @@
 			</speed>
 		</stats>
 		<status attackable="true" />
-		<ai type="BALANCED" clanHelpRange="450" aggroRange="450" isAggressive="false">
+		<ai type="BALANCED" clanHelpRange="600" aggroRange="600" isAggressive="true">
 			<clanList>
 				<clan>VALLEY_OF_SAINTS</clan>
 			</clanList>
@@ -3672,7 +3672,7 @@
 		<acquire exp="750442" sp="675" />
 		<stats str="88" int="79" dex="55" wit="78" con="82" men="78">
 			<vitals hp="1604217" hpRegen="10.5" mp="3107" mpRegen="3.6" />
-			<attack physical="1230165" magical="112118" random="30" critical="4.75" accuracy="4.75" attackSpeed="250" type="SWORD" range="40" distance="80" width="120" />
+			<attack physical="1230165" magical="112118" random="30" critical="4.75" accuracy="8" attackSpeed="250" type="SWORD" range="40" distance="80" width="120" />
 			<defence physical="502160" magical="247796" />
 			<attribute>
 				<attack type="HOLY" value="1600" />
@@ -3684,7 +3684,7 @@
 			</speed>
 		</stats>
 		<status attackable="true" />
-		<ai type="BALANCED" clanHelpRange="450" aggroRange="450" isAggressive="false">
+		<ai type="BALANCED" clanHelpRange="600" aggroRange="600" isAggressive="true">
 			<clanList>
 				<clan>VALLEY_OF_SAINTS</clan>
 			</clanList>
@@ -3772,7 +3772,7 @@
 		<acquire exp="750442" sp="675" />
 		<stats str="88" int="79" dex="55" wit="78" con="82" men="78">
 			<vitals hp="1604217" hpRegen="10.5" mp="3107" mpRegen="3.6" />
-			<attack physical="1230165" magical="112118" random="30" critical="4.75" accuracy="4.75" attackSpeed="250" type="BOW" range="600" distance="600" width="120" />
+			<attack physical="1230165" magical="112118" random="30" critical="4.75" accuracy="8" attackSpeed="250" type="BOW" range="600" distance="600" width="120" />
 			<defence physical="502160" magical="247796" />
 			<attribute>
 				<attack type="HOLY" value="1600" />
@@ -3784,7 +3784,7 @@
 			</speed>
 		</stats>
 		<status attackable="true" />
-		<ai type="BALANCED" clanHelpRange="450" aggroRange="450" isAggressive="false">
+		<ai type="BALANCED" clanHelpRange="600" aggroRange="600" isAggressive="true">
 			<clanList>
 				<clan>VALLEY_OF_SAINTS</clan>
 			</clanList>
@@ -3872,7 +3872,7 @@
 		<acquire exp="750442" sp="675" />
 		<stats str="88" int="79" dex="55" wit="78" con="82" men="78">
 			<vitals hp="1604217" hpRegen="10.5" mp="3107" mpRegen="3.6" />
-			<attack physical="1230165" magical="112118" random="30" critical="4.75" accuracy="4.75" attackSpeed="250" type="SWORD" range="40" distance="600" width="120" />
+			<attack physical="1230165" magical="112118" random="30" critical="4.75" accuracy="8" attackSpeed="250" type="SWORD" range="40" distance="600" width="120" />
 			<defence physical="502160" magical="247796" />
 			<attribute>
 				<attack type="HOLY" value="1600" />
@@ -3884,7 +3884,7 @@
 			</speed>
 		</stats>
 		<status attackable="true" />
-		<ai type="MAGE" clanHelpRange="450" aggroRange="450" isAggressive="false">
+		<ai type="MAGE" clanHelpRange="600" aggroRange="600" isAggressive="true">
 			<clanList>
 				<clan>VALLEY_OF_SAINTS</clan>
 			</clanList>

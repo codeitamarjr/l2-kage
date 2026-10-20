@@ -3067,7 +3067,7 @@
 		<equipment rhand="193" /> <!-- Transparent Bow (NPC) -->
 		<stats str="88" int="79" dex="55" wit="78" con="82" men="78">
 			<vitals hp="874926" hpRegen="10.5" mp="3190" mpRegen="3.6" />
-			<attack physical="617815.429469286" magical="1368.16567732246" random="30" critical="4.75" accuracy="4.75" attackSpeed="250" type="SWORD" range="40" distance="80" width="120" />
+			<attack physical="617815.429469286" magical="1368.16567732246" random="30" critical="4.75" accuracy="8" attackSpeed="250" type="SWORD" range="40" distance="80" width="120" />
 			<defence physical="5043.54066985646" magical="1934.40396671246" />
 			<attribute>
 				<attack type="HOLY" value="2130" />
@@ -3116,7 +3116,7 @@
 		<acquire exp="538517" sp="485" />
 		<stats str="88" int="79" dex="55" wit="78" con="82" men="78">
 			<vitals hp="874926" hpRegen="10.5" mp="3190" mpRegen="3.6" />
-			<attack physical="617815.429469286" magical="1368.16567732246" random="30" critical="4.75" accuracy="4.75" attackSpeed="250" type="SWORD" range="40" distance="80" width="120" />
+			<attack physical="617815.429469286" magical="1368.16567732246" random="30" critical="4.75" accuracy="8" attackSpeed="250" type="SWORD" range="40" distance="80" width="120" />
 			<defence physical="5043.54066985646" magical="1934.40396671246" />
 			<attribute>
 				<attack type="HOLY" value="2130" />
@@ -3165,7 +3165,7 @@
 		<acquire exp="538517" sp="485" />
 		<stats str="88" int="79" dex="55" wit="78" con="82" men="78">
 			<vitals hp="874926" hpRegen="10.5" mp="3190" mpRegen="3.6" />
-			<attack physical="617815.429469286" magical="1368.16567732246" random="30" critical="4.75" accuracy="4.75" attackSpeed="250" type="SWORD" range="40" distance="80" width="120" />
+			<attack physical="617815.429469286" magical="1368.16567732246" random="30" critical="4.75" accuracy="8" attackSpeed="250" type="SWORD" range="40" distance="80" width="120" />
 			<defence physical="5043.54066985646" magical="1934.40396671246" />
 			<attribute>
 				<attack type="HOLY" value="2130" />
@@ -3214,7 +3214,7 @@
 		<acquire exp="538517" sp="485" />
 		<stats str="88" int="79" dex="55" wit="78" con="82" men="78">
 			<vitals hp="874926" hpRegen="10.5" mp="3190" mpRegen="3.6" />
-			<attack physical="617815.429469286" magical="1368.16567732246" random="30" critical="4.75" accuracy="4.75" attackSpeed="250" type="SWORD" range="40" distance="80" width="120" />
+			<attack physical="617815.429469286" magical="1368.16567732246" random="30" critical="4.75" accuracy="8" attackSpeed="250" type="BOW" range="600" distance="600" width="120" />
 			<defence physical="5043.54066985646" magical="1934.40396671246" />
 			<attribute>
 				<attack type="HOLY" value="2130" />
@@ -3263,7 +3263,7 @@
 		<acquire exp="538517" sp="485" />
 		<stats str="88" int="79" dex="55" wit="78" con="82" men="78">
 			<vitals hp="874926" hpRegen="10.5" mp="3190" mpRegen="3.6" />
-			<attack physical="617815.429469286" magical="1368.16567732246" random="30" critical="4.75" accuracy="4.75" attackSpeed="250" type="SWORD" range="40" distance="80" width="120" />
+			<attack physical="617815.429469286" magical="1368.16567732246" random="30" critical="4.75" accuracy="8" attackSpeed="250" type="SWORD" range="40" distance="80" width="120" />
 			<defence physical="5043.54066985646" magical="1934.40396671246" />
 			<attribute>
 				<attack type="HOLY" value="2130" />
