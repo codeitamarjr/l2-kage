@@ -2983,17 +2983,17 @@ public abstract class Creature extends WorldObject
 					}
 					case MAX_CP:
 					{
-						info.addComponentType(UserInfoType.MAX_HPCPMP);
+						info.addComponentType(UserInfoType.MAX_HPCPMP, UserInfoType.CURRENT_HPMPCP_EXP_SP);
 						break;
 					}
 					case MAX_HP:
 					{
-						info.addComponentType(UserInfoType.MAX_HPCPMP);
+						info.addComponentType(UserInfoType.MAX_HPCPMP, UserInfoType.CURRENT_HPMPCP_EXP_SP);
 						break;
 					}
 					case MAX_MP:
 					{
-						info.addComponentType(UserInfoType.MAX_HPCPMP);
+						info.addComponentType(UserInfoType.MAX_HPCPMP, UserInfoType.CURRENT_HPMPCP_EXP_SP);
 						break;
 					}
 					case STAT_STR:
