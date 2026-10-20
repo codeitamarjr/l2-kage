@@ -1039,6 +1039,19 @@ public class SkillCaster implements Runnable
 				// Launch the magic skill and calculate its effects.
 				skill.activateSkill(creature, item, targets);
 				
+				// Update pvpflag, as callSkill does for normal casts.
+				final Player player = creature.asPlayer();
+				if ((player != null) && skill.hasNegativeEffect())
+				{
+					for (WorldObject obj : targets)
+					{
+						if (obj.isPlayable())
+						{
+							player.updatePvPStatus(obj.asCreature());
+						}
+					}
+				}
+				
 				// Notify skill is casted.
 				if (EventDispatcher.getInstance().hasListener(EventType.ON_CREATURE_SKILL_FINISH_CAST, creature))
 				{
