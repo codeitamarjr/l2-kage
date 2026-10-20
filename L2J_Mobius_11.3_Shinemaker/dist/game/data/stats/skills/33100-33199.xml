@@ -185,18 +185,21 @@
 			<effect name="TriggerSkillBySkill">
 				<skillId>33142</skillId> <!-- Blessing of 1st Place in the List of Ranks for Level: Stage 1 - Knight -->
 				<skillLevel>1</skillLevel>
+				<skillLevelScaleTo>3</skillLevelScaleTo>
 				<castSkillId>10024</castSkillId>
 				<targetType>SELF</targetType>
 			</effect>
 			<effect name="TriggerSkillBySkill">
 				<skillId>33142</skillId> <!-- Blessing of 1st Place in the List of Ranks for Level: Stage 1 - Knight -->
 				<skillLevel>1</skillLevel>
+				<skillLevelScaleTo>3</skillLevelScaleTo>
 				<castSkillId>30955</castSkillId>
 				<targetType>SELF</targetType>
 			</effect>
 			<effect name="TriggerSkillBySkill">
 				<skillId>33142</skillId> <!-- Blessing of 1st Place in the List of Ranks for Level: Stage 1 - Knight -->
 				<skillLevel>1</skillLevel>
+				<skillLevelScaleTo>3</skillLevelScaleTo>
 				<castSkillId>30956</castSkillId>
 				<targetType>SELF</targetType>
 			</effect>
@@ -307,6 +310,7 @@
 			<effect name="TriggerSkillBySkill">
 				<skillId>33143</skillId> <!-- Blessing of 1st Place in the List of Ranks for Level: Stage 1 - Enchanter -->
 				<skillLevel>1</skillLevel>
+				<skillLevelScaleTo>3</skillLevelScaleTo>
 				<castSkillId>11621</castSkillId>
 				<targetType>SELF</targetType>
 			</effect>
@@ -352,6 +356,12 @@
 				<skillId>33140</skillId> <!-- Protection of 1st Place in the List of Ranks for Level - Mage -->
 				<skillLevel>1</skillLevel>
 				<castSkillId>30860</castSkillId>
+				<targetType>SELF</targetType>
+			</effect>
+			<effect name="TriggerSkillBySkill">
+				<skillId>33140</skillId> <!-- Protection of 1st Place in the List of Ranks for Level - Mage -->
+				<skillLevel>1</skillLevel>
+				<castSkillId>31307</castSkillId>
 				<targetType>SELF</targetType>
 			</effect>
 		</effects>
@@ -402,7 +412,8 @@
 			<effect name="TriggerSkillBySkill">
 				<skillId>33144</skillId> <!-- Blessing of 1st Place in the List of Ranks for Level: Stage 1 - Healer -->
 				<skillLevel>1</skillLevel>
-				<castSkillId>11759</castSkillId>
+				<skillLevelScaleTo>3</skillLevelScaleTo>
+				<castSkillId>11758</castSkillId>
 				<targetType>SELF</targetType>
 			</effect>
 		</effects>
@@ -580,10 +591,6 @@
 		<magicCriticalRate>5</magicCriticalRate>
 		<reuseDelay>20000</reuseDelay>
 		<effects>
-			<effect name="PhysicalAttack">
-				<amount>3</amount>
-				<mode>PER</mode>
-			</effect>
 			<effect name="MagicalAttack">
 				<amount>3</amount>
 				<mode>PER</mode>
