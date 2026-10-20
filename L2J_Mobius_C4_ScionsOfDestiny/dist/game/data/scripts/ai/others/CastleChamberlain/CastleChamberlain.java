@@ -846,7 +846,11 @@ public class CastleChamberlain extends Script
 				if (isOwner(player, npc) && player.hasAccess(ClanAccess.CASTLE_VAULT))
 				{
 					final int amount = (st.hasMoreTokens()) ? Integer.parseInt(st.nextToken()) : 0;
-					if (amount <= castle.getTreasury())
+					if (amount <= 0)
+					{
+						htmltext = "chamberlain-01.html";
+					}
+					else if (amount <= castle.getTreasury())
 					{
 						castle.addToTreasuryNoTax((-1) * amount);
 						giveAdena(player, amount, false);
