@@ -1012,8 +1012,9 @@ public class SkillCaster implements Runnable
 				skill.activateSkill(creature, item, targets);
 				
 				// Update pvpflag, as callSkill does for normal casts.
+				// Damage counts even with effectPoint 0, as an auto-attack hit does.
 				final Player player = creature.asPlayer();
-				if ((player != null) && skill.hasNegativeEffect())
+				if ((player != null) && (skill.hasNegativeEffect() || skill.hasEffectType(EffectType.PHYSICAL_ATTACK, EffectType.MAGICAL_ATTACK)))
 				{
 					for (WorldObject obj : targets)
 					{
