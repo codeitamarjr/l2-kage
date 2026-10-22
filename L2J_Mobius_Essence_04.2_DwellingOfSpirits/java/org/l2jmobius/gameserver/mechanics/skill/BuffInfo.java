@@ -35,6 +35,7 @@ import org.l2jmobius.gameserver.entity.item.instance.Item;
 import org.l2jmobius.gameserver.mechanics.effects.AbstractEffect;
 import org.l2jmobius.gameserver.mechanics.effects.EffectTaskInfo;
 import org.l2jmobius.gameserver.mechanics.effects.EffectTickTask;
+import org.l2jmobius.gameserver.mechanics.effects.EffectType;
 import org.l2jmobius.gameserver.mechanics.options.Options;
 import org.l2jmobius.gameserver.mechanics.skill.enums.SkillFinishType;
 import org.l2jmobius.gameserver.mechanics.stats.Formulas;
@@ -366,6 +367,19 @@ public class BuffInfo
 	 */
 	public void onTick(AbstractEffect effect)
 	{
+		// Damage over time on a creature removed from the world (deleteMe stopped its BuffFinishTask) would tick forever.
+		if (!_effected.isSpawned() && !_effected.isTeleporting() && isDamageOverTime(effect))
+		{
+			final EffectTaskInfo task = getEffectTask(effect);
+			if ((task != null) && (task.getScheduledFuture() != null))
+			{
+				task.getScheduledFuture().cancel(false);
+			}
+			
+			_effected.getEffectList().stopSkillEffects(SkillFinishType.REMOVED, _skill);
+			return;
+		}
+		
 		boolean continueForever = false;
 		
 		// If the effect is in use, allow it to affect the effected.
@@ -389,6 +403,12 @@ public class BuffInfo
 				_effected.getEffectList().stopSkillEffects(SkillFinishType.REMOVED, _skill); // Remove the buff from the effect list.
 			}
 		}
+	}
+	
+	private static boolean isDamageOverTime(AbstractEffect effect)
+	{
+		final EffectType type = effect.getEffectType();
+		return (type == EffectType.DMG_OVER_TIME) || (type == EffectType.DMG_OVER_TIME_PERCENT) || (type == EffectType.MAGICAL_DMG_OVER_TIME);
 	}
 	
 	public void finishEffects()
