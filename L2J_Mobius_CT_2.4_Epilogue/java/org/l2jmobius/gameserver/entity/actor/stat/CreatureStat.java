@@ -608,7 +608,7 @@ public class CreatureStat
 		{
 			baseAttackRange = transform.getBaseAttackRange(_creature.asPlayer());
 		}
-		else if (_creature.getActiveWeaponItem() == null)
+		else if ((_creature.getActiveWeaponItem() == null) || _creature.isNpc()) // NPC weapons add no stats, use the template range.
 		{
 			baseAttackRange = _creature.getTemplate().getBaseAttackRange();
 		}

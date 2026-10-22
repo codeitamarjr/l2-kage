@@ -599,7 +599,7 @@ public class CreatureStat
 	public int getPhysicalAttackRange()
 	{
 		int baseAttackRange;
-		if (_creature.getActiveWeaponItem() == null)
+		if ((_creature.getActiveWeaponItem() == null) || _creature.isNpc()) // NPC weapons add no stats, use the template range.
 		{
 			baseAttackRange = _creature.getTemplate().getBaseAttackRange();
 		}
