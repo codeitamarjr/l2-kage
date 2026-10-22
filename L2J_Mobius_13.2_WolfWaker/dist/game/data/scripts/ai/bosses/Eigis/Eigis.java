@@ -31,6 +31,7 @@ import java.util.concurrent.atomic.AtomicReference;
 
 import org.l2jmobius.commons.threads.ThreadPool;
 import org.l2jmobius.commons.util.Rnd;
+import org.l2jmobius.gameserver.config.ConquestConfig;
 import org.l2jmobius.gameserver.data.SpawnTable;
 import org.l2jmobius.gameserver.data.xml.SkillData;
 import org.l2jmobius.gameserver.entity.Location;
@@ -94,6 +95,11 @@ public class Eigis extends Script
 	
 	public Eigis()
 	{
+		if (!ConquestConfig.CONQUEST_EIGIS_ENABLED)
+		{
+			return;
+		}
+		
 		addAttackId(EIGIS);
 		addSpawnId(EIGIS);
 		addKillId(EIGIS);

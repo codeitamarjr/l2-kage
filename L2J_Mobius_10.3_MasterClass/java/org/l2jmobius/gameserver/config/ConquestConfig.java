@@ -39,6 +39,7 @@ public class ConquestConfig
 	// Constants
 	public static boolean CONQUEST_SYSTEM_ENABLED;
 	public static boolean CONQUEST_SCHEDULE_ENABLED;
+	public static boolean CONQUEST_EIGIS_ENABLED;
 	public static int CONQUEST_CURRENT_CYCLE;
 	public static long CONQUEST_SEASON_END;
 	public static String CONQUEST_RESET_DAY;
@@ -79,6 +80,7 @@ public class ConquestConfig
 		final ConfigReader config = new ConfigReader(CONQUEST_CONFIG_FILE);
 		CONQUEST_SYSTEM_ENABLED = config.getBoolean("ConquestSystemEnabled", true);
 		CONQUEST_SCHEDULE_ENABLED = config.getBoolean("ConquestScheduleEnabled", true);
+		CONQUEST_EIGIS_ENABLED = config.getBoolean("ConquestEigisEnabled", true);
 		CONQUEST_CURRENT_CYCLE = config.getInt("ConquestCurrentCycle", 1);
 		CONQUEST_SEASON_END = config.getLong("ConquestSeasonEnd", 0);
 		CONQUEST_RESET_DAY = config.getString("ConquestResetDay", "01");
