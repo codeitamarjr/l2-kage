@@ -27,6 +27,9 @@ import org.l2jmobius.gameserver.mechanics.script.QuestState;
 import org.l2jmobius.gameserver.mechanics.script.State;
 import org.l2jmobius.gameserver.network.serverpackets.SocialAction;
 
+/**
+ * Possessor Of A PreciousSoul part 4 (247)
+ */
 public class Q00247_PossessorOfAPreciousSoul4 extends Quest
 {
 	// NPCs
@@ -59,18 +62,33 @@ public class Q00247_PossessorOfAPreciousSoul4 extends Quest
 		{
 			case "31740-03.htm":
 			{
+				if (!st.isCreated() || !player.isSubClassActive() || (player.getLevel() < 75) || !hasQuestItems(player, CARADINE_LETTER))
+				{
+					break;
+				}
+				
 				st.startQuest();
 				takeItems(player, CARADINE_LETTER, 1);
 				break;
 			}
 			case "TELEPORT":
 			{
+				if (!st.isStarted())
+				{
+					break;
+				}
+				
 				st.setCond(2);
 				player.teleToLocation(143209, 43968, -3038);
 				break;
 			}
 			case "31745-05.htm":
 			{
+				if (!st.isStarted() || !st.isCond(2) || !player.isSubClassActive() || (player.getLevel() < 75))
+				{
+					break;
+				}
+				
 				player.setNoble(true);
 				giveItems(player, NOBLESS_TIARA, 1);
 				addExpAndSp(player, 93836, 0);

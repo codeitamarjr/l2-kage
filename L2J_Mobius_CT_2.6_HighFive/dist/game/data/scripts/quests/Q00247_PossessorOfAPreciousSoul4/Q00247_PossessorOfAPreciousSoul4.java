@@ -84,16 +84,17 @@ public class Q00247_PossessorOfAPreciousSoul4 extends Quest
 			}
 			case "TELEPORT":
 			{
-				if (st.isCond(1))
+				if (st.isStarted())
 				{
 					st.setCond(2, true);
 					player.teleToLocation(CARADINE_LOC, 0);
+					return "31740-5.html";
 				}
-				break;
+				return null;
 			}
 			case "31745-5.html":
 			{
-				if (st.isCond(2))
+				if (st.isStarted() && st.isCond(2))
 				{
 					player.setNoble(true);
 					addExpAndSp(player, 93836, 0);
@@ -138,10 +139,7 @@ public class Q00247_PossessorOfAPreciousSoul4 extends Quest
 					}
 					case State.STARTED:
 					{
-						if (st.isCond(1))
-						{
-							htmltext = "31740-6.html";
-						}
+						htmltext = st.isCond(1) ? "31740-4.html" : "31740-6.html";
 						break;
 					}
 					case State.COMPLETED:
@@ -154,7 +152,7 @@ public class Q00247_PossessorOfAPreciousSoul4 extends Quest
 			}
 			case LADY_OF_LAKE:
 			{
-				if (st.isCond(2))
+				if (st.isStarted() && st.isCond(2))
 				{
 					htmltext = "31745-1.html";
 				}
