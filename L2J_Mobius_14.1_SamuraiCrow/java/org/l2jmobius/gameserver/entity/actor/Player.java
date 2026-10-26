@@ -17826,16 +17826,15 @@ public class Player extends Playable
 			// Existing No/D/C grade relic - increment count.
 			existingRelic.setRelicCount(existingRelic.getRelicCount() + 1);
 			storeRelics();
-			sendPacket(new ExRelicsUpdateList(1, existingRelic.getRelicId(), 0, 1));
+			sendPacket(new ExRelicsUpdateList(1, existingRelic.getRelicId(), existingRelic.getRelicLevel(), existingRelic.getRelicCount()));
 			handleRelic(existingRelic);
 		}
 		else
 		{
-			// New No/D/C grade relic - add fresh.
-			newRelic.setRelicCount(1);
+			// New No/D/C grade relic - the first copy registers it with no spare copies.
 			storedRelics.add(newRelic);
 			storeRelics();
-			sendPacket(new ExRelicsUpdateList(1, newRelic.getRelicId(), 0, 0));
+			sendPacket(new ExRelicsUpdateList(1, newRelic.getRelicId(), newRelic.getRelicLevel(), newRelic.getRelicCount()));
 			handleRelic(newRelic);
 		}
 		

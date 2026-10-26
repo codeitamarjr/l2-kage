@@ -163,7 +163,8 @@ public class AdminRelics implements IAdminCommandHandler
 			}
 			else
 			{
-				PlayerRelicData newRelic = new PlayerRelicData(relicId, 0, count, 0, 0);
+				// The first copy registers the relic, only the rest are spare copies.
+				PlayerRelicData newRelic = new PlayerRelicData(relicId, 0, count - 1, 0, 0);
 				storedRelics.add(newRelic);
 				updatedRelics.add(newRelic);
 			}

@@ -22,12 +22,15 @@ package org.l2jmobius.gameserver.network.clientpackets.relics;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Map.Entry;
 
 import org.l2jmobius.commons.util.Rnd;
 import org.l2jmobius.gameserver.config.RelicSystemConfig;
 import org.l2jmobius.gameserver.data.holders.RelicCompoundFeeHolder;
+import org.l2jmobius.gameserver.data.holders.RelicDataHolder;
 import org.l2jmobius.gameserver.data.xml.RelicData;
 import org.l2jmobius.gameserver.entity.actor.Player;
 import org.l2jmobius.gameserver.entity.actor.enums.player.RelicGrade;
@@ -73,7 +76,46 @@ public class RequestRelicsCombination extends ClientPacket
 			return;
 		}
 		
+		if ((_relicsUsedGrade < 0) || (_relicsUsedGrade >= RelicGrade.values().length) || (_relicsUsedCount < 4) || ((_relicsUsedCount % 4) != 0) || (_ingredientIds.size() != _relicsUsedCount))
+		{
+			return;
+		}
+		
+		final RelicGrade grade = RelicGrade.values()[_relicsUsedGrade];
+		final RelicCompoundFeeHolder feeHolder = RelicData.getInstance().getCompoundFeeHolderByGrade(grade);
+		if (feeHolder == null)
+		{
+			return;
+		}
+		
 		final Collection<PlayerRelicData> storedRelics = player.getRelics();
+		final Map<PlayerRelicData, Integer> ingredientCounts = new HashMap<>();
+		for (int ingredientId : _ingredientIds)
+		{
+			final RelicDataHolder ingredientHolder = RelicData.getInstance().getRelic(ingredientId);
+			if ((ingredientHolder == null) || (ingredientHolder.getGrade() != grade))
+			{
+				return;
+			}
+			
+			final PlayerRelicData ingredientRelic = storedRelics.stream().filter(relic -> (relic.getRelicId() == ingredientId) && (relic.getRelicIndex() < 300)).findFirst().orElse(null);
+			if (ingredientRelic == null)
+			{
+				return;
+			}
+			
+			ingredientCounts.merge(ingredientRelic, 1, Integer::sum);
+		}
+		
+		// Only spare copies can be used, the registered copy stays.
+		for (Entry<PlayerRelicData, Integer> entry : ingredientCounts.entrySet())
+		{
+			if (entry.getKey().getRelicCount() < entry.getValue())
+			{
+				return;
+			}
+		}
+		
 		final List<Integer> unconfirmedRelics = new ArrayList<>();
 		final int compoundAttempts = _relicsUsedCount / 4;
 		for (PlayerRelicData relic : storedRelics)
@@ -90,7 +132,6 @@ public class RequestRelicsCombination extends ClientPacket
 			return;
 		}
 		
-		final RelicCompoundFeeHolder feeHolder = RelicData.getInstance().getCompoundFeeHolderByGrade(RelicGrade.values()[_relicsUsedGrade]);
 		if (!player.destroyItemByItemId(ItemProcessType.FEE, feeHolder.getId(), feeHolder.getCount() * compoundAttempts, player, true))
 		{
 			player.sendPacket(SystemMessageId.AUTO_COMPOUNDING_IS_CANCELLED_NOT_ENOUGH_MONEY);

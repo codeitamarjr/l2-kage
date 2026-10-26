@@ -38,7 +38,7 @@ public class ExRelicsUpdateList extends ServerPacket
 	
 	public ExRelicsUpdateList(int relicListSize, int relicId, int relicLevel, int relicCount)
 	{
-		final PlayerRelicData relic = new PlayerRelicData(relicId, relicLevel, 0, 0, relicCount);
+		final PlayerRelicData relic = new PlayerRelicData(relicId, relicLevel, relicCount, 0, 0);
 		_updatedRelics = new ArrayList<>(relicListSize);
 		for (int i = 0; i < relicListSize; i++)
 		{

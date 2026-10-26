@@ -22,7 +22,10 @@ package org.l2jmobius.gameserver.network.clientpackets.relics;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
 
 import org.l2jmobius.commons.util.Rnd;
 import org.l2jmobius.gameserver.config.RelicSystemConfig;
@@ -62,6 +65,11 @@ public class RequestRelicsUpgrade extends ClientPacket
 		_relicLevel = readInt();
 		
 		final int ingredientCount = readInt();
+		if ((ingredientCount < 1) || (ingredientCount > 4))
+		{
+			return;
+		}
+		
 		for (int i = 0; i < ingredientCount; i++)
 		{
 			_ingredients.add(readInt());
@@ -85,6 +93,45 @@ public class RequestRelicsUpgrade extends ClientPacket
 			return;
 		}
 		
+		if (_ingredients.isEmpty())
+		{
+			return;
+		}
+		
+		final Collection<PlayerRelicData> storedRelics = player.getRelics();
+		final PlayerRelicData existingRelic = storedRelics.stream().filter(relic -> (relic.getRelicId() == _relicId) && (relic.getRelicIndex() < 300)).findFirst().orElse(null);
+		if ((existingRelic == null) || (existingRelic.getRelicLevel() != _relicLevel) || (existingRelic.getRelicLevel() >= 4))
+		{
+			return;
+		}
+		
+		final Map<PlayerRelicData, Integer> ingredientCounts = new HashMap<>();
+		for (int ingredientId : _ingredients)
+		{
+			final RelicDataHolder ingredientHolder = RelicData.getInstance().getRelic(ingredientId);
+			if ((ingredientHolder == null) || (ingredientHolder.getGrade() != relicHolder.getGrade()))
+			{
+				return;
+			}
+			
+			final PlayerRelicData ingredientRelic = storedRelics.stream().filter(relic -> (relic.getRelicId() == ingredientId) && (relic.getRelicIndex() < 300)).findFirst().orElse(null);
+			if (ingredientRelic == null)
+			{
+				return;
+			}
+			
+			ingredientCounts.merge(ingredientRelic, 1, Integer::sum);
+		}
+		
+		// Only spare copies can be used, the registered copy stays.
+		for (Entry<PlayerRelicData, Integer> entry : ingredientCounts.entrySet())
+		{
+			if (entry.getKey().getRelicCount() < entry.getValue())
+			{
+				return;
+			}
+		}
+		
 		final ItemHolder itemFee = RelicData.getInstance().getEnchantFee(relicHolder.getGrade());
 		if (itemFee == null)
 		{
@@ -98,35 +145,20 @@ public class RequestRelicsUpgrade extends ClientPacket
 		}
 		
 		final boolean success = Rnd.get(100) < _chance;
-		final Collection<PlayerRelicData> storedRelics = player.getRelics();
-		PlayerRelicData existingRelic = null;
 		
-		// Check if the relic with the same ID exists.
-		for (PlayerRelicData relic : storedRelics)
+		// Increment the level of the existing relic if successful upgrade.
+		existingRelic.setRelicLevel(success ? existingRelic.getRelicLevel() + 1 : existingRelic.getRelicLevel());
+		_relicLevel = existingRelic.getRelicLevel();
+		if (RelicSystemConfig.RELIC_SYSTEM_DEBUG_ENABLED)
 		{
-			if ((relic.getRelicId() == _relicId) && (relic.getRelicIndex() < 300)) // Only relics with index 0 can be enchanted.
-			{
-				existingRelic = relic;
-				break;
-			}
+			player.sendMessage("Relic Id: " + existingRelic.getRelicId() + " " + (success ? "Upgrade successful! Relic is now level: " : "Upgrade failed! Relic is still level: ") + _relicLevel);
 		}
 		
-		if ((existingRelic != null) && (existingRelic.getRelicLevel() < 4))
+		player.sendPacket(new ExRelicsUpdateList(1, existingRelic.getRelicId(), existingRelic.getRelicLevel(), existingRelic.getRelicCount())); // Update confirmed relic list with new relic.
+		if (!player.isRelicRegistered(existingRelic.getRelicId(), existingRelic.getRelicLevel()))
 		{
-			// Increment the level of the existing relic if successful upgrade.
-			existingRelic.setRelicLevel(success ? existingRelic.getRelicLevel() + 1 : existingRelic.getRelicLevel());
-			_relicLevel = existingRelic.getRelicLevel();
-			if (RelicSystemConfig.RELIC_SYSTEM_DEBUG_ENABLED)
-			{
-				player.sendMessage("Relic Id: " + existingRelic.getRelicId() + " " + (success ? "Upgrade successful! Relic is now level: " : "Upgrade failed! Relic is still level: ") + _relicLevel);
-			}
-			
-			player.sendPacket(new ExRelicsUpdateList(1, existingRelic.getRelicId(), existingRelic.getRelicLevel(), existingRelic.getRelicCount())); // Update confirmed relic list with new relic.
-			if (!player.isRelicRegistered(existingRelic.getRelicId(), existingRelic.getRelicLevel()))
-			{
-				// Auto-Add to relic collections on summon.
-				player.sendPacket(new ExRelicsCollectionUpdate(player, existingRelic.getRelicId(), existingRelic.getRelicLevel())); // Update collection list.
-			}
+			// Auto-Add to relic collections on summon.
+			player.sendPacket(new ExRelicsCollectionUpdate(player, existingRelic.getRelicId(), existingRelic.getRelicLevel())); // Update collection list.
 		}
 		
 		// Check relic ingredients.
@@ -135,7 +167,7 @@ public class RequestRelicsUpgrade extends ClientPacket
 			PlayerRelicData ingredientRelic = null;
 			for (PlayerRelicData relic : storedRelics)
 			{
-				if (relic.getRelicId() == ingredient)
+				if ((relic.getRelicId() == ingredient) && (relic.getRelicIndex() < 300))
 				{
 					ingredientRelic = relic;
 					break;
