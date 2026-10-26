@@ -2476,6 +2476,11 @@
 		<mpInitialConsume>57</mpInitialConsume>
 		<reuseDelay>1200000</reuseDelay>
 		<effects>
+			<effect name="MaxHp">
+				<power>20</power>
+				<type>PER</type>
+				<heal>true</heal>
+			</effect>
 			<effect name="Buff">
 				<mul stat="pAtk">1.1</mul>
 				<mul stat="pDef">1.2</mul>
@@ -2487,7 +2492,6 @@
 				<mul stat="mAtk">1.2</mul>
 				<mul stat="mDef">1.2</mul>
 				<mul stat="runSpd">0.8</mul>
-				<mul stat="maxHp">1.2</mul>
 				<mul stat="debuffVuln">0.8</mul>
 			</effect>
 		</effects>

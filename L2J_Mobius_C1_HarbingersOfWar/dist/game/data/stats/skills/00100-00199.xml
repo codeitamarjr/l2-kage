@@ -1314,7 +1314,6 @@
 		<!-- Level 130 (+30 Recovery): Temporarily increases maximum HP and regenerates HP. Enchant Recovery: the duration of the skill's re-use time is reduced. Effect 6. -->
 		<table name="#abnormalLevels">1 2 3 4 5 6</table>
 		<table name="#power">10 15 20 25 30 35</table>
-		<table name="#amount">10 15 20 25 30 35</table>
 		<table name="#effectPoints">268 379 467 549 597 635</table>
 		<table name="#magicLevel">28 40 49 58 64 70</table>
 		<table name="#mpConsume">13 18 22 27 30 33</table>
@@ -1337,10 +1336,7 @@
 			<effect name="MaxHp">
 				<power>#power</power>
 				<type>PER</type>
-				<heal>false</heal>
-			</effect>
-			<effect name="HealPercent">
-				<power>#amount</power>
+				<heal>true</heal>
 			</effect>
 		</effects>
 	</skill>
