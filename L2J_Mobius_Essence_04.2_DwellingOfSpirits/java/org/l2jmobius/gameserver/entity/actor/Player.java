@@ -5431,7 +5431,14 @@ public class Player extends Playable
 			}
 		}
 		
-		sendPacket(new ExDieInfo(droppedItems == null ? Collections.emptyList() : droppedItems, _lastDamageTaken));
+		// The packet is written later on a network thread, so it gets a copy taken under the same lock as the writes.
+		final List<DamageTakenHolder> lastDamageTaken;
+		synchronized (_lastDamageTaken)
+		{
+			lastDamageTaken = new ArrayList<>(_lastDamageTaken);
+		}
+		
+		sendPacket(new ExDieInfo(droppedItems == null ? Collections.emptyList() : droppedItems, lastDamageTaken));
 		
 		if (isMounted())
 		{
