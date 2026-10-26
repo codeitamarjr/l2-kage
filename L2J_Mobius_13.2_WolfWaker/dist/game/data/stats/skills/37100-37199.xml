@@ -1293,26 +1293,6 @@
 		<!-- Level 4: Received damage when immobilized -5% -->
 		<icon>icon.renewal_mineral_L_grade_wp_am</icon>
 		<operateType>P</operateType>
-		<passiveConditions>
-			<condition name="OpCheckAbnormal">
-				<type>STUN</type>
-				<level>1</level>
-				<hasAbnormal>true</hasAbnormal>
-				<affectType>CASTER</affectType>
-			</condition>
-			<condition name="OpCheckAbnormal">
-				<type>AIRBIND</type>
-				<level>1</level>
-				<hasAbnormal>true</hasAbnormal>
-				<affectType>CASTER</affectType>
-			</condition>
-			<condition name="OpCheckAbnormal">
-				<type>PARALYZE</type>
-				<level>1</level>
-				<hasAbnormal>true</hasAbnormal>
-				<affectType>CASTER</affectType>
-			</condition>
-		</passiveConditions>
 		<effects>
 			<effect name="ImmobileDamageResist">
 				<amount>
@@ -1786,26 +1766,6 @@
 		<!-- Received damage when immobilized -20% -->
 		<icon>icon.renewal_mineral_L_grade_wp_am</icon>
 		<operateType>P</operateType>
-		<passiveConditions>
-			<condition name="OpCheckAbnormal">
-				<type>STUN</type>
-				<level>1</level>
-				<hasAbnormal>true</hasAbnormal>
-				<affectType>CASTER</affectType>
-			</condition>
-			<condition name="OpCheckAbnormal">
-				<type>AIRBIND</type>
-				<level>1</level>
-				<hasAbnormal>true</hasAbnormal>
-				<affectType>CASTER</affectType>
-			</condition>
-			<condition name="OpCheckAbnormal">
-				<type>PARALYZE</type>
-				<level>1</level>
-				<hasAbnormal>true</hasAbnormal>
-				<affectType>CASTER</affectType>
-			</condition>
-		</passiveConditions>
 		<effects>
 			<effect name="ImmobileDamageResist">
 				<amount>-20</amount>

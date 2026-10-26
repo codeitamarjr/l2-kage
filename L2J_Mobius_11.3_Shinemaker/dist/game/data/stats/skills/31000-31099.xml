@@ -2792,14 +2792,6 @@
 		<!-- Level 3: Received damage when immobilized -25% -->
 		<icon>icon.s_ability_d_reuse_delay</icon>
 		<operateType>P</operateType>
-		<passiveConditions>
-			<condition name="OpCheckAbnormal">
-				<type>STUN</type>
-				<level>1</level>
-				<hasAbnormal>true</hasAbnormal>
-				<affectType>CASTER</affectType>
-			</condition>
-		</passiveConditions>
 		<effects>
 			<effect name="ImmobileDamageResist">
 				<amount>

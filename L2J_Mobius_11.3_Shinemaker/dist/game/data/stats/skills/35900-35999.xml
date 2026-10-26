@@ -184,14 +184,6 @@
 		<operateType>P</operateType>
 		<magicCriticalRate>5</magicCriticalRate>
 		<magicLevel>1</magicLevel>
-		<passiveConditions>
-			<condition name="OpCheckAbnormal">
-				<type>STUN</type>
-				<level>1</level>
-				<hasAbnormal>true</hasAbnormal>
-				<affectType>CASTER</affectType>
-			</condition>
-		</passiveConditions>
 		<effects>
 			<effect name="ImmobileDamageResist">
 				<amount>-1.3</amount>
@@ -337,14 +329,6 @@
 		<operateType>P</operateType>
 		<magicCriticalRate>5</magicCriticalRate>
 		<magicLevel>1</magicLevel>
-		<passiveConditions>
-			<condition name="OpCheckAbnormal">
-				<type>STUN</type>
-				<level>1</level>
-				<hasAbnormal>true</hasAbnormal>
-				<affectType>CASTER</affectType>
-			</condition>
-		</passiveConditions>
 		<effects>
 			<effect name="ImmobileDamageResist">
 				<amount>-0.7</amount>

@@ -2315,14 +2315,6 @@
 		<!-- Level 2: Received damage when immobilized -15%. -->
 		<icon>icon.skill0335</icon>
 		<operateType>P</operateType>
-		<passiveConditions>
-			<condition name="OpCheckAbnormal">
-				<type>STUN</type>
-				<level>1</level>
-				<hasAbnormal>true</hasAbnormal>
-				<affectType>CASTER</affectType>
-			</condition>
-		</passiveConditions>
 		<effects>
 			<effect name="ImmobileDamageResist">
 				<amount>

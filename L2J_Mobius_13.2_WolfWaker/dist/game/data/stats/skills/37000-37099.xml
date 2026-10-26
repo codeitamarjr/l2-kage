@@ -172,14 +172,6 @@
 		<!-- Received damage when immobilized -1% -->
 		<icon>icon.skill0000</icon>
 		<operateType>P</operateType>
-		<passiveConditions>
-			<condition name="OpCheckAbnormal">
-				<type>STUN</type>
-				<level>1</level>
-				<hasAbnormal>true</hasAbnormal>
-				<affectType>TARGET</affectType>
-			</condition>
-		</passiveConditions>
 		<effects>
 			<effect name="ImmobileDamageResist">
 				<amount>1</amount>
