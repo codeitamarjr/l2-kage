@@ -172,12 +172,12 @@
 		<set name="is_dropable" val="false" />
 		<set name="handler" val="ExtractableItems" />
 		<capsuled_items>
-			<item id="33794" min="30000" max="30000" chance="100" /> <!-- Spiritshot - Event -->
+			<item id="33794" min="100000" max="100000" chance="100" /> <!-- Spiritshot - Event -->
 			<item id="33640" min="10" max="10" chance="100" /> <!-- Blessed Scroll of Escape -->
 			<item id="48072" min="1" max="1" chance="100" /> <!-- Elementary Seed Bracelet - 15-day -->
 			<item id="48124" min="1" max="1" chance="100" /> <!-- Agathion Charm: Fairy -->
 			<item id="48848" min="15" max="15" chance="100" /> <!-- Freya's Ice Rose - Event -->
-			<item id="33780" min="30000" max="30000" chance="100" /> <!-- Soulshot - Event -->
+			<item id="33780" min="100000" max="100000" chance="100" /> <!-- Soulshot - Event -->
 			<item id="34985" min="1" max="1" chance="100" /> <!-- Talisman of Destruction -->
 			<item id="39634" min="1" max="1" chance="100" /> <!-- Venir's Talisman Lv. 1 -->
 		</capsuled_items>
@@ -194,14 +194,14 @@
 		<set name="is_dropable" val="false" />
 		<set name="handler" val="ExtractableItems" />
 		<capsuled_items>
-			<item id="33794" min="30000" max="30000" chance="100" /> <!-- Spiritshot - Event -->
+			<item id="33794" min="100000" max="100000" chance="100" /> <!-- Spiritshot - Event -->
 			<item id="33640" min="10" max="10" chance="100" /> <!-- Blessed Scroll of Escape -->
 			<item id="38891" min="1" max="1" chance="100" /> <!-- Diamond Lv. 2 -->
 			<item id="38881" min="1" max="1" chance="100" /> <!-- Emerald Lv. 2 -->
 			<item id="38768" min="1" max="1" chance="100" /> <!-- La Vie En Rose's Brooch Lv. 1 -->
 			<item id="48848" min="25" max="25" chance="100" /> <!-- Freya's Ice Rose - Event -->
 			<item id="38896" min="1" max="1" chance="100" /> <!-- Pearl Lv. 2 -->
-			<item id="33780" min="30000" max="30000" chance="100" /> <!-- Soulshot - Event -->
+			<item id="33780" min="100000" max="100000" chance="100" /> <!-- Soulshot - Event -->
 		</capsuled_items>
 	</item>
 	<item id="80910" name="Lv. 100 Achievement Reward Box" type="EtcItem">
@@ -216,11 +216,11 @@
 		<set name="is_dropable" val="false" />
 		<set name="handler" val="ExtractableItems" />
 		<capsuled_items>
-			<item id="33794" min="30000" max="30000" chance="100" /> <!-- Spiritshot - Event -->
+			<item id="33794" min="100000" max="100000" chance="100" /> <!-- Spiritshot - Event -->
 			<item id="33640" min="10" max="10" chance="100" /> <!-- Blessed Scroll of Escape -->
 			<item id="47044" min="1" max="1" chance="100" /> <!-- Commando Belt -->
 			<item id="48848" min="35" max="35" chance="100" /> <!-- Freya's Ice Rose - Event -->
-			<item id="33780" min="30000" max="30000" chance="100" /> <!-- Soulshot - Event -->
+			<item id="33780" min="100000" max="100000" chance="100" /> <!-- Soulshot - Event -->
 		</capsuled_items>
 	</item>
 	<item id="80911" name="+5 Warrior's Circlet Box" type="EtcItem">
