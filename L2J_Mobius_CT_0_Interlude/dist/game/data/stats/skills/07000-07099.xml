@@ -619,7 +619,7 @@
 		<targetType>ONE</targetType>
 		<abnormalLevel>3</abnormalLevel>
 		<abnormalTime>3600</abnormalTime>
-		<abnormalType>PD_UP</abnormalType>
+		<abnormalType>MD_UP</abnormalType>
 		<castRange>400</castRange>
 		<effectPoint>1</effectPoint>
 		<effectRange>900</effectRange>
