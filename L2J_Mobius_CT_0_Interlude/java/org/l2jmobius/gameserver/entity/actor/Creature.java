@@ -1941,7 +1941,11 @@ public abstract class Creature extends WorldObject
 			// Send a Server->Client packet MagicSkillUser with target, displayId, level, skillTime, reuseDelay.
 			// to the Creature AND to all Player in the _KnownPlayers of the Creature.
 			broadcastSkillPacket(new MagicSkillUse(this, target, skill.getDisplayId(), skill.getDisplayLevel(), skillTime, reuseDelay), target);
-			broadcastSkillPacket(new MagicSkillLaunched(this, skill.getDisplayId(), skill.getDisplayLevel(), targets), targets);
+			// Ground skills hit a point instead of the caster, and channel ticks send their own launch packet.
+			if ((skill.getTargetType() != TargetType.GROUND) && (!skill.isChanneling() || (skill.getChannelingSkillId() == 0)))
+			{
+				broadcastSkillPacket(new MagicSkillLaunched(this, skill.getDisplayId(), skill.getDisplayLevel(), targets), targets);
+			}
 		}
 		
 		// Send a system message to the player.

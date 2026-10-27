@@ -849,6 +849,10 @@
 										<xs:sequence>
 											<xs:element name="effect">
 												<xs:complexType>
+													<xs:sequence minOccurs="0">
+														<xs:element name="npcId" type="xs:string" />
+														<xs:element name="npcCount" type="xs:unsignedByte" />
+													</xs:sequence>
 													<xs:attribute name="name" type="xs:string" use="required" />
 												</xs:complexType>
 											</xs:element>

@@ -851,6 +851,7 @@
 		<channelingSkillId>1419</channelingSkillId>
 		<channelingTickInterval>2</channelingTickInterval>
 		<effectPoint>-676</effectPoint>
+		<effectRange>1000</effectRange>
 		<element>0</element> <!-- Fire -->
 		<elementPower>20</elementPower>
 		<hitTime>15000</hitTime>
@@ -867,6 +868,12 @@
 		<conditions msgId="113" addName="1">
 			<player active_effect_id_lvl="5105,3" />
 		</conditions>
+		<startEffects>
+			<effect name="SummonNpc">
+				<npcId>13027</npcId>
+				<npcCount>1</npcCount>
+			</effect>
+		</startEffects>
 		<channelingEffects>
 			<effect name="MagicalDamage" />
 		</channelingEffects>
@@ -883,6 +890,7 @@
 		<channelingSkillId>1420</channelingSkillId>
 		<channelingTickInterval>2</channelingTickInterval>
 		<effectPoint>-676</effectPoint>
+		<effectRange>1000</effectRange>
 		<element>2</element> <!-- Wind -->
 		<elementPower>20</elementPower>
 		<hitTime>15000</hitTime>
@@ -899,6 +907,12 @@
 		<conditions msgId="113" addName="1">
 			<player active_effect_id_lvl="5105,3" />
 		</conditions>
+		<startEffects>
+			<effect name="SummonNpc">
+				<npcId>13028</npcId>
+				<npcCount>1</npcCount>
+			</effect>
+		</startEffects>
 		<channelingEffects>
 			<effect name="MagicalDamage" />
 		</channelingEffects>
@@ -915,6 +929,7 @@
 		<channelingSkillId>1421</channelingSkillId>
 		<channelingTickInterval>2</channelingTickInterval>
 		<effectPoint>-676</effectPoint>
+		<effectRange>1000</effectRange>
 		<element>1</element> <!-- Water -->
 		<elementPower>20</elementPower>
 		<hitTime>15000</hitTime>
@@ -931,6 +946,12 @@
 		<conditions msgId="113" addName="1">
 			<player active_effect_id_lvl="5105,3" />
 		</conditions>
+		<startEffects>
+			<effect name="SummonNpc">
+				<npcId>13029</npcId>
+				<npcCount>1</npcCount>
+			</effect>
+		</startEffects>
 		<channelingEffects>
 			<effect name="MagicalDamage" />
 		</channelingEffects>
@@ -956,7 +977,7 @@
 		</conditions>
 		<effects>
 			<effect name="SummonNpc">
-				<npcId>13028</npcId>
+				<npcId>13025</npcId>
 				<npcCount>1</npcCount>
 			</effect>
 		</effects>
@@ -973,6 +994,7 @@
 		<channelingSkillId>1423</channelingSkillId>
 		<channelingTickInterval>2</channelingTickInterval>
 		<effectPoint>-676</effectPoint>
+		<effectRange>1000</effectRange>
 		<element>5</element> <!-- Dark -->
 		<elementPower>20</elementPower>
 		<hitTime>15000</hitTime>
@@ -989,6 +1011,12 @@
 		<conditions msgId="113" addName="1">
 			<player active_effect_id_lvl="5105,3" />
 		</conditions>
+		<startEffects>
+			<effect name="SummonNpc">
+				<npcId>13030</npcId>
+				<npcCount>1</npcCount>
+			</effect>
+		</startEffects>
 		<channelingEffects>
 			<effect name="MagicalDamage" />
 		</channelingEffects>
@@ -1015,7 +1043,7 @@
 		</conditions>
 		<effects>
 			<effect name="SummonNpc">
-				<npcId>13030</npcId>
+				<npcId>13026</npcId>
 				<npcCount>1</npcCount>
 			</effect>
 		</effects>

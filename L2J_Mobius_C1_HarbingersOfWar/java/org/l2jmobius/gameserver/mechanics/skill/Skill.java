@@ -1304,7 +1304,6 @@ public class Skill
 			
 			final EffectScope pvpOrPveEffectScope = effector.isPlayable() && effected.isAttackable() ? EffectScope.PVE : effector.isPlayable() && effected.isPlayable() ? EffectScope.PVP : null;
 			applyEffectScope(pvpOrPveEffectScope, info, instant, addContinuousEffects);
-			applyEffectScope(EffectScope.CHANNELING, info, instant, addContinuousEffects);
 			if (addContinuousEffects)
 			{
 				effected.getEffectList().add(info);
@@ -1379,7 +1378,6 @@ public class Skill
 				
 				final EffectScope pvpOrPveEffectScope = caster.isPlayable() && target.isAttackable() ? EffectScope.PVE : caster.isPlayable() && target.isPlayable() ? EffectScope.PVP : null;
 				applyEffectScope(pvpOrPveEffectScope, info, true, false);
-				applyEffectScope(EffectScope.CHANNELING, info, true, false);
 			}
 			else
 			{

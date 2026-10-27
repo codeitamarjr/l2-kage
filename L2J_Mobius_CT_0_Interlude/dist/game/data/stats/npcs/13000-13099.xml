@@ -477,7 +477,7 @@
 		<parameters>
 			<param name="skill_delay" value="2" />
 			<param name="despawn_time" value="15" />
-			<skill name="union_skill" id="5130" level="1" /> <!-- Volcano -->
+			<skill name="union_skill" id="5145" level="1" /> <!-- Day of Doom -->
 		</parameters>
 		<race>ETC</race>
 		<sex>MALE</sex>
@@ -505,7 +505,7 @@
 		<parameters>
 			<param name="skill_delay" value="2" />
 			<param name="despawn_time" value="15" />
-			<skill name="union_skill" id="5131" level="1" /> <!-- Tsunami -->
+			<skill name="union_skill" id="5134" level="1" /> <!-- Anti-Summoning Field -->
 		</parameters>
 		<race>ETC</race>
 		<sex>MALE</sex>
@@ -533,7 +533,7 @@
 		<parameters>
 			<param name="skill_delay" value="2" />
 			<param name="despawn_time" value="15" />
-			<skill name="union_skill" id="5132" level="1" /> <!-- Cyclone -->
+			<skill name="union_skill" id="5130" level="1" /> <!-- Volcano -->
 		</parameters>
 		<race>ETC</race>
 		<sex>MALE</sex>
@@ -561,7 +561,7 @@
 		<parameters>
 			<param name="skill_delay" value="2" />
 			<param name="despawn_time" value="15" />
-			<skill name="union_skill" id="5145" level="1" /> <!-- Day of Doom -->
+			<skill name="union_skill" id="5132" level="1" /> <!-- Cyclone -->
 		</parameters>
 		<race>ETC</race>
 		<sex>MALE</sex>
@@ -589,7 +589,7 @@
 		<parameters>
 			<param name="skill_delay" value="2" />
 			<param name="despawn_time" value="15" />
-			<skill name="union_skill" id="5133" level="1" /> <!-- Gehenna -->
+			<skill name="union_skill" id="5131" level="1" /> <!-- Raging Waves -->
 		</parameters>
 		<race>ETC</race>
 		<sex>MALE</sex>
@@ -617,7 +617,7 @@
 		<parameters>
 			<param name="skill_delay" value="2" />
 			<param name="despawn_time" value="15" />
-			<skill name="union_skill" id="5134" level="1" /> <!-- Anti-Summoning Field -->
+			<skill name="union_skill" id="5133" level="1" /> <!-- Gehenna -->
 		</parameters>
 		<race>ETC</race>
 		<sex>MALE</sex>

@@ -24,12 +24,18 @@ import java.util.logging.Logger;
 
 import org.l2jmobius.commons.threads.ThreadPool;
 import org.l2jmobius.gameserver.data.xml.SkillData;
+import org.l2jmobius.gameserver.entity.Location;
+import org.l2jmobius.gameserver.entity.World;
 import org.l2jmobius.gameserver.entity.WorldObject;
 import org.l2jmobius.gameserver.entity.actor.Creature;
+import org.l2jmobius.gameserver.entity.actor.Player;
+import org.l2jmobius.gameserver.entity.actor.instance.EffectPoint;
 import org.l2jmobius.gameserver.entity.item.enums.ShotType;
 import org.l2jmobius.gameserver.geoengine.GeoEngine;
+import org.l2jmobius.gameserver.mechanics.skill.targets.TargetType;
 import org.l2jmobius.gameserver.network.SystemMessageId;
 import org.l2jmobius.gameserver.network.serverpackets.MagicSkillLaunched;
+import org.l2jmobius.gameserver.network.serverpackets.MagicSkillUse;
 import org.l2jmobius.gameserver.util.LocationUtil;
 
 /**
@@ -44,6 +50,7 @@ public class SkillChannelizer implements Runnable
 	private List<Creature> _channelized;
 	
 	private Skill _skill;
+	private EffectPoint _symbol;
 	private ScheduledFuture<?> _task = null;
 	
 	public SkillChannelizer(Creature channelizer)
@@ -77,6 +84,7 @@ public class SkillChannelizer implements Runnable
 		
 		// Start channeling.
 		_skill = skill;
+		_symbol = null;
 		final long tickInterval = skill.getChannelingTickInterval();
 		if (tickInterval > 0)
 		{
@@ -111,6 +119,14 @@ public class SkillChannelizer implements Runnable
 			}
 			
 			_channelized = null;
+		}
+		
+		// Remove the symbol with the channel, so a cancelled cast does not leave its area behind.
+		final EffectPoint symbol = getSymbol();
+		if (symbol != null)
+		{
+			symbol.deleteMe();
+			_symbol = null;
 		}
 		
 		// unset skill.
@@ -175,7 +191,8 @@ public class SkillChannelizer implements Runnable
 				final List<Creature> targetList = new ArrayList<>();
 				for (WorldObject chars : skill.getTargetList(_channelizer))
 				{
-					if (chars.isCreature())
+					// The ground target list falls back to the caster when the area is empty, a channel never hits its own caster.
+					if (chars.isCreature() && (chars != _channelizer))
 					{
 						targetList.add(chars.asCreature());
 						chars.asCreature().getSkillChannelized().addChannelizer(skill.getChannelingSkillId(), _channelizer);
@@ -226,6 +243,14 @@ public class SkillChannelizer implements Runnable
 							}
 							
 							channelingSkill.applyEffects(_channelizer, creature);
+							channelingSkill.applyEffectScope(EffectScope.CHANNELING, new BuffInfo(_channelizer, creature, channelingSkill), true, false);
+							
+							// Each hit puts the target player in combat, as a normal cast does.
+							final Player targetPlayer = creature.asPlayer();
+							if ((targetPlayer != null) && channelingSkill.hasNegativeEffect())
+							{
+								targetPlayer.getAI().clientStartAutoAttack();
+							}
 							
 							// Reduce shots.
 							if (skill.useSpiritShot())
@@ -241,7 +266,17 @@ public class SkillChannelizer implements Runnable
 							_channelizer.rechargeShots(skill.useSoulShot(), skill.useSpiritShot());
 						}
 						
-						_channelizer.broadcastSkillPacket(new MagicSkillLaunched(_channelizer, skill.getId(), skill.getLevel(), creature), creature);
+						final EffectPoint symbol = getSymbol();
+						if (symbol != null)
+						{
+							// The symbol strikes each target from the ground point, so the client shows the area and the skill's own hit and sound.
+							symbol.broadcastPacket(new MagicSkillUse(symbol, creature, skill.getId(), skill.getLevel(), 0, 0));
+							symbol.broadcastPacket(new MagicSkillLaunched(symbol, skill.getId(), skill.getLevel(), creature));
+						}
+						else
+						{
+							_channelizer.broadcastSkillPacket(new MagicSkillLaunched(_channelizer, skill.getId(), skill.getLevel(), creature), creature);
+						}
 					}
 				}
 			}
@@ -250,5 +285,30 @@ public class SkillChannelizer implements Runnable
 		{
 			LOGGER.log(Level.WARNING, "Error while channelizing skill: " + skill + " channelizer: " + _channelizer + " channelized: " + _channelized + "; ", e);
 		}
+	}
+	
+	/**
+	 * Finds the symbol a ground channel skill summoned at its cast point, it is searched once per channel.
+	 * @return the symbol with a union skill, or {@code null} if the skill has none
+	 */
+	private EffectPoint getSymbol()
+	{
+		if ((_symbol == null) && _channelizer.isPlayer() && (_skill.getTargetType() == TargetType.GROUND))
+		{
+			final Location point = _channelizer.asPlayer().getCurrentSkillWorldPosition();
+			if (point != null)
+			{
+				for (EffectPoint effectPoint : World.getVisibleObjectsInRange(_channelizer, EffectPoint.class, _skill.getCastRange() + 100))
+				{
+					if ((effectPoint.getSummoner() == _channelizer) && (effectPoint.getX() == point.getX()) && (effectPoint.getY() == point.getY()) && (effectPoint.getTemplate().getParameters().getSkillHolder("union_skill") != null))
+					{
+						_symbol = effectPoint;
+						break;
+					}
+				}
+			}
+		}
+		
+		return _symbol;
 	}
 }
