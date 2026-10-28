@@ -1,188 +1,253 @@
-# L2 Kage — Lineage II Essence (Samurai Crow) on Docker
+# L2J Mobius Essence on Docker
 
-L2 Kage is a Lineage II **Essence: Samurai Crow** server (client protocol **542**, EU) built on
-[L2J Mobius](https://gitlab.com/MobiusDevelopment/L2J_Mobius), with its website. Everything runs in Docker: MariaDB,
-the login server, the game server, the website (Laravel + Inertia + React + Filament) and, on the Pi, a Cloudflare
-Tunnel for the public site.
+This repository provides a Docker deployment for an **L2J Mobius Essence:
+Samurai Crow** server (client protocol 542), together with an optional Laravel
+website.
 
-`README.md` in this folder is L2J Mobius' own; this file is about L2 Kage.
+The stack runs the following services:
 
-| Where | Website | Login / game ports | Folder |
-|---|---|---|---|
-| Raspberry Pi (public) | https://l2-kage.itjunior.dev (LAN: http://192.168.0.195:8082) | 2107 / 7778 | `~/l2-kage` on `junior@server.local` |
-| This Mac (development) | http://192.168.0.247:8082 | 2106 / 7777 | `~/Downloads/L2jmobius` |
+- MariaDB
+- L2J Mobius login server
+- L2J Mobius game server
+- Optional Laravel website
+- Optional Cloudflare Tunnel for publishing the website without opening an
+  HTTP port
 
-The Pi also runs the High Five server **Bartz** (`~/l2-server`, ports 2106 / 7777 / 8080, https://l2-bartz.itjunior.dev).
-The two stacks are separate: their own folders, databases, ports and tunnels.
+The repository contains server code and functional configuration only. It does
+not include a game client or copyrighted client assets. Obtain and use the
+client according to its applicable license and terms.
 
-## Layout
+## Requirements
 
-```
+For a local deployment:
+
+- Docker Desktop or Docker Engine with Docker Compose v2
+- At least 8 GB of available memory when using geodata
+- The source and data files required by the selected L2J Mobius chapter
+
+For an ARM64 deployment such as a Raspberry Pi:
+
+- A 64-bit ARM operating system
+- Docker with Buildx support
+- Enough memory and swap for the selected Java heap size
+
+## Repository layout
+
+```text
 L2jmobius/
-├── L2J_Mobius_Essence_10.1_SamuraiCrow/   L2J Mobius sources (git sparse checkout of this chapter only)
-├── Dockerfile                  server image: Ant + JDK 27 build -> runtime (login + game in one image)
-├── docker/entrypoint.sh        `l2j login | game`: writes DB/ports/address into the configs, copies overrides
-├── docker/db-init/             run once on an empty database: 10 tables, 20 website users, 30 announcements
-├── docker-compose.yml          db, login, game, site, tunnel (tunnel only with COMPOSE_PROFILES=public)
-├── overrides/game/             copied over the server files at every start (survives source updates)
-│   ├── config/Custom/ScreenWelcomeMessage.ini     "Welcome to L2 Kage!" on screen at login
-│   ├── data/stats/players/initialEquipment.xml    starting items + 1,000 L-Coin for every new character
-│   └── data/scripts/custom/WebBridge/             delivers website gifts and admin items in game
-├── site/                       the website (see site/README.md)
-├── build-pi.sh                 builds the arm64 images and dist/ for the Pi
-├── data/                       MariaDB data, logs, geodata (not in the images, never copied by build-pi.sh)
-├── .env.example                every setting, documented: copy to .env
-└── .env                        passwords and settings (never copied by build-pi.sh, never committed)
+├── L2J_Mobius_Essence_10.1_SamuraiCrow/   L2J Mobius server sources
+├── Dockerfile                              Login/game server image
+├── docker-compose.yml                      Complete service stack
+├── docker/                                 Entrypoint and database setup
+├── overrides/game/                         Custom server files
+├── site/                                   Optional Laravel website
+├── build-pi.sh                             ARM64 image export script
+├── .env.example                            Documented configuration template
+└── data/                                   Local database, logs and geodata
 ```
 
-`.gitignore` keeps `.env` (and its `.env.backup-*` copies), `data/` and `dist/` out of git; the website's own secrets
-and dependencies are in `site/.gitignore`. `.dockerignore` keeps them, and `site/`, out of the server image build.
+The `data/` directory contains runtime state and is intentionally excluded from
+Git. The `.env` file contains passwords and deployment-specific settings and
+must never be committed.
 
-## Settings (`.env`)
+## Configuration
 
-Start from the example and replace every `change-me` with a random value (`openssl rand -hex 16`):
+Create the environment file before starting the stack:
 
 ```bash
 cp .env.example .env
-docker run --rm --entrypoint php l2jmobius-site:latest artisan key:generate --show   # SITE_APP_KEY (after the first build)
 ```
 
-| Key | What | Mac | Pi |
-|---|---|---|---|
-| `PUBLIC_HOST` | Address the login server sends game clients to | `192.168.0.247` | `play.l2-bartz.itjunior.dev` (home IP) |
-| `LOGIN_PORT` / `GAME_PORT` | Ports players connect to (the game server really listens on `GAME_PORT`) | 2106 / 7777 (default) | 2107 / 7778 |
-| `SITE_PORT` | Website port on the host | 8082 | 8082 |
-| `DB_*`, `WEB_DB_PASSWORD`, `L2WEB_DB_PASSWORD` | Database passwords, baked into the database on first start | random | random |
-| `SITE_APP_KEY` | Laravel key (changing it signs everyone out) | random | random |
-| `GAME_JAVA_OPTS` | Game server memory | `-Xms2g -Xmx6g` (with geodata) | `-Xms1g -Xmx3g` (no geodata) |
-| `COMPOSE_PROFILES=public`, `CF_TUNNEL_TOKEN` | Starts the Cloudflare Tunnel | — | set |
-| `WEBSITE_URL` | Public site address (links in emails, canonical URLs) | — | `https://l2-kage.itjunior.dev` |
-| `TRUSTED_PROXIES` | Trust https / client IP headers from the tunnel only | — | `172.16.0.0/12` |
-| `MAIL_*` | Email for registration and password resets (Amazon SES, SMTP) | `log` (off) | SES eu-west-1 |
-| `AUTO_CREATE_ACCOUNTS` | Logging in with a new name creates the account | `True` | `True` |
-
-Never put `L2WEB_DB_PASSWORD` or the DB passwords out of step with the database: they are set when the database is
-first created. Edit `.env`, then `docker compose up -d` to apply it.
-
-## Run on the Mac
+Replace every `change-me` value with a strong, unique value. For example:
 
 ```bash
-cp .env.example .env           # first time only; fill it in (see Settings)
+openssl rand -hex 16
+```
+
+Important settings:
+
+| Variable | Description |
+|---|---|
+| `SERVER_NAME` | Name shown by the website |
+| `PUBLIC_HOST` | Hostname or IP address sent to game clients |
+| `LOGIN_PORT` | External login-server port; defaults to `2106` |
+| `GAME_PORT` | External game-server port; defaults to `7777` |
+| `SITE_PORT` | Website port on the Docker host; defaults to `8082` |
+| `DB_NAME`, `DB_USER`, `DB_PASSWORD` | L2J game database settings |
+| `DB_ROOT_PASSWORD` | MariaDB root password |
+| `WEB_DB_PASSWORD`, `L2WEB_DB_PASSWORD` | Read-only game and website database passwords |
+| `SITE_APP_KEY` | Laravel application key |
+| `GAME_JAVA_OPTS` | Java options and heap size for the game server |
+| `AUTO_CREATE_ACCOUNTS` | Whether a new game login creates an account |
+| `WEBSITE_URL` | Canonical public URL for the website |
+| `MAIL_*` | Optional SMTP settings for registration and password resets |
+| `COMPOSE_PROFILES` | Set to `public` to enable the Cloudflare Tunnel |
+| `CF_TUNNEL_TOKEN` | Cloudflare Tunnel token when the public profile is enabled |
+| `TRUSTED_PROXIES` | Proxy networks trusted by the website |
+
+Database passwords are used when MariaDB initializes its data directory. If
+you change them after the first startup, update the existing database users
+manually or remove the local database and initialize it again. Removing
+`data/mariadb` permanently deletes the local game and website databases.
+
+Generate a Laravel key after building the website image if needed:
+
+```bash
+docker compose build site
+docker run --rm --entrypoint php l2jmobius-site:latest artisan key:generate --show
+```
+
+Copy the generated value into `SITE_APP_KEY` in `.env`.
+
+## Start the stack
+
+Build and start all standard services:
+
+```bash
 docker compose up -d --build
-docker compose logs -f game        # ready at "Registered on login as Server 2"
 ```
 
-The first start creates the database (`docker/db-init/`), so the game server's first start takes a little longer.
-Geodata is in `data/geodata/` (224 regions, 2.2 GB, from `geodata_542.zip`): it needs the 6 GB game server and
-about 6.5 GB of Docker Desktop's memory in total; give Docker Desktop ~10 GB (Settings → Resources).
-
-## Deploy and update the Pi
-
-The Pi (`junior@server.local`, 192.168.0.195, Raspberry Pi 5, 8 GB) runs Kage next to Bartz. It has an 8 GB swap file
-(`/swapfile`, in `/etc/fstab`) because both game servers don't fit in memory; Kage runs **without geodata** at 3 GB.
+Follow the game-server logs:
 
 ```bash
-./build-pi.sh                                         # arm64 images + dist/
-rsync -a dist/ junior@server.local:l2-kage/           # never touches .env or data/
-ssh junior@server.local 'cd ~/l2-kage && docker load -i l2jmobius-arm64.tar.gz && docker compose up -d'
+docker compose logs -f game
 ```
 
-`dist/` holds the images, `docker-compose.yml`, `docker/`, `overrides/` and the parts of the sources the containers
-read at run time (database scripts, default config, seasonal events). The game server takes ~3 minutes to start on
-the Pi.
+The first startup creates the MariaDB schema and website database users. It
+may take longer than subsequent startups. The game server is ready when it
+reports that it has registered with the login server.
 
-First install (already done): copy `dist/`, `cp .env.example .env` and fill it in with the Pi's values (ports
-2107 / 7778, 3 GB, the tunnel and mail keys; see Settings), `docker compose up -d db` (creates the database, the
-website users and the announcements), then `docker compose up -d`.
-
-### Public website (Cloudflare Tunnel)
-
-In Cloudflare Zero Trust → Tunnels, the Kage tunnel has the public hostname `l2-kage.itjunior.dev` → `HTTP` →
-`site:80`. Its token is `CF_TUNNEL_TOKEN` in the Pi's `.env`, with `COMPOSE_PROFILES=public`. No web port is opened on
-the router; HTTPS is Cloudflare's.
-
-### Router
-
-Only for players outside the home network: forward TCP **2107** and **7778** to the Pi (Bartz uses 2106 and 7777).
-
-### Email
-
-Amazon SES (eu-west-1) over SMTP, from `no-reply@mail.itjunior.dev`: `MAIL_MAILER=smtp` and the `MAIL_*` keys in the Pi's
-`.env`. With `MAIL_MAILER=log` (the Mac), website registration and "forgot password" stay closed; players create
-accounts by logging in to the game.
-
-## Connect the game client
-
-1. Download a **clean, unmodified** Essence: Samurai Crow EU 542 client:
-   https://www.lineage2.org.uk/download/lineage-ii-essence-samurai-crow-eu-542/ (also linked on the About page).
-   Repacked clients from other servers can carry altered files or malware.
-2. Apply a private-server **system patch** for protocol 542 (the official client only talks to 4game).
-3. In the patched `system/L2.ini`: `ServerAddr=<address>` and, for the Pi, `ServerPort=2107`.
-   The hosts-file trick (`<address> l2authd.lineage2.com`) only works on port 2106, so on the Pi use `L2.ini`.
-4. Start `system/l2.exe` (not the 4game launcher) and log in with any new name and password: the account is created.
-
-| Server | Address | Port |
-|---|---|---|
-| Pi, from the internet | `play.l2-bartz.itjunior.dev` | 2107 |
-| Pi, from the home network | `192.168.0.195` | 2107 |
-| Mac | `192.168.0.247` | 2106 |
-
-## Accounts, GMs and admins
-
-- **Game accounts** are created by logging in (`AUTO_CREATE_ACCOUNTS=True`) or on the website (when email is on).
-- **GM rights** belong to the character (`characters.accesslevel`; 100 = Master). Set them while the character is
-  **offline**, or the game server writes the old value back on logout:
-  ```bash
-  docker compose exec db sh -c 'mariadb -uroot -p"$MARIADB_ROOT_PASSWORD" l2jmobiusessence -e "UPDATE characters SET accesslevel = 100 WHERE char_name = \"jR\" AND online = 0"'
-  ```
-  In game, `//admin` opens the admin panel.
-- **Website admins** (Filament, `/admin`) are separate from game accounts:
-  ```bash
-  docker compose exec site php artisan make:filament-user
-  ```
-
-## What L2 Kage changes
-
-| What | Where | Applied |
-|---|---|---|
-| Screen welcome "Welcome to L2 Kage!" | `overrides/game/config/Custom/ScreenWelcomeMessage.ini` | game restart |
-| Chat announcements at login | `docker/db-init/30-kage.sh` (first start); in game: `//announces` | game restart |
-| 1,000 L-Coin for every new character | `overrides/game/data/stats/players/initialEquipment.xml` | game restart |
-| Weekly gift box: 1,000 L-Coin guaranteed | `site/config/l2j.php` (`gift_box`) | site rebuild |
-| Website gifts / admin items delivered in game | `overrides/game/data/scripts/custom/WebBridge/WebBridge.java` | game restart |
-
-Any file in `overrides/game` (or `overrides/login`) is copied over the server's own at every start: to change a config,
-copy it from `L2J_Mobius_Essence_10.1_SamuraiCrow/dist/game/config/` into `overrides/game/config/` and edit it there.
-If an upstream update changes `initialEquipment.xml`, merge it into the override by hand.
-
-### L-Coin
-
-L-Coin is item 91663. Players get 1,000 on character creation and in every weekly gift box. GMs can give more:
-`//create_item 91663 1000` or `//give_item_target 91663 1000`, or the website admin (Send Item). Monster and raid boss
-L-Coin drops are off by default (`LCoinDropEnable`, `BossDropEnable` in `Rates.ini`; override them to turn them on).
-
-### Seasonal events
-
-L2J Mobius ships events with long date ranges: **Leona's Dungeon** and **Legend of the Water Temple** (NPCs in Giran
-and Aden, until 2034) and **Letter Collector** (word packs from monsters level 40+, until 2029). The website reads the
-same `config.xml` files, so the "Happening now" cards follow the server.
-
-## Updating the sources
+Useful commands:
 
 ```bash
-git -C . pull                  # L2J Mobius (only this chapter is checked out: git sparse-checkout)
-docker compose up -d --build   # Mac
-./build-pi.sh && ...           # Pi, as above
+docker compose ps
+docker compose logs -f login
+docker compose logs -f site
+docker compose restart game
+docker compose down
 ```
 
-After a datapack update, rebuild the website's game data too (`site/README.md`, "Game data").
+The website is available at:
 
-## Troubleshooting
+```text
+http://<host>:<SITE_PORT>
+```
 
-- **Client stays on "loading"**: it isn't reaching the login server. Check the address and port in `L2.ini`, that
-  `Test-NetConnection <address> -Port <login port>` succeeds, and that the account appears in the database.
-- **`OutOfMemoryError` in the game log**: the game server needs more heap (`GAME_JAVA_OPTS`); with geodata at least 6 GB.
-- **Site works elsewhere but not on this Mac after DNS changes**: flush the Mac's DNS cache:
-  `sudo dscacheutil -flushcache; sudo killall -HUP mDNSResponder`.
-- **Port already in use**: another program has 8081/8082 or 2106/7777; change `SITE_PORT`, `LOGIN_PORT`, `GAME_PORT`.
-- **Logs**: `docker compose logs -f game|login|site|tunnel`, and `data/logs/` for the servers' own log files.
+The login and game ports must be reachable by players. If the server is behind
+a router, forward `LOGIN_PORT` and `GAME_PORT` to the Docker host. Do not
+expose the MariaDB port publicly.
+
+## Public website with Cloudflare Tunnel
+
+The website can be published through Cloudflare without opening an HTTP port
+on the router:
+
+1. Create a Cloudflare Tunnel.
+2. Configure its public hostname to route HTTP traffic to `http://site:80`.
+3. Set the tunnel token in `.env`:
+
+   ```dotenv
+   COMPOSE_PROFILES=public
+   CF_TUNNEL_TOKEN=<your-token>
+   WEBSITE_URL=https://your-domain.example
+   TRUSTED_PROXIES=172.16.0.0/12
+   ```
+
+4. Start or recreate the stack:
+
+   ```bash
+   docker compose up -d
+   ```
+
+Keep the tunnel token and all mail credentials private. Configure
+`TRUSTED_PROXIES` to match the networks from which the proxy sends requests;
+do not blindly trust arbitrary client-supplied proxy headers.
+
+## ARM64 deployment
+
+`build-pi.sh` builds both images for Linux ARM64 and creates a `dist/` folder
+containing the images and runtime files. It does not copy `.env` or `data/`.
+
+On an ARM64-capable build machine:
+
+```bash
+./build-pi.sh
+```
+
+Copy `dist/` to the target host using your preferred secure method. On the
+target host:
+
+```bash
+cp .env.example .env
+# Edit .env for the target host
+docker load -i l2jmobius-arm64.tar.gz
+docker compose up -d
+```
+
+Adjust `GAME_JAVA_OPTS` to match the available memory. Running without
+geodata requires less memory, but disables geodata-dependent functionality.
+
+## Connect a game client
+
+Use a clean, legally obtained client compatible with the server protocol.
+Configure its server address and login port according to the deployment:
+
+```text
+ServerAddr=<PUBLIC_HOST>
+ServerPort=<LOGIN_PORT>
+```
+
+Some clients use a hosts-file entry or a client-specific configuration file
+instead. Follow the documentation for the client and patch format you are
+using. Do not distribute client files, private-server patches, or copyrighted
+game assets from this repository.
+
+When `AUTO_CREATE_ACCOUNTS=True`, a new game login can create an account
+automatically. Otherwise, create accounts through the website or the relevant
+database administration process.
+
+## Accounts and GM access
+
+Game accounts are stored in the L2J Mobius database. GM access belongs to a
+character and should be changed while that character is offline:
+
+```bash
+docker compose exec db sh -c \
+  'mariadb -uroot -p"$MARIADB_ROOT_PASSWORD" "$L2J_DB_NAME" \
+  -e "UPDATE characters SET accesslevel = 100 WHERE char_name = \"CharacterName\" AND online = 0"'
+```
+
+In game, `//admin` opens the administrator panel for an authorized character.
+Grant GM access only to trusted administrators.
+
+## Updates and backups
+
+Back up the following before updating:
+
+- `data/mariadb/`
+- `data/geodata/`
+- `data/logs/`
+- `.env`
+- Any local files under `overrides/`
+
+To update the server source or this deployment:
+
+```bash
+docker compose down
+# Update the repository and review .env and overrides/
+docker compose up -d --build
+```
+
+Do not delete `data/mariadb` unless you intentionally want to destroy the
+databases. Test updates on a backup or separate environment first.
+
+## Licensing and responsibility
+
+The upstream L2J Mobius files retain their original license headers. The
+upstream project notes that files may be covered by MIT or GPLv3 depending on
+whether they have been rewritten; verify the header of each file you
+redistribute or modify.
+
+This repository does not provide legal advice. You are responsible for
+complying with applicable laws, software licenses, game terms of service,
+privacy rules, and hosting-provider policies in your jurisdiction.
