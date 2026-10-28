@@ -63,6 +63,9 @@ services:
       DB_PASSWORD: ${DB_PASSWORD}
       LOGIN_HOST: login
       PUBLIC_HOST: ${PUBLIC_HOST}
+      # Optional: the host's LAN address, handed to clients on the home network (LAN_SUBNET) instead of PUBLIC_HOST.
+      LAN_HOST: ${LAN_HOST:-}
+      LAN_SUBNET: ${LAN_SUBNET:-192.168.0.0/16}
       GAME_PORT: ${GAME_PORT:-7777}
       GAME_JAVA_OPTS: ${GAME_JAVA_OPTS:-}
     ports:

@@ -70,6 +70,8 @@ Important settings:
 |---|---|
 | `SERVER_NAME` | Name shown by the website |
 | `PUBLIC_HOST` | Hostname or IP address sent to game clients |
+| `LAN_HOST` | Optional LAN address sent instead to clients on the local network |
+| `LAN_SUBNET` | Local network that receives `LAN_HOST`; defaults to `192.168.0.0/16` |
 | `LOGIN_PORT` | External login-server port; defaults to `2106` |
 | `GAME_PORT` | External game-server port; defaults to `7777` |
 | `SITE_PORT` | Website port on the Docker host; defaults to `8082` |
@@ -134,8 +136,14 @@ http://<host>:<SITE_PORT>
 ```
 
 The login and game ports must be reachable by players. If the server is behind
-a router, forward `LOGIN_PORT` and `GAME_PORT` to the Docker host. Do not
-expose the MariaDB port publicly.
+a router, forward `LOGIN_PORT` and `GAME_PORT` to the Docker host, using the
+same port numbers outside and inside. Do not expose the MariaDB port publicly.
+
+When `PUBLIC_HOST` is a public address, players on the same local network may
+be unable to reach it, because many routers do not route the public address
+back into the network. Set `LAN_HOST` to the Docker host's LAN address: the
+login server then sends that address to clients in `LAN_SUBNET` and
+`PUBLIC_HOST` to everyone else.
 
 ## Public website with Cloudflare Tunnel
 
@@ -201,6 +209,11 @@ Some clients use a hosts-file entry or a client-specific configuration file
 instead. Follow the documentation for the client and patch format you are
 using. Do not distribute client files, private-server patches, or copyrighted
 game assets from this repository.
+
+If the client logs in but shows "You have been disconnected" after a server is
+selected, it cannot reach the game address handed out by the login server. The
+login log lists those addresses (`Updated Gameserver ... IP's`). Check
+`LAN_HOST` for local players and the `GAME_PORT` forward for remote players.
 
 When `AUTO_CREATE_ACCOUNTS=True`, a new game login can create an account
 automatically. Otherwise, create accounts through the website or the relevant
