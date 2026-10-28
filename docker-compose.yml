@@ -1,0 +1,151 @@
+# L2J Mobius Essence 10.1 (Samurai Crow): MariaDB + login server + game server.
+#   docker compose up -d --build
+# The database tables are created automatically the first time the db starts (empty ./data/mariadb).
+services:
+  db:
+    image: mariadb:11.8
+    restart: unless-stopped
+    stop_grace_period: 1m
+    environment:
+      MARIADB_ROOT_PASSWORD: ${DB_ROOT_PASSWORD}
+      MARIADB_USER: ${DB_USER}
+      MARIADB_PASSWORD: ${DB_PASSWORD}
+      L2J_DB_NAME: ${DB_NAME}
+      # Website database users (docker/db-init/20-web.sh)
+      WEB_DB_PASSWORD: ${WEB_DB_PASSWORD}
+      L2WEB_DB_PASSWORD: ${L2WEB_DB_PASSWORD}
+    volumes:
+      - ./data/mariadb:/var/lib/mysql
+      - ./docker/db-init:/docker-entrypoint-initdb.d:ro
+      - ./L2J_Mobius_Essence_10.1_SamuraiCrow/dist/db_installer/sql:/l2j-sql:ro
+    ports:
+      # Only on this Mac, for a database tool (e.g. HeidiSQL/TablePlus) — not exposed to the network.
+      - "127.0.0.1:3307:3306"
+    healthcheck:
+      test: ["CMD", "healthcheck.sh", "--connect", "--innodb_initialized"]
+      interval: 10s
+      timeout: 5s
+      retries: 60
+
+  login:
+    build: .
+    image: l2jmobius-essence:latest
+    command: ["login"]
+    restart: unless-stopped
+    stop_grace_period: 1m
+    environment:
+      DB_HOST: db
+      DB_NAME: ${DB_NAME}
+      DB_USER: ${DB_USER}
+      DB_PASSWORD: ${DB_PASSWORD}
+      AUTO_CREATE_ACCOUNTS: ${AUTO_CREATE_ACCOUNTS:-True}
+      LOGIN_JAVA_OPTS: ${LOGIN_JAVA_OPTS:-}
+    ports:
+      # LOGIN_PORT: the port players connect to (2106 by default; another one when a second server shares the host).
+      - "${LOGIN_PORT:-2106}:2106"
+    volumes:
+      - ./data/logs/login:/opt/l2j/login/log
+      - ./overrides/login:/opt/l2j/overrides/login:ro
+    depends_on:
+      db:
+        condition: service_healthy
+
+  game:
+    image: l2jmobius-essence:latest
+    command: ["game"]
+    restart: unless-stopped
+    # The game server saves every character on shutdown; give it time before docker kills it.
+    stop_grace_period: 2m
+    environment:
+      DB_HOST: db
+      DB_NAME: ${DB_NAME}
+      DB_USER: ${DB_USER}
+      DB_PASSWORD: ${DB_PASSWORD}
+      LOGIN_HOST: login
+      PUBLIC_HOST: ${PUBLIC_HOST}
+      GAME_PORT: ${GAME_PORT:-7777}
+      GAME_JAVA_OPTS: ${GAME_JAVA_OPTS:-}
+    ports:
+      - "${GAME_PORT:-7777}:${GAME_PORT:-7777}"
+    volumes:
+      - ./data/logs/game:/opt/l2j/game/log
+      - ./data/geodata:/opt/l2j/game/data/geodata
+      # Custom configs/html (e.g. the L2 Kage welcome message), copied over the defaults at start.
+      - ./overrides/game:/opt/l2j/overrides/game:ro
+    depends_on:
+      db:
+        condition: service_healthy
+      login:
+        condition: service_started
+
+  # Public website through a Cloudflare Tunnel (your public hostname -> http://site:80): no open web port, HTTPS by
+  # Cloudflare. Only runs with COMPOSE_PROFILES=public and CF_TUNNEL_TOKEN set in .env.
+  tunnel:
+    image: cloudflare/cloudflared:2026.9.1
+    restart: unless-stopped
+    command: tunnel --no-autoupdate run
+    environment:
+      TUNNEL_TOKEN: ${CF_TUNNEL_TOKEN:-}
+    profiles: [public]
+    depends_on:
+      - site
+
+  # The L2 Kage website: Laravel + Inertia + React + Filament admin (site/). Reads game data read-only; game changes
+  # go through l2web.game_actions, applied by the WebBridge script inside the game server.
+  site:
+    build: ./site
+    image: l2jmobius-site:latest
+    restart: unless-stopped
+    ports:
+      - "${SITE_PORT:-8082}:80"
+    environment:
+      APP_KEY: ${SITE_APP_KEY}
+      APP_URL: ${WEBSITE_URL:-http://${PUBLIC_HOST}:${SITE_PORT:-8082}}
+      APP_TIMEZONE: ${TZ:-UTC}
+      DB_CONNECTION: mariadb
+      DB_HOST: db
+      DB_PORT: 3306
+      DB_DATABASE: l2web
+      DB_USERNAME: l2web
+      DB_PASSWORD: ${L2WEB_DB_PASSWORD}
+      GAME_DB_DATABASE: ${DB_NAME}
+      LOGIN_DB_DATABASE: ${DB_NAME}
+      GAME_DB_USERNAME: web
+      GAME_DB_PASSWORD: ${WEB_DB_PASSWORD}
+      SESSION_DRIVER: database
+      CACHE_STORE: database
+      QUEUE_CONNECTION: database
+      L2J_SERVER_NAME: ${SERVER_NAME:-Kage}
+      L2J_LOGIN_HOST: login
+      L2J_GAME_HOST: game
+      L2J_PUBLIC_HOST: ${PUBLIC_HOST}
+      L2J_LOGIN_PORT: ${LOGIN_PORT:-2106}
+      L2J_GAME_PORT: ${GAME_PORT:-7777}
+      L2J_CONFIG_DIR: /l2j/config
+      L2J_CONFIG_DEFAULTS_DIR: /l2j/config-defaults
+      L2J_GEODATA_DIR: /l2j/geodata
+      GIFT_BOX_ENABLED: ${GIFT_BOX_ENABLED:-true}
+      # Same switch as the login server's, so the site tells players whether logging in creates an account.
+      AUTO_CREATE_ACCOUNTS: ${AUTO_CREATE_ACCOUNTS:-True}
+      # Email for registration and password resets. With MAIL_MAILER=log (no email service yet) registration and
+      # "forgot password" stay closed on the site; players create accounts by logging in to the game.
+      MAIL_MAILER: ${MAIL_MAILER:-log}
+      MAIL_HOST: ${MAIL_HOST:-smtp.resend.com}
+      MAIL_PORT: ${MAIL_PORT:-587}
+      MAIL_USERNAME: ${MAIL_USERNAME:-resend}
+      MAIL_PASSWORD: ${MAIL_PASSWORD:-}
+      MAIL_FROM_ADDRESS: ${MAIL_FROM_ADDRESS:-no-reply@example.com}
+      MAIL_FROM_NAME: ${MAIL_FROM_NAME:-L2 Kage}
+      TURNSTILE_SITE_KEY: ${TURNSTILE_SITE_KEY:-}
+      TURNSTILE_SECRET_KEY: ${TURNSTILE_SECRET_KEY:-}
+      TRUSTED_PROXIES: ${TRUSTED_PROXIES:-}
+    volumes:
+      # Not /config: the FrankenPHP image keeps Caddy's own settings there.
+      - ./overrides/game/config:/l2j/config:ro
+      - ./L2J_Mobius_Essence_10.1_SamuraiCrow/dist/game/config:/l2j/config-defaults:ro
+      # Seasonal events (which are running, and where their NPCs stand) for "Happening now".
+      - ./L2J_Mobius_Essence_10.1_SamuraiCrow/dist/game/data/scripts/events:/l2j/events:ro
+      - ./data/geodata:/l2j/geodata:ro
+    depends_on:
+      db:
+        condition: service_healthy

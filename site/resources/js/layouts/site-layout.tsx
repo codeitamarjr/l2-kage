@@ -1,0 +1,116 @@
+import { Head, Link, usePage } from '@inertiajs/react';
+import { useEffect, useState, type ReactNode } from 'react';
+import { useHashScroll, useParallax, useReveal, useScrolled } from '@/hooks/use-page-effects';
+import { pick, useLocale, useT, type Localized } from '@/i18n';
+import type { SharedProps } from '@/types';
+
+type NavItem = { label: Localized; href: string; page?: string };
+
+// Section links on the home page are plain anchors; the other pages are Inertia visits.
+const NAV: NavItem[] = [
+    { label: { en: 'World', pt: 'Mundo' }, href: '/#world' },
+    { label: { en: 'Races', pt: 'Raças' }, href: '/#races' },
+    { label: { en: 'Map', pt: 'Mapa' }, href: '/map', page: 'map' },
+    { label: { en: 'Items', pt: 'Itens' }, href: '/items', page: 'items' },
+    { label: { en: 'Lore', pt: 'História' }, href: '/lore', page: 'lore' },
+    { label: { en: 'Features', pt: 'Recursos' }, href: '/#features' },
+    { label: { en: 'About', pt: 'Sobre' }, href: '/about', page: 'about' },
+];
+
+/** The EN | PT switch: a full page load, so the server renders the page (and its title) in the new language. */
+function LanguageSwitch() {
+    const locale = useLocale();
+    const t = useT();
+
+    return (
+        <div className="lang-switch" role="group" aria-label={t('Language', 'Idioma')}>
+            {(['en', 'pt_BR'] as const).map((code) => (
+                <a key={code} href={`/locale/${code}`} lang={code === 'pt_BR' ? 'pt-BR' : 'en'} aria-current={locale === code ? 'true' : undefined}>
+                    {code === 'pt_BR' ? 'PT' : 'EN'}
+                </a>
+            ))}
+        </div>
+    );
+}
+
+export default function SiteLayout({ children }: { children: ReactNode }) {
+    const { component, url, props: { serverName, seo } } = usePage<SharedProps & { seo?: { title: string } }>();
+    const scrolled = useScrolled();
+    const [menuOpen, setMenuOpen] = useState(false);
+    const locale = useLocale();
+    const t = useT();
+
+    useParallax(url);
+    useReveal(url);
+    useHashScroll(url);
+
+    useEffect(() => setMenuOpen(false), [url]);
+    useEffect(() => {
+        const onKey = (e: KeyboardEvent) => e.key === 'Escape' && setMenuOpen(false);
+        document.addEventListener('keydown', onKey);
+
+        return () => document.removeEventListener('keydown', onKey);
+    }, []);
+
+    return (
+        <main>
+            {/* The same title the server put in the page (App\Services\Seo), kept while browsing. */}
+            <Head title={seo?.title} />
+            <header className={`site-header${scrolled ? ' is-scrolled' : ''}`}>
+                <div className="header-inner">
+                    <Link href="/" className="brand text-gold">
+                        L2 {serverName.toUpperCase()}
+                    </Link>
+                    <nav className={`nav${menuOpen ? ' is-open' : ''}`} id="site-nav">
+                        {NAV.map((item) =>
+                            item.page ? (
+                                <Link key={item.href} href={item.href} aria-current={component === item.page || component.startsWith(`${item.page}/`) ? 'page' : undefined}>
+                                    {pick(locale, item.label)}
+                                </Link>
+                            ) : (
+                                <a key={item.href} href={component === 'home' ? item.href.slice(1) : item.href} onClick={() => setMenuOpen(false)}>
+                                    {pick(locale, item.label)}
+                                </a>
+                            ),
+                        )}
+                    </nav>
+                    <button
+                        className="menu-toggle"
+                        type="button"
+                        aria-expanded={menuOpen}
+                        aria-controls="site-nav"
+                        aria-label={menuOpen ? t('Close menu', 'Fechar menu') : t('Open menu', 'Abrir menu')}
+                        onClick={() => setMenuOpen((open) => !open)}
+                    >
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                    <LanguageSwitch />
+                    <Link href="/account" className="header-cta" aria-current={component === 'account' ? 'page' : undefined}>
+                        {t('Account', 'Conta')}
+                    </Link>
+                </div>
+            </header>
+
+            {children}
+
+            <footer className="site-footer">
+                <p className="footer-brand">LINEAGE II · ESSENCE · SAMURAI CROW</p>
+                <p>
+                    {t(
+                        <>L2 {serverName} is a free, non-commercial fan server, not affiliated with or endorsed by NCSOFT. Lineage II is a trademark of NCSOFT Corporation.</>,
+                        <>L2 {serverName} é um servidor de fãs gratuito e sem fins lucrativos, sem vínculo nem endosso da NCSOFT. Lineage II é uma marca registrada da NCSOFT Corporation.</>,
+                    )}
+                </p>
+                <p>
+                    {t('Powered by', 'Feito com')}{' '}
+                    <a className="text-link" href="https://gitlab.com/MobiusDevelopment/L2J_Mobius" target="_blank" rel="noopener noreferrer">
+                        L2J Mobius
+                    </a>{' '}
+                    (GNU GPL v3).
+                </p>
+            </footer>
+        </main>
+    );
+}

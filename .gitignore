@@ -1,0 +1,16 @@
+# L2 Kage (see README-KAGE.md). The website has its own site/.gitignore.
+
+# Settings and secrets: copy .env.example to .env
+.env
+.env.backup*
+
+# Database, logs and geodata (data/geodata is 2.2 GB, from geodata_542.zip)
+/data/
+
+# Pi package built by build-pi.sh
+/dist/
+
+# L2J Mobius' own Ant build output (build.xml writes to ../build, next to the chapter folder)
+/build/
+
+.DS_Store
