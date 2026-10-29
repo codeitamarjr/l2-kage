@@ -67,6 +67,8 @@ services:
       LAN_HOST: ${LAN_HOST:-}
       LAN_SUBNET: ${LAN_SUBNET:-192.168.0.0/16}
       GAME_PORT: ${GAME_PORT:-7777}
+      # Minutes between saves of online characters (the website shows the last save).
+      CHARACTER_SAVE_MINUTES: ${CHARACTER_SAVE_MINUTES:-5}
       GAME_JAVA_OPTS: ${GAME_JAVA_OPTS:-}
     ports:
       - "${GAME_PORT:-7777}:${GAME_PORT:-7777}"

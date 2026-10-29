@@ -2,7 +2,7 @@ import { Link, usePoll } from '@inertiajs/react';
 import { Divider } from '@/components/decor';
 import PageHero from '@/components/page-hero';
 import { HappeningSection } from '@/components/happening';
-import { CLIENT_DOWNLOAD_URL } from '@/data/links';
+import { CLIENT_DOWNLOAD_URL, CLIENT_INI_URL, CLIENT_START_URL } from '@/data/links';
 import { languageTag, pick, raceName, useLocale, useT, type Localized } from '@/i18n';
 import type { EventFeed, ServerStatus } from '@/types';
 
@@ -112,6 +112,8 @@ export default function About({ status, events }: Props) {
     const raceTotal = races.reduce((sum, race) => sum + race.count, 0);
     const updated = new Date(status.generatedAt).toLocaleTimeString(languageTag(locale), { hour: '2-digit', minute: '2-digit', second: '2-digit' });
     const address = server.address ?? t('server-address', 'endereço-do-servidor');
+    // The redirect targets the server's DNS name when it has one, so players keep working if its IP changes.
+    const connectHost = server.hostname ?? address;
 
     return (
         <>
@@ -136,11 +138,6 @@ export default function About({ status, events }: Props) {
                     <div className="status-grid">
                         <StatusCard label={t('Login Server', 'Servidor de Login')} up={status.status.login} note={`${t('Port', 'Porta')} ${server.loginPort}`} />
                         <StatusCard label={t('Game Server', 'Servidor do Jogo')} up={status.status.game} note={`${t('Port', 'Porta')} ${server.gamePort}`} />
-                        <div className="status-card">
-                            <p className="status-label">{t('Players Online', 'Jogadores Online')}</p>
-                            <p className="status-value status-number text-gold">{status.players ? fmt(status.players.online) : '—'}</p>
-                            <p className="status-note">{t('Right now', 'Agora mesmo')}</p>
-                        </div>
                         <div className="status-card">
                             <p className="status-label">Geodata</p>
                             <p className="status-value status-number text-gold">{fmt(server.geodataRegions)}</p>
@@ -263,7 +260,6 @@ export default function About({ status, events }: Props) {
                         <Ranking title={t('Highest Level', 'Maior Nível')} rows={(top?.level ?? []).map((row) => ({ ...row, value: `Lv ${row.level}` }))} />
                         <Ranking title={t('Most PvP Kills', 'Mais Vitórias PvP')} rows={(top?.pvp ?? []).map((row) => ({ ...row, value: fmt(row.pvp) }))} />
                     </div>
-                    <p className="about-footnote">{t('Game Masters are not ranked.', 'Game Masters não entram no ranking.')}</p>
                 </div>
             </section>
 
@@ -296,74 +292,111 @@ export default function About({ status, events }: Props) {
                         <li>
                             <h3>{t('Get the client', 'Consiga o cliente')}</h3>
                             <p>
-                                {t(
-                                    <>
-                                        A <strong>Lineage II Essence: Samurai Crow</strong> client (EU, protocol 542) with a system patch for private servers (Windows;
-                                        on macOS through CrossOver, Whisky or a virtual machine).
-                                    </>,
-                                    <>
-                                        Um cliente <strong>Lineage II Essence: Samurai Crow</strong> (EU, protocolo 542) com um system patch para servidores privados
-                                        (Windows; no macOS pelo CrossOver, Whisky ou uma máquina virtual).
-                                    </>,
-                                )}
-                            </p>
-                            <p>
-                                {t(
-                                    'Start from a clean, unmodified copy of the game, then apply the system patch. Clients repacked by other servers may carry changed files or malware.',
-                                    'Comece por uma cópia limpa do jogo, sem modificações, e só depois aplique o system patch. Clientes reempacotados por outros servidores podem trazer arquivos alterados ou malware.',
-                                )}
-                            </p>
-                            <p>
                                 <a className="btn btn-outline btn-small" href={CLIENT_DOWNLOAD_URL} target="_blank" rel="noopener noreferrer">
-                                    {t('Download the clean client', 'Baixar o cliente limpo')}
+                                    {t('Download Client', 'Baixar Cliente')}
                                 </a>
                             </p>
                         </li>
                         <li>
                             <h3>{t('Point it to the server', 'Aponte para o servidor')}</h3>
-                            <p>
-                                {t(
-                                    <>
-                                        Set <code>ServerAddr={address}</code> in the patched system's <code>L2.ini</code>, or add this line to your{' '}
-                                        <code>hosts</code> file (as Administrator):
-                                    </>,
-                                    <>
-                                        Defina <code>ServerAddr={address}</code> no <code>L2.ini</code> do system com patch, ou adicione esta linha ao seu
-                                        arquivo <code>hosts</code> (como Administrador):
-                                    </>,
-                                )}
-                            </p>
-                            <pre>
-                                <code>{address} l2authd.lineage2.com</code>
-                            </pre>
                             {server.loginPort !== 2106 ? (
-                                <p>
-                                    {t(
-                                        <>
-                                            This server's login port is <strong>{server.loginPort}</strong>, not the usual 2106: also set{' '}
-                                            <code>ServerPort={server.loginPort}</code> in <code>L2.ini</code> (the hosts file alone is not enough).
-                                        </>,
-                                        <>
-                                            A porta de login deste servidor é <strong>{server.loginPort}</strong>, não a 2106 de sempre: defina também{' '}
-                                            <code>ServerPort={server.loginPort}</code> no <code>L2.ini</code> (só o arquivo hosts não basta).
-                                        </>,
-                                    )}
-                                </p>
-                            ) : null}
-                            {server.hostname ? (
-                                <p>
-                                    {t(
-                                        <>
-                                            Using a launcher <code>.bat</code> instead? Point it to <strong>{server.hostname}</strong>: it keeps working even if the
-                                            server's IP changes.
-                                        </>,
-                                        <>
-                                            Usa um launcher <code>.bat</code>? Aponte para <strong>{server.hostname}</strong>: ele continua funcionando mesmo se o IP
-                                            do servidor mudar.
-                                        </>,
-                                    )}
-                                </p>
-                            ) : null}
+                                <>
+                                    <p>
+                                        {t(
+                                            <>
+                                                The Samurai Crow client always logs in on port 2106, but this server's login port is <strong>{server.loginPort}</strong>.
+                                                Windows can redirect it for you, in three steps:
+                                            </>,
+                                            <>
+                                                O cliente Samurai Crow sempre entra pela porta 2106, mas a porta de login deste servidor é{' '}
+                                                <strong>{server.loginPort}</strong>. O Windows pode fazer o redirecionamento, em três passos:
+                                            </>,
+                                        )}
+                                    </p>
+                                    <p>
+                                        {t(
+                                            <>
+                                                <strong>1.</strong> Download both files into the client's <code>system</code> folder:
+                                            </>,
+                                            <>
+                                                <strong>1.</strong> Baixe os dois arquivos para a pasta <code>system</code> do cliente:
+                                            </>,
+                                        )}
+                                    </p>
+                                    <p className="connect-downloads">
+                                        <a className="btn btn-outline btn-small" href={CLIENT_INI_URL} download>
+                                            l2-kage.ini
+                                        </a>
+                                        <a className="btn btn-outline btn-small" href={CLIENT_START_URL} download>
+                                            start-l2-kage.bat
+                                        </a>
+                                    </p>
+                                    <p>
+                                        {t(
+                                            <>
+                                                <strong>2.</strong> Open the Command Prompt <strong>as Administrator</strong> (Start, type <code>cmd</code>, right-click it,
+                                                Run as administrator) and run this once:
+                                            </>,
+                                            <>
+                                                <strong>2.</strong> Abra o Prompt de Comando <strong>como Administrador</strong> (Iniciar, digite <code>cmd</code>, clique com
+                                                o botão direito, Executar como administrador) e rode uma vez:
+                                            </>,
+                                        )}
+                                    </p>
+                                    <pre>
+                                        <code>{`netsh interface portproxy add v4tov4 listenaddress=127.0.0.2 listenport=2106 connectaddress=${connectHost} connectport=${server.loginPort}`}</code>
+                                    </pre>
+                                    <p>
+                                        {t(
+                                            <>
+                                                <strong>3.</strong> Start the game with <code>start-l2-kage.bat</code> (not the launcher). It opens the client with{' '}
+                                                <code>l2-kage.ini</code>, which logs in through the redirect.
+                                            </>,
+                                            <>
+                                                <strong>3.</strong> Abra o jogo pelo <code>start-l2-kage.bat</code> (não pelo launcher). Ele abre o cliente com o{' '}
+                                                <code>l2-kage.ini</code>, que entra pelo redirecionamento.
+                                            </>,
+                                        )}
+                                    </p>
+                                    <p>
+                                        {t(
+                                            'The redirect stays after restarting Windows. To remove it, run this as Administrator:',
+                                            'O redirecionamento continua depois de reiniciar o Windows. Para removê-lo, rode como Administrador:',
+                                        )}
+                                    </p>
+                                    <pre>
+                                        <code>netsh interface portproxy delete v4tov4 listenaddress=127.0.0.2 listenport=2106</code>
+                                    </pre>
+                                    <p>
+                                        {t(
+                                            <>
+                                                To see your redirects: <code>netsh interface portproxy show v4tov4</code>
+                                            </>,
+                                            <>
+                                                Para ver seus redirecionamentos: <code>netsh interface portproxy show v4tov4</code>
+                                            </>,
+                                        )}
+                                    </p>
+                                </>
+                            ) : (
+                                <>
+                                    <p>
+                                        {t(
+                                            <>
+                                                Set <code>ServerAddr={address}</code> in the patched system's <code>L2.ini</code>, or add this line to your{' '}
+                                                <code>hosts</code> file (as Administrator):
+                                            </>,
+                                            <>
+                                                Defina <code>ServerAddr={address}</code> no <code>L2.ini</code> do system com patch, ou adicione esta linha ao seu
+                                                arquivo <code>hosts</code> (como Administrador):
+                                            </>,
+                                        )}
+                                    </p>
+                                    <pre>
+                                        <code>{address} l2authd.lineage2.com</code>
+                                    </pre>
+                                </>
+                            )}
                         </li>
                         <li>
                             <h3>{t('Create your account and log in', 'Crie sua conta e entre')}</h3>

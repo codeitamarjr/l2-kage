@@ -5,6 +5,10 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="theme-color" content="#0d0b09">
         <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+        {{-- The visitor's theme (header toggle, saved in this browser), applied before the first paint so there's no flash. --}}
+        <script>
+            try { if (localStorage.getItem('theme') === 'light') document.documentElement.dataset.theme = 'light'; } catch (e) {}
+        </script>
 
         @viteReactRefresh
         @vite(['resources/css/app.css', 'resources/js/app.tsx', "resources/js/pages/{$page['component']}.tsx"])
@@ -17,7 +21,11 @@
             <title>{{ $seo['title'] }}</title>
         </x-inertia::head>
         <meta name="description" content="{{ $seo['description'] }}">
-        <meta name="robots" content="{{ $seo['robots'] }}">
+        <meta name="robots" content="{{ $seo['robots'] }}{{ config('crawlers.enabled') ? ', noai, noimageai' : '' }}">
+        @if (config('crawlers.enabled'))
+            {{-- Opt out of AI training and text and data mining (W3C TDMRep). --}}
+            <meta name="tdm-reservation" content="1">
+        @endif
         <link rel="canonical" href="{{ $seo['canonical'] }}">
         <meta property="og:type" content="website">
         <meta property="og:site_name" content="{{ \App\Services\Seo::brand() }}">

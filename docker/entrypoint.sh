@@ -50,11 +50,20 @@ case "${1:-game}" in
 		set_ini config/Server.ini LoginHost "$LOGIN_HOST"
 		# The port clients connect to; the login server hands it out, so it must match the published port.
 		set_ini config/Server.ini GameserverPort "${GAME_PORT:-7777}"
-		# Address the login server hands to game clients: the host's address, not the container's.
+		# How often online characters are saved to the database (the website shows the last save). Upstream: 15.
+		set_ini config/General.ini CharacterDataStoreInterval "${CHARACTER_SAVE_MINUTES:-5}"
+		# Address the login server hands to game clients: the host's address, not the container's. With LAN_HOST set,
+		# clients on the home network (LAN_SUBNET) get the host's LAN address and everyone else PUBLIC_HOST, so home
+		# players don't depend on the router looping the public address back in.
+		lan_define=""
+		if [ -n "${LAN_HOST:-}" ]; then
+			lan_define="<define subnet=\"${LAN_SUBNET:-192.168.0.0/16}\" address=\"${LAN_HOST}\" />"
+		fi
 		cat > config/ipconfig.xml <<EOF
 <?xml version="1.0" encoding="UTF-8"?>
 <gameserver address="${PUBLIC_HOST}" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../data/xsd/ipconfig.xsd">
-	<define subnet="127.0.0.0/8" address="${PUBLIC_HOST}" />
+	<define subnet="127.0.0.0/8" address="${LAN_HOST:-$PUBLIC_HOST}" />
+	${lan_define}
 </gameserver>
 EOF
 		exec java ${GAME_JAVA_OPTS:-$(cat java.cfg)} -jar ../libs/GameServer.jar

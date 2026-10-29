@@ -3,6 +3,7 @@
 //   classes: id -> name                  (stats/players/classList.xml)
 //   exp:     level -> total XP needed    (stats/players/experience.xml; strings, they pass 2^53)
 //   bosses:  npc id -> [name, level]     raid and grand bosses (stats/npcs/*.xml)
+//   huntPass: per step [freeId, freeCount, premiumId, premiumCount]   the Hunt Pass rewards (HuntPass.xml)
 // Re-run after updating the datapack (from site/):  node resources/data/build-gamedata.mjs
 import fs from 'node:fs';
 import path from 'node:path';
@@ -48,6 +49,12 @@ for (const xml of xmlFiles(path.join(dp, 'stats/npcs'))) {
 	}
 }
 
+const huntPass = [];
+const huntXml = fs.readFileSync(path.join(dp, 'HuntPass.xml'), 'utf8');
+for (const m of huntXml.matchAll(/<item\s+([^>]*?)\/>/g)) {
+	huntPass.push([Number(attr(m[1], 'id')), Number(attr(m[1], 'count')), Number(attr(m[1], 'premiumId')), Number(attr(m[1], 'premiumCount'))]);
+}
+
 fs.mkdirSync(path.dirname(out), { recursive: true });
-fs.writeFileSync(out, JSON.stringify({ items, classes, exp, bosses }));
-console.log(`Wrote ${path.relative(root, out)}: ${Object.keys(items).length} items, ${Object.keys(classes).length} classes, ${Object.keys(exp).length} levels, ${Object.keys(bosses).length} bosses (${(fs.statSync(out).size / 1024).toFixed(0)} KB)`);
+fs.writeFileSync(out, JSON.stringify({ items, classes, exp, bosses, huntPass }));
+console.log(`Wrote ${path.relative(root, out)}: ${Object.keys(items).length} items, ${Object.keys(classes).length} classes, ${Object.keys(exp).length} levels, ${Object.keys(bosses).length} bosses, ${huntPass.length} Hunt Pass steps (${(fs.statSync(out).size / 1024).toFixed(0)} KB)`);

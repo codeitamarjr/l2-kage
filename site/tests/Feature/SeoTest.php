@@ -19,16 +19,16 @@ class SeoTest extends TestCase
             ->assertSee('"@type":"WebSite"', false);
 
         $this->get('/lore')->assertSee('<title>Lore of Aden: Lineage II History to Essence Samurai Crow | L2 Kage</title>', false)
-            ->assertSee('<meta name="robots" content="index, follow">', false);
+            ->assertSee('<meta name="robots" content="index, follow, noai, noimageai">', false);
     }
 
     public function test_private_pages_and_searches_are_not_indexed(): void
     {
         foreach (['/account', '/forgot-password', '/items?q=sword'] as $url) {
-            $this->get($url)->assertOk()->assertSee('<meta name="robots" content="noindex, follow">', false);
+            $this->get($url)->assertOk()->assertSee('<meta name="robots" content="noindex, follow, noai, noimageai">', false);
         }
 
-        $this->get('/items')->assertSee('<meta name="robots" content="index, follow">', false);
+        $this->get('/items')->assertSee('<meta name="robots" content="index, follow, noai, noimageai">', false);
     }
 
     public function test_robots_txt_points_to_the_sitemap(): void

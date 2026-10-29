@@ -5,6 +5,7 @@ namespace App\Http\Middleware;
 use App\Models\Game\Account;
 use App\Rules\Turnstile;
 use App\Services\GameAccounts;
+use App\Services\Premium;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Inertia\Middleware;
@@ -56,7 +57,19 @@ class HandleInertiaRequests extends Middleware
                 /** @var Account|null $account */
                 $account = Auth::guard('player')->user();
 
-                return $account ? ['login' => $account->login, 'gm' => $account->isGameMaster()] : null;
+                if (! $account) {
+                    return null;
+                }
+
+                $premium = app(Premium::class);
+                $until = $premium->until($account->login);
+
+                // premium: when the account's premium ends and what it gives (the header star, the player area).
+                return [
+                    'login' => $account->login,
+                    'gm' => $account->isGameMaster(),
+                    'premium' => $until ? ['until' => $until->toIso8601String(), 'bonuses' => $premium->bonuses()] : null,
+                ];
             },
         ];
     }

@@ -25,6 +25,6 @@ class AccountGiftController extends Controller
         $data = $request->validate(['character_id' => ['required', 'integer']], ['character_id.*' => __('Choose a character to receive the box.')]);
         $giftBox->claim($account, (int) $data['character_id']);
 
-        return redirect()->route('account');
+        return redirect()->route('account.orders');
     }
 }

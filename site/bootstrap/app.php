@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Middleware\BlockCrawlers;
 use App\Http\Middleware\HandleInertiaRequests;
 use App\Http\Middleware\SetLocale;
 use Illuminate\Foundation\Application;
@@ -14,6 +15,9 @@ return Application::configure(basePath: dirname(__DIR__))
         health: '/up',
     )
     ->withMiddleware(function (Middleware $middleware): void {
+        // AI and scraper bots get a 403 before anything else runs.
+        $middleware->web(prepend: [BlockCrawlers::class]);
+
         $middleware->web(append: [
             SetLocale::class,
             HandleInertiaRequests::class,

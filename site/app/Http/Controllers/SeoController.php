@@ -22,6 +22,9 @@ class SeoController extends Controller
             'Disallow: /register/confirm/',
             'Disallow: /reset-password/',
             '',
+            // AI training and answer bots, and SEO scrapers (config/crawlers.php): the whole site is off limits.
+            ...array_map(fn (string $bot): string => "User-agent: {$bot}", config('crawlers.enabled') ? config('crawlers.robots') : []),
+            ...(config('crawlers.enabled') ? ['Disallow: /', ''] : []),
             'Sitemap: '.url('/sitemap.xml'),
         ];
 
@@ -38,7 +41,7 @@ class SeoController extends Controller
             $itemsDate = $itemsUpdated ? substr($itemsUpdated, 0, 10) : null;
             $urls = [
                 ['/', 'daily', '1.0', null], ['/about', 'hourly', '0.8', null], ['/map', 'hourly', '0.8', null],
-                ['/lore', 'monthly', '0.7', null], ['/items', 'weekly', '0.8', $itemsDate], ['/register', 'monthly', '0.6', null],
+                ['/lore', 'monthly', '0.7', null], ['/treasury', 'weekly', '0.8', null], ['/items', 'weekly', '0.8', $itemsDate], ['/register', 'monthly', '0.6', null],
             ];
 
             foreach (DB::table('itemdb_items')->orderBy('id')->pluck('id') as $id) {

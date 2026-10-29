@@ -5,6 +5,7 @@ namespace App\Services;
 use App\Models\Game\Account;
 use App\Models\Game\Character;
 use App\Models\GameAction;
+use App\Models\GiftBoxTemplate;
 use App\Models\GiftClaim;
 use App\Services\L2j\GameData;
 use Carbon\CarbonImmutable;
@@ -36,11 +37,14 @@ class GiftBox
     {
         $week = $this->weekStart();
         $claim = GiftClaim::with('gameAction')->where('account', $account->login)->whereDate('week_start', $week)->first();
+        $template = $this->activeTemplate();
 
         return [
             'enabled' => (bool) config('l2j.gift_box.enabled'),
             'minLevel' => $this->minLevel(),
             'nextAt' => $week->addWeek()->toIso8601String(),
+            'name' => $template['name'] ?? null,
+            'description' => $template['description'] ?? null,
             'contents' => $this->contents(),
             'eligible' => $this->eligibleCharacters($account)
                 ->map(fn (Character $c): array => ['id' => $c->charId, 'name' => $c->char_name, 'level' => $c->level])
@@ -114,8 +118,15 @@ class GiftBox
      */
     public function roll(int $level): array
     {
-        $items = array_map(fn (array $entry): array => $this->item($entry, $level, false), config('l2j.gift_box.guaranteed'));
-        $bonus = config('l2j.gift_box.bonus');
+        $template = $this->activeTemplate();
+        $guaranteed = $template['guaranteed'];
+        $bonus = $template['bonus'];
+        $items = array_map(fn (array $entry): array => $this->item($entry, $level, false), $guaranteed);
+
+        if ($bonus === []) {
+            return $items;
+        }
+
         $ticket = random_int(1, (int) array_sum(array_column($bonus, 'weight')));
 
         foreach ($bonus as $entry) {
@@ -137,18 +148,19 @@ class GiftBox
      */
     public function contents(): array
     {
-        $bonus = config('l2j.gift_box.bonus');
+        $template = $this->activeTemplate();
+        $bonus = $template['bonus'];
         $total = array_sum(array_column($bonus, 'weight'));
 
         return [
             'guaranteed' => array_map(
-                fn (array $entry): array => ['name' => $this->gameData->item((int) $entry['item'])['name'], 'count' => $entry['count']],
-                config('l2j.gift_box.guaranteed'),
+                fn (array $entry): array => ['name' => $this->entryName($entry), 'count' => (int) $entry['count']],
+                $template['guaranteed'],
             ),
             'bonus' => array_map(fn (array $entry): array => [
-                'name' => is_string($entry['item']) ? $this->gradeLabel($entry['item']) : $this->gameData->item($entry['item'])['name'],
-                'count' => $entry['count'],
-                'chance' => round($entry['weight'] / $total * 100, 1),
+                'name' => $this->entryName($entry),
+                'count' => (int) $entry['count'],
+                'chance' => $total === 0 ? 0.0 : round($entry['weight'] / $total * 100, 1),
             ], $bonus),
         ];
     }
@@ -198,6 +210,16 @@ class GiftBox
         return $match;
     }
 
+    /**
+     * An entry's name for the contents list: the item's name, or "(your grade)" for a grade key.
+     *
+     * @param  array{item: int|string}  $entry
+     */
+    private function entryName(array $entry): string
+    {
+        return is_string($entry['item']) ? $this->gradeLabel($entry['item']) : $this->gameData->item($entry['item'])['name'];
+    }
+
     private function gradeLabel(string $key): string
     {
         return match ($key) {
@@ -211,5 +233,26 @@ class GiftBox
     private function minLevel(): int
     {
         return (int) config('l2j.gift_box.min_level');
+    }
+
+    /**
+     * @return array{guaranteed: array<int, array{item: int|string, count: int}>, bonus: array<int, array{item: int|string, count: int, weight: int}>, name: string|null, description: string|null}
+     */
+    private function activeTemplate(): array
+    {
+        $template = GiftBoxTemplate::query()
+            ->activeAt(CarbonImmutable::now())
+            ->first();
+
+        if ($template) {
+            return $template->data();
+        }
+
+        return [
+            'guaranteed' => config('l2j.gift_box.guaranteed'),
+            'bonus' => config('l2j.gift_box.bonus'),
+            'name' => null,
+            'description' => null,
+        ];
     }
 }

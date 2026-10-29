@@ -6,6 +6,7 @@ export default function LoreEn() {
 	return (
 		<>
 			<PageHero
+				className="history-hero"
 				kicker="The History of the World"
 				title="Lore of Aden"
 				tagline="Before the castles and the clans, before the dragons slept beneath the earth, there was only a single sphere that held everything and nothing at all."

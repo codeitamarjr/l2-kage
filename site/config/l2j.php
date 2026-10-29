@@ -90,4 +90,194 @@ return [
             'S' => ['from' => 76, 'enchant_weapon' => 959, 'enchant_armor' => 960, 'blessed_enchant_weapon' => 6577],
         ],
     ],
+
+    // L-Coin every new character starts with, shown on the Passes page. It must match the game server's
+    // overrides/game/data/stats/players/initialEquipment.xml (item 91663).
+    'welcome_lcoin' => 1_000,
+
+    /*
+     * Kage Pass (player area): once per game account per season, a player spends L-Coin from one of their characters'
+     * bags and that character receives the season's rewards by in-game mail. The game server takes the L-Coin and
+     * sends the mail in one step (the WebBridge "buy_pass" action), so a character without enough L-Coin gets nothing
+     * and the player can try again. Modeled on the official L2PASS Season 1 free track. A mail carries at most 8
+     * items. A new season is a new "season" key: every account can claim again.
+     */
+    'pass' => [
+        'enabled' => (bool) env('KAGE_PASS_ENABLED', true),
+        'season' => 'season-1',
+        'name' => 'Kage Pass: Season 1',
+        // The last day it can be claimed (app time zone).
+        'ends' => '2027-01-19',
+        'price' => ['item' => 91663, 'count' => 1_000],  // L-Coin
+        'mail_subject' => 'Your Kage Pass: Season 1',
+        'mail_text' => 'Thank you for joining the Kage Pass, Season 1. Take your rewards from the attachments. Good hunting!',
+
+        'rewards' => [
+            ['item' => 3031, 'count' => 5_000],   // Spirit Ore
+            ['item' => 90907, 'count' => 3_000],  // Soulshot Ticket
+            ['item' => 90405, 'count' => 400],    // My Teleport Scroll
+            ['item' => 49662, 'count' => 5],      // Stylish Color Title
+            ['item' => 49674, 'count' => 10],     // XP Growth Scroll
+            ['item' => 94269, 'count' => 10],     // Scroll: Boost Attack
+            ['item' => 94271, 'count' => 10],     // Scroll: Boost Defense
+            ['item' => 91641, 'count' => 5],      // Sayha's Blessing
+        ],
+    ],
+
+    /*
+     * Class packages (player area, shown on the landing page and /packages): a full set for one archetype (weapon,
+     * armor, jewelry) in three tiers, bought with L-Coin from a character's bag like the Kage Pass (the WebBridge
+     * "buy_pass" action, which splits more than 8 items into several mails). Each package (tier + archetype) once per
+     * game account per season. Items are the Sealed versions (they can't be traded), picked from the datapack's own
+     * B-grade, +6 A-grade and boss weapon packs. "classes" are the class ids (the whole class tree) the site suggests
+     * the archetype for.
+     */
+    'packages' => [
+        'enabled' => (bool) env('CLASS_PACKAGES_ENABLED', true),
+        'season' => 'season-1',
+        'price_item' => 91663,  // L-Coin
+        'mail_subject' => 'Your L2 Kage class package',
+        'mail_text' => 'Thank you for your purchase. Take your gear from the attachments; a package arrives in more than one mail. Good hunting!',
+
+        'tiers' => [
+            'starter' => [
+                'name' => ['en' => 'Starter', 'pt' => 'Iniciante'],
+                'grade' => 'B',
+                'price' => 5_000,
+                'enchant' => 4,
+                'shield' => 94934,  // Doom Shield
+                'armor' => [
+                    'heavy' => [93502, 93506, 93550, 93526, 93538],  // Blue Wolf Breastplate, Gaiters, Helmet, Gloves, Boots (Heavy)
+                    'light' => [93511, 93551, 93527, 93539],         // Blue Wolf Leather Armor, Helmet, Gloves, Boots (Light)
+                    'robe' => [93514, 93517, 93552, 93528, 93540],   // Blue Wolf Tunic, Stockings, Helmet, Gloves, Boots (Robe)
+                ],
+                // Black Ore Earring x2, Ring x2, Necklace
+                'jewelry' => [92384, 92384, 92385, 92385, 92386],
+            ],
+            'advanced' => [
+                'name' => ['en' => 'Advanced', 'pt' => 'Avançado'],
+                'grade' => 'A',
+                'price' => 20_000,
+                'enchant' => 6,
+                'shield' => 92276,  // Shield of Nightmare
+                'armor' => [
+                    'heavy' => [92262, 92310, 92286, 92298],  // Majestic Plate Armor, Circlet, Gauntlets, Boots (Heavy)
+                    'light' => [92267, 92311, 92287, 92299],  // Majestic Leather Armor, Circlet, Gauntlets, Boots (Light)
+                    'robe' => [92272, 92312, 92288, 92300],   // Majestic Robe, Circlet, Gauntlets, Boots (Robe)
+                ],
+                // Majestic Earring x2, Ring x2, Necklace
+                'jewelry' => [95425, 95425, 95394, 95394, 95429],
+            ],
+            'elite' => [
+                'name' => ['en' => 'Elite', 'pt' => 'Elite'],
+                'grade' => 'A',
+                'price' => 60_000,
+                'enchant' => 8,
+                'shield' => 95666,  // Shield of Protection
+                'armor' => [
+                    'heavy' => [100329, 100330, 95935, 100341, 100342],  // Elegia Breastplate, Gaiters, Helmet of Protection, Elegia Gauntlets, Boots
+                    'light' => [100333, 100334, 95935, 100341, 100342],  // Elegia Leather Armor, Leggings, ...
+                    'robe' => [100337, 100338, 95935, 100341, 100342],   // Elegia Tunic, Stockings, ...
+                ],
+                // Zaken's Earring, Orfen's Earring, Baium's Ring, Queen Ant's Ring, Frintezza's Necklace
+                'jewelry' => [95331, 95328, 95330, 95327, 95333],
+            ],
+        ],
+
+        // weapons: tier => item id (Sealed); armor: heavy, light or robe.
+        'archetypes' => [
+            'knight' => [
+                'name' => ['en' => 'Knight', 'pt' => 'Cavaleiro'],
+                'role' => ['en' => 'Sword and shield', 'pt' => 'Espada e escudo'],
+                'armor' => 'heavy',
+                'shield' => true,
+                'weapons' => ['starter' => 93422, 'advanced' => 92955, 'elite' => 93291],  // Damascus Sword, Sirra's Blade, Zaken's Blood Sword
+                'classes' => [0, 4, 5, 6, 18, 19, 20, 21, 31, 32, 33, 90, 91, 99, 100, 106, ...range(196, 207), ...range(240, 243)],
+            ],
+            'samurai' => [
+                'name' => ['en' => 'Samurai', 'pt' => 'Samurai'],
+                'role' => ['en' => 'One-handed sword', 'pt' => 'Espada de uma mão'],
+                'armor' => 'heavy',
+                'weapons' => ['starter' => 93422, 'advanced' => 92955, 'elite' => 93291],
+                'classes' => range(260, 263),
+            ],
+            'duelist' => [
+                'name' => ['en' => 'Duelist', 'pt' => 'Duelista'],
+                'role' => ['en' => 'Dual swords', 'pt' => 'Espadas duplas'],
+                'armor' => 'heavy',
+                'weapons' => ['starter' => 93430, 'advanced' => 92966, 'elite' => 97963],  // Samurai Long Sword*Samurai Long Sword, Tallum Blade*Damascus Sword, Juriel's Dual Swords
+                'classes' => [2, 34, 88, 107],
+            ],
+            'titan' => [
+                'name' => ['en' => 'Titan', 'pt' => 'Titã'],
+                'role' => ['en' => 'Two-handed sword', 'pt' => 'Espada de duas mãos'],
+                'armor' => 'heavy',
+                'weapons' => ['starter' => 93431, 'advanced' => 92956, 'elite' => 93293],  // Guardian's Sword, Sword of Ipos, Orfen's Venom Sword
+                'classes' => [44, 45, 46, 113],
+            ],
+            'lancer' => [
+                'name' => ['en' => 'Lancer', 'pt' => 'Lanceiro'],
+                'role' => ['en' => 'Polearm', 'pt' => 'Lança'],
+                'armor' => 'heavy',
+                'weapons' => ['starter' => 93423, 'advanced' => 92960, 'elite' => 97302],  // Lance, Tiphon's Spear, Gorde's Flame Spear
+                'classes' => [1, 3, 89, ...range(217, 220)],
+            ],
+            'artisan' => [
+                'name' => ['en' => 'Dwarf', 'pt' => 'Anão'],
+                'role' => ['en' => 'Blunt weapon', 'pt' => 'Arma de impacto'],
+                'armor' => 'heavy',
+                'weapons' => ['starter' => 93425, 'advanced' => 92957, 'elite' => 93295],  // Art of Battle Axe, Barakiel's Axe, Queen Ant's Stone Breaker
+                'classes' => [53, 54, 55, 56, 57, 117, 118],
+            ],
+            'rogue' => [
+                'name' => ['en' => 'Rogue', 'pt' => 'Ladino'],
+                'role' => ['en' => 'Dagger', 'pt' => 'Adaga'],
+                'armor' => 'light',
+                'weapons' => ['starter' => 93427, 'advanced' => 92959, 'elite' => 93294],  // Demon's Dagger, Naga's Storm, Baium's Thunder Breaker
+                'classes' => [7, 8, 22, 23, 35, 36, 93, 101, 108, ...range(221, 228), ...range(251, 254)],
+            ],
+            'archer' => [
+                'name' => ['en' => 'Archer', 'pt' => 'Arqueiro'],
+                'role' => ['en' => 'Bow', 'pt' => 'Arco'],
+                'armor' => 'light',
+                'weapons' => ['starter' => 93429, 'advanced' => 92961, 'elite' => 93292],  // Bow of Peril, Shyeed's Bow, Core's Plasmic Bow
+                'classes' => [9, 24, 37, 92, 102, 109, 130, 134],
+            ],
+            'brawler' => [
+                'name' => ['en' => 'Brawler', 'pt' => 'Lutador'],
+                'role' => ['en' => 'Fists', 'pt' => 'Punhos'],
+                'armor' => 'light',
+                'weapons' => ['starter' => 93428, 'advanced' => 92962, 'elite' => 97961],  // Bellion Cestus, Sobekk's Hurricane, Anais' Fists
+                'classes' => [47, 48, 114, ...range(247, 250)],
+            ],
+            'kamael' => [
+                'name' => ['en' => 'Kamael', 'pt' => 'Kamael'],
+                'role' => ['en' => 'Ancient sword', 'pt' => 'Espada antiga'],
+                'armor' => 'light',
+                'weapons' => ['starter' => 93434, 'advanced' => 92967, 'elite' => 97957],  // Dismantler, Durendal, Galaxia's Ancient Sword
+                'classes' => [125, 126, 127, 131, ...range(192, 195)],
+            ],
+            'gunner' => [
+                'name' => ['en' => 'Gunner', 'pt' => 'Atirador'],
+                'role' => ['en' => 'Pistols', 'pt' => 'Pistolas'],
+                'armor' => 'light',
+                'weapons' => ['starter' => 95418, 'advanced' => 95420, 'elite' => 95422],  // Volcano, Zephyrus, Anakim's Divine Pistols
+                'classes' => range(208, 211),
+            ],
+            'wizard' => [
+                'name' => ['en' => 'Wizard', 'pt' => 'Mago'],
+                'role' => ['en' => 'Staff and robe', 'pt' => 'Cajado e manto'],
+                'armor' => 'robe',
+                'weapons' => ['starter' => 93426, 'advanced' => 92965, 'elite' => 96269],  // Staff of Evil Spirits, Daimon Crystal, Beleth's Soul Eater
+                'classes' => [10, 11, 12, 13, 14, 25, 26, 27, 28, 38, 39, 40, 41, 94, 95, 96, 103, 104, 110, 111, ...range(236, 239)],
+            ],
+            'healer' => [
+                'name' => ['en' => 'Healer', 'pt' => 'Curandeiro'],
+                'role' => ['en' => 'Healing and support', 'pt' => 'Cura e suporte'],
+                'armor' => 'robe',
+                'weapons' => ['starter' => 95307, 'advanced' => 92964, 'elite' => 93295],  // Kaim Vanul's Bones, Cabrio's Hand, Queen Ant's Stone Breaker
+                'classes' => [15, 16, 17, 29, 30, 42, 43, 49, 50, 51, 52, 97, 98, 105, 112, 115, 116],
+            ],
+        ],
+    ],
 ];

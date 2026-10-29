@@ -6,6 +6,7 @@ export default function LorePt() {
 	return (
 		<>
 			<PageHero
+				className="history-hero"
 				kicker="A História do Mundo"
 				title="História de Aden"
 				tagline="Sente-se perto do fogo, aventureiro. Antes dos castelos e dos clãs, antes de os dragões dormirem sob a terra, havia apenas uma esfera que guardava tudo e nada ao mesmo tempo."

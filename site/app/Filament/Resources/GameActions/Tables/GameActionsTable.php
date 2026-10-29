@@ -25,8 +25,9 @@ class GameActionsTable
                 TextColumn::make('item_name')
                     ->label('Item')
                     ->formatStateUsing(fn (GameAction $record): string => ($record->enchant ? "+{$record->enchant} " : '').$record->item_name)
-                    // A gift box mail carries several items: list them under its name.
-                    ->description(fn (GameAction $record): string => $record->action === GameAction::ACTION_SEND_MAIL ? (string) $record->note : "ID {$record->item_id}")
+                    // A gift box mail carries several items: list them under its name;
+                    // and a premium change says what it did ("30 premium day(s)").
+                    ->description(fn (GameAction $record): string => $record->item_id ? "ID {$record->item_id}" : (string) $record->note)
                     ->wrap()
                     ->searchable(),
                 TextColumn::make('count')->numeric(),

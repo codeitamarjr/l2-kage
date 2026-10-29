@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\AccountController;
 use App\Http\Controllers\AccountGiftController;
+use App\Http\Controllers\AccountPackageController;
+use App\Http\Controllers\AccountPassController;
 use App\Http\Controllers\AccountSecurityController;
 use App\Http\Controllers\AccountSessionController;
 use App\Http\Controllers\ItemController;
@@ -24,8 +26,15 @@ Route::get('/items', [ItemController::class, 'index'])->name('items.index');
 Route::get('/items/{id}', [ItemController::class, 'show'])->whereNumber('id')->name('items.show');
 Route::get('/map', [PageController::class, 'map'])->name('map');
 Route::get('/about', [PageController::class, 'about'])->name('about');
+Route::get('/treasury', [PageController::class, 'treasury'])->name('treasury');
+// The Treasury's old addresses.
+Route::permanentRedirect('/store', '/treasury');
+Route::permanentRedirect('/passes', '/treasury#passes');
+Route::permanentRedirect('/packages', '/treasury#packages');
 
 Route::get('/account', [AccountController::class, 'show'])->name('account');
+Route::get('/account/orders', [AccountController::class, 'show'])->defaults('tab', 'orders')->name('account.orders');
+Route::permanentRedirect('/account/store', '/account/orders');
 Route::get('/account/security', [AccountController::class, 'show'])->defaults('tab', 'security')->name('account.security');
 Route::post('/account/login', [AccountSessionController::class, 'store'])
     ->middleware('throttle:30,1')
@@ -33,6 +42,12 @@ Route::post('/account/login', [AccountSessionController::class, 'store'])
 Route::post('/account/gift', [AccountGiftController::class, 'store'])
     ->middleware('throttle:10,1')
     ->name('account.gift');
+Route::post('/account/pass', [AccountPassController::class, 'store'])
+    ->middleware('throttle:10,1')
+    ->name('account.pass');
+Route::post('/account/package', [AccountPackageController::class, 'store'])
+    ->middleware('throttle:10,1')
+    ->name('account.package');
 // Game accounts: register (confirmed by email), forgot / reset password, change password and email.
 Route::get('/register', [RegistrationController::class, 'create'])->name('register');
 Route::post('/register', [RegistrationController::class, 'store'])->middleware('throttle:10,10')->name('register.store');

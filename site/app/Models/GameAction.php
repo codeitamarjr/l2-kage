@@ -33,6 +33,18 @@ class GameAction extends Model
     /** One in-game mail with several items attached (the weekly gift box). */
     public const ACTION_SEND_MAIL = 'send_mail';
 
+    /**
+     * The Kage Pass: take item_id x count (the L-Coin price) from the character's bag, then mail the items. Nothing is
+     * given when the character doesn't have enough.
+     */
+    public const ACTION_BUY_PASS = 'buy_pass';
+
+    /** Premium account time: count = days, character_name = the account login (see App\Services\Premium). */
+    public const ACTION_ADD_PREMIUM = 'add_premium';
+
+    /** Ends an account's premium (character_name = the account login). */
+    public const ACTION_REMOVE_PREMIUM = 'remove_premium';
+
     public const STATUS_PENDING = 'pending';
 
     public const STATUS_PROCESSING = 'processing';

@@ -1,15 +1,119 @@
 import { Link, usePage, usePoll } from '@inertiajs/react';
 import { Divider, Embers, LazyVideo } from '@/components/decor';
 import { HappeningSection, LivePill } from '@/components/happening';
+import { passEnds } from '@/components/kage-pass';
 import RacesSection from '@/components/races-section';
 import { CLIENT_DOWNLOAD_URL } from '@/data/links';
-import { pick, useLocale, useT, type Localized } from '@/i18n';
-import type { EventFeed, ServerStatus, SharedProps } from '@/types';
+import { languageTag, pick, useLocale, useT, type Localized } from '@/i18n';
+import type { EventFeed, PackageOffer, PassOffer, ServerStatus, SharedProps } from '@/types';
 
 type Props = {
     events?: EventFeed | null;
     rates: ServerStatus['rates'];
+    pass: PassOffer;
+    packages: PackageOffer;
+    giftMinLevel: number;
 };
+
+/**
+ * The store (landing page): the weekly gift box, the Kage Pass and the class packages, each with its art. The pass and
+ * packages are bought on /treasury; the gift box is opened in the player area's Orders tab.
+ */
+function StoreSection({ pass, packages, giftMinLevel }: { pass: PassOffer; packages: PackageOffer; giftMinLevel: number }) {
+    const locale = useLocale();
+    const t = useT();
+    const fmt = (n: number) => n.toLocaleString(languageTag(locale));
+    const prices = packages.tiers.map((tier) => tier.price);
+    const cards = [
+        {
+            id: 'gift-box',
+            href: '/account/orders#gift-box',
+            art: '/assets/kage-pass-chest.jpg?v=2',
+            kicker: t('Every week, free', 'Toda semana, grátis'),
+            title: t('Weekly Gift Box', 'Caixa de Presente Semanal'),
+            text: t(
+                `One box per account every week for a character of level ${giftMinLevel} or higher, with L-Coin and supplies inside.`,
+                `Uma caixa por conta toda semana para um personagem de nível ${giftMinLevel} ou mais, com L-Coin e suprimentos dentro.`,
+            ),
+            price: t('Free', 'Grátis'),
+            cta: t('Open your box', 'Abrir sua caixa'),
+            open: true,
+        },
+        {
+            id: 'kage-pass',
+            href: '/treasury#kage-pass',
+            art: '/assets/kage-pass-ticket.jpg',
+            kicker: pass.enabled ? `${t('Season pass', 'Passe da temporada')} · ${t('until', 'até')} ${passEnds(pass.ends, languageTag(locale))}` : t('Season pass', 'Passe da temporada'),
+            title: pass.name,
+            text: t(
+                'A season bundle of supplies and scrolls, once per account. Every new hero starts with enough L-Coin to claim it on day one.',
+                'Um pacote da temporada com suprimentos e pergaminhos, uma vez por conta. Todo herói novo já começa com L-Coin suficiente para resgatá-lo no primeiro dia.',
+            ),
+            price: `${fmt(pass.price.count)} ${pass.price.name}`,
+            cta: t('Get the pass', 'Garantir o passe'),
+            open: pass.enabled,
+        },
+        {
+            id: 'packages',
+            href: '/treasury#packages',
+            art: '/assets/packages-chest.webp',
+            kicker: t('Full gear for your class', 'Equipamento completo para sua classe'),
+            title: t('Class Packages', 'Pacotes de Classe'),
+            text: t(
+                `Weapon, armor and jewelry for ${packages.archetypes.length} archetypes in three tiers, from a Starter kit to Elite boss weapons.`,
+                `Arma, armadura e joias para ${packages.archetypes.length} arquétipos em três níveis, do kit Iniciante às armas de chefe Elite.`,
+            ),
+            price: prices.length ? `${fmt(Math.min(...prices))} – ${fmt(Math.max(...prices))} ${packages.currency}` : '',
+            cta: t('Choose a package', 'Escolher um pacote'),
+            open: packages.enabled,
+        },
+    ];
+
+    return (
+        <section id="treasury" className="store-section">
+            <div className="container">
+                <div className="section-head">
+                    <p className="reveal kicker">{t('Gifts, passes & packages', 'Presentes, passes e pacotes')}</p>
+                    <h2 className="reveal section-title text-gold">{t('The Treasury', 'O Tesouro')}</h2>
+                    <Divider />
+                    <p className="reveal lead">
+                        {t(
+                            'Each week, the goddess Einhasad leaves a gift for every hero who walks Aden. Seal a season’s pact with the Kage Pass, or arm yourself for the wars to come with gear forged for your calling. Every reward rides to you by courier, straight to your mailbox in game.',
+                            'Toda semana, a deusa Einhasad deixa um presente para cada herói que percorre Aden. Firme o pacto da temporada com o Kage Pass, ou arme-se para as guerras que virão com equipamento forjado para a sua vocação. Cada recompensa segue até você por mensageiro, direto à sua caixa de correio no jogo.',
+                        )}
+                    </p>
+                </div>
+                <div className="store-cards">
+                    {cards.map((card, i) => (
+                        <article key={card.id} className="reveal store-card" style={{ transitionDelay: `${i * 120}ms` }}>
+                            <div className="store-card-art">
+                                <img src={card.art} alt="" loading="lazy" />
+                            </div>
+                            <div className="store-card-body">
+                                <p className="store-card-kicker">{card.kicker}</p>
+                                <h3 className="store-card-title text-gold">{card.title}</h3>
+                                <p className="store-card-text">{card.text}</p>
+                                <p className="store-card-price">{card.price}</p>
+                                {card.open ? (
+                                    <a href={card.href} className="btn btn-primary btn-small">
+                                        {card.cta}
+                                    </a>
+                                ) : (
+                                    <p className="gift-next">{t('Closed for now.', 'Fechado por enquanto.')}</p>
+                                )}
+                            </div>
+                        </article>
+                    ))}
+                </div>
+                <div className="actions store-actions">
+                    <Link href="/treasury" className="btn btn-outline">
+                        {t('Enter the Treasury', 'Entrar no Tesouro')}
+                    </Link>
+                </div>
+            </div>
+        </section>
+    );
+}
 
 const LEGENDS: { href: string; chapter: Localized; title: Localized; text: Localized }[] = [
     { href: '/lore#giants', chapter: { en: 'Chapter III', pt: 'Capítulo III' }, title: { en: 'The Fall of the Giants', pt: 'A Queda dos Gigantes' },
@@ -36,7 +140,7 @@ const FEATURES: { title: Localized; text: Localized }[] = [
         text: { en: 'Prove yourself in the arena and earn the glory of Hero status.', pt: 'Prove seu valor na arena e conquiste a glória de se tornar Herói.' } },
 ];
 
-export default function Home({ events, rates }: Props) {
+export default function Home({ events, rates, pass, packages, giftMinLevel }: Props) {
     usePoll(30_000, { only: ['events'] });
     const { serverName } = usePage<SharedProps>().props;
     const locale = useLocale();
@@ -80,6 +184,8 @@ export default function Home({ events, rates }: Props) {
             </section>
 
             <HappeningSection feed={events} mode="compact" />
+
+            <StoreSection pass={pass} packages={packages} giftMinLevel={giftMinLevel} />
 
             <section id="world" className="world">
                 <div className="world-bg" data-parallax="world"></div>

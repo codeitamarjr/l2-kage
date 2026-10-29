@@ -121,7 +121,7 @@ class GiftBoxTest extends TestCase
 
         $this->actingAs($this->account(), 'player')
             ->post('/account/gift', ['character_id' => 1])
-            ->assertRedirect('/account')
+            ->assertRedirect('/account/orders')
             ->assertSessionHasNoErrors();
 
         $status = app(GiftBox::class)->status($this->account());

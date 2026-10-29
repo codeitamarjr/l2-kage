@@ -94,7 +94,7 @@ export function GiftBoxPanel({ gift }: { gift: GiftBoxStatus }) {
     }, [travelling, start, stop]);
 
     return (
-        <section className={`gift-box${claim ? ' is-claimed' : ' is-ready'}`} aria-labelledby="gift-box-title">
+        <section id="gift-box" className={`gift-box${claim ? ' is-claimed' : ' is-ready'}`} aria-labelledby="gift-box-title">
             <div className="gift-box-art">
                 <Chest />
             </div>
@@ -103,6 +103,7 @@ export function GiftBoxPanel({ gift }: { gift: GiftBoxStatus }) {
                 <h2 id="gift-box-title" className="gift-box-title text-gold">
                     {t('Weekly Gift Box', 'Caixa de Presente Semanal')}
                 </h2>
+                {gift.name ? <p className="gift-box-text"><strong>{gift.name}</strong>{gift.description ? <> — {gift.description}</> : null}</p> : null}
 
                 {claim ? (
                     <>

@@ -1,5 +1,9 @@
 * text=auto eol=lf
 
+# Windows downloads for players (public/downloads): keep Windows line endings.
+*.bat text eol=crlf
+public/downloads/*.ini text eol=crlf
+
 *.blade.php diff=html
 *.css diff=css
 *.html diff=html

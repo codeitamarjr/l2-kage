@@ -80,6 +80,7 @@ Important settings:
 | `WEB_DB_PASSWORD`, `L2WEB_DB_PASSWORD` | Read-only game and website database passwords |
 | `SITE_APP_KEY` | Laravel application key |
 | `GAME_JAVA_OPTS` | Java options and heap size for the game server |
+| `CHARACTER_SAVE_MINUTES` | Minutes between saves of online characters; defaults to `5` |
 | `AUTO_CREATE_ACCOUNTS` | Whether a new game login creates an account |
 | `WEBSITE_URL` | Canonical public URL for the website |
 | `MAIL_*` | Optional SMTP settings for registration and password resets |
@@ -210,6 +211,44 @@ instead. Follow the documentation for the client and patch format you are
 using. Do not distribute client files, private-server patches, or copyrighted
 game assets from this repository.
 
+### Custom login port on Windows
+
+Some clients, such as the Samurai Crow client, always log in on port 2106 and
+ignore `ServerPort`. When `LOGIN_PORT` is not 2106 (for example because another
+server already uses 2106 on the same host), Windows can redirect the client's
+port 2106 to the server's login port. The website's About page shows these
+steps automatically, with the server's own address and port, whenever
+`LOGIN_PORT` is not 2106.
+
+1. Download the client files from the website into the client's `system`
+   folder: `l2-kage.ini` (logs in on `127.0.0.2`) and `start-l2-kage.bat`
+   (starts `L2.exe` with that ini). They are served from
+   `site/public/downloads/`; edit them there and rebuild the site image.
+2. Open the Command Prompt as Administrator and create the redirect once,
+   replacing `<PUBLIC_HOST>` and `<LOGIN_PORT>` with the server's values:
+
+   ```bat
+   netsh interface portproxy add v4tov4 listenaddress=127.0.0.2 listenport=2106 connectaddress=<PUBLIC_HOST> connectport=<LOGIN_PORT>
+   ```
+
+   A DNS name works as `connectaddress` and keeps working when the server's IP
+   changes.
+3. Start the game with `start-l2-kage.bat`.
+
+Only the login goes through the redirect: the login server hands the client
+the game address and `GAME_PORT` directly, so a custom game port needs no
+client change. The redirect survives a Windows restart. To list or remove it
+(as Administrator):
+
+```bat
+netsh interface portproxy show v4tov4
+netsh interface portproxy delete v4tov4 listenaddress=127.0.0.2 listenport=2106
+```
+
+The redirect needs the Windows "IP Helper" service, which runs by default.
+
+### Disconnected after selecting a server
+
 If the client logs in but shows "You have been disconnected" after a server is
 selected, it cannot reach the game address handed out by the login server. The
 login log lists those addresses (`Updated Gameserver ... IP's`). Check
@@ -232,6 +271,35 @@ docker compose exec db sh -c \
 
 In game, `//admin` opens the administrator panel for an authorized character.
 Grant GM access only to trusted administrators.
+
+## Passes and L-Coin
+
+L-Coin (item 91663) pays for both passes. Every new character starts with
+1,000 L-Coin (`overrides/game/data/stats/players/initialEquipment.xml`), and
+the website's weekly gift box adds 1,000.
+
+**Hunt Pass (in game).** Essence's built-in battle pass (the same L2PASS
+system the official servers run): each monster kill gives 1 point (2 in timed
+hunting zones, party members included), a step takes `PointsForStep` points
+(300 here; retail 2,400), each step has a free reward, and Premium adds a
+second reward track, also for steps already completed. It starts over every
+month on `DayOfMonth`. `overrides/game/config/HuntPass.ini` turns it on and
+sets the Premium price (`PremiumItemId`, `PremiumItemCount`: 1,000 L-Coin).
+Restart the game server after a change. Keep the rewards in the datapack's
+`data/HuntPass.xml` as they are: the client draws the pass window from its own
+files, so different server rewards would not match what players see.
+
+**Kage Pass (website).** Once per game account per season, a player claims the
+season's rewards in the player area, paying with L-Coin from one of their
+characters' bags. The season, price, last day and rewards (at most 8 stackable
+items, one in-game mail) are `pass` in `site/config/l2j.php`; a new `season`
+key opens a new season for every account. The website queues the claim and the
+game server's WebBridge script takes the L-Coin and mails the rewards in one
+step: from the inventory when the character is online, from its saved bag when
+it is offline. If the character doesn't have enough, nothing is taken and the
+player can claim again. The landing page shows a banner for both passes while
+the Kage Pass is open, and the Passes page (`/passes`) explains both, with
+every number read from the server's config.
 
 ## Updates and backups
 

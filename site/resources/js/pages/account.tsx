@@ -3,16 +3,18 @@ import { useEffect, useState } from 'react';
 import { Notice } from '@/components/auth-card';
 import { Divider, Embers, HeroVideo } from '@/components/decor';
 import { GiftBoxPanel } from '@/components/gift-box';
+import { OrdersList } from '@/components/orders';
 import { ItemIcon } from '@/components/item-icon';
 import { languageTag, raceName, useLocale, useT, type Locale } from '@/i18n';
-import type { CharacterDetail, CharacterItem, CharacterSummary, GiftBoxStatus, SharedProps } from '@/types';
+import type { CharacterDetail, CharacterItem, CharacterSummary, GiftBoxStatus, Order, SharedProps } from '@/types';
 
 type Props = {
     account: { login: string; gm: boolean; created: string | null; email: string | null } | null;
     characters?: CharacterSummary[];
     character?: CharacterDetail | null;
     gift?: GiftBoxStatus;
-    tab: 'characters' | 'security';
+    orders?: Order[];
+    tab: 'characters' | 'orders' | 'security';
 };
 
 type ItemsTab = 'equipped' | 'inventory' | 'warehouse';
@@ -48,6 +50,13 @@ function FlashNotice() {
             t(
                 `New password saved${flash.login ? ` for ${flash.login}` : ''}. Sign in with it here and in the game.`,
                 `Nova senha salva${flash.login ? ` para ${flash.login}` : ''}. Use-a para entrar aqui e no jogo.`,
+            ),
+            'info',
+        ],
+        'order-placed': [
+            t(
+                'Order placed! The items arrive by in-game mail within seconds; a confirmation was sent to your email.',
+                'Pedido realizado! Os itens chegam pelo correio do jogo em segundos; uma confirmação foi enviada para o seu e-mail.',
             ),
             'info',
         ],
@@ -379,8 +388,30 @@ function SecurityTab({ account }: { account: NonNullable<Props['account']> }) {
     );
 }
 
-export default function Account({ account, characters = [], character, gift, tab }: Props) {
-    const { emailReady } = usePage<SharedProps>().props;
+/** Premium accounts: Einhasad's blessing, until when it lasts and what it grants. */
+function PremiumNotice({ premium }: { premium: { until: string; bonuses: string } }) {
+    const t = useT();
+    const until = new Date(premium.until).toLocaleDateString(languageTag(locale), { day: 'numeric', month: 'long', year: 'numeric' });
+
+    return (
+        <aside className="premium-notice" aria-label={t('Premium account', 'Conta premium')}>
+            <span className="premium-notice-star" aria-hidden="true">
+                ★
+            </span>
+            <div>
+                <p className="premium-notice-title">
+                    {t('The blessing of Einhasad is upon your account', 'A bênção de Einhasad está sobre a sua conta')}
+                </p>
+                <p className="premium-notice-text">
+                    {t(`Premium until ${until}: ${premium.bonuses}, for every character.`, `Premium até ${until}: ${premium.bonuses}, para todos os personagens.`)}
+                </p>
+            </div>
+        </aside>
+    );
+}
+
+export default function Account({ account, characters = [], character, gift, orders, tab }: Props) {
+    const { emailReady, player } = usePage<SharedProps>().props;
     const t = useT();
     locale = useLocale();
 
@@ -402,7 +433,9 @@ export default function Account({ account, characters = [], character, gift, tab
                               )
                             : tab === 'security'
                               ? t('Keep your account safe: recovery email and password.', 'Mantenha sua conta segura: e-mail de recuperação e senha.')
-                              : t('Your heroes of Aden.', 'Seus heróis de Aden.')}
+                              : tab === 'orders'
+                                ? t('Your weekly gift and everything you claimed or bought.', 'Seu presente semanal e tudo o que você resgatou ou comprou.')
+                                : t('Your heroes of Aden.', 'Seus heróis de Aden.')}
                     </p>
                 </div>
             </section>
@@ -416,6 +449,7 @@ export default function Account({ account, characters = [], character, gift, tab
                             <p>
                                 {t('Signed in as', 'Conectado como')} <strong>{account.login}</strong>
                                 {account.gm ? <span className="gm-badge">GM</span> : null}
+                                {player?.premium ? <span className="premium-badge">★ Premium</span> : null}
                             </p>
                             <Link href="/account/logout" method="post" as="button" className="btn btn-outline btn-small">
                                 {t('Sign Out', 'Sair')}
@@ -426,11 +460,16 @@ export default function Account({ account, characters = [], character, gift, tab
                             <Link href="/account" className="account-tab" aria-current={tab === 'characters' ? 'page' : undefined} preserveScroll>
                                 {t('Characters', 'Personagens')}
                             </Link>
+                            <Link href="/account/orders" className="account-tab" aria-current={tab === 'orders' ? 'page' : undefined} preserveScroll>
+                                {t('Orders', 'Pedidos')}
+                            </Link>
                             <Link href="/account/security" className="account-tab" aria-current={tab === 'security' ? 'page' : undefined} preserveScroll>
                                 {t('Security', 'Segurança')}
                                 {account.email || !emailReady ? null : <span className="account-tab-alert" aria-label={t('needs attention', 'precisa de atenção')}></span>}
                             </Link>
                         </nav>
+
+                        {player?.premium ? <PremiumNotice premium={player.premium} /> : null}
 
                         <div className="account-notices">
                             <FlashNotice />
@@ -450,7 +489,9 @@ export default function Account({ account, characters = [], character, gift, tab
 
                         {tab === 'security' ? <SecurityTab account={account} /> : null}
 
-                        {tab === 'characters' && gift ? <GiftBoxPanel gift={gift} /> : null}
+                        {tab === 'orders' && gift ? <GiftBoxPanel gift={gift} /> : null}
+
+                        {tab === 'orders' && orders ? <OrdersList orders={orders} /> : null}
 
                         {tab !== 'characters' ? null : (
                             <>

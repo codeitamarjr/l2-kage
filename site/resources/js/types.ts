@@ -1,8 +1,11 @@
+import type { Localized } from '@/i18n';
+
 export type SharedProps = {
     serverName: string;
     /** The visitor's language (see resources/js/i18n.ts). */
     locale: 'en' | 'pt_BR';
-    player: { login: string; gm: boolean } | null;
+    /** premium: when the account's premium ends and what it gives; null without premium. */
+    player: { login: string; gm: boolean; premium: { until: string; bonuses: string } | null } | null;
     /** One-off message after a redirect (see HandleInertiaRequests). */
     flash: { status: string | null; sentTo: string | null; login: string | null };
     /** Cloudflare Turnstile site key, or null when the bot check is off. */
@@ -124,6 +127,8 @@ export type GiftBoxStatus = {
     enabled: boolean;
     minLevel: number;
     nextAt: string;
+    name?: string | null;
+    description?: string | null;
     contents: {
         guaranteed: { name: string; count: number }[];
         bonus: { name: string; count: number; chance: number }[];
@@ -136,6 +141,52 @@ export type GiftBoxStatus = {
         status: 'pending' | 'processing' | 'done' | 'failed';
         result: string | null;
     } | null;
+};
+
+/** The Kage Pass offer (app/Services/KagePass.php): the landing page banner and the player area. */
+export type PassOffer = {
+    enabled: boolean;
+    season: string;
+    name: string;
+    /** Last day it can be claimed, YYYY-MM-DD. */
+    ends: string;
+    price: { name: string; count: number };
+    rewards: { name: string; count: number }[];
+};
+
+/** Class packages (app/Services/ClassPackages.php): tiers with their price, and each archetype's gear per tier. */
+/** count only when more than one (Kage Pass rewards); id links to the item database. */
+export type PackageItem = { id?: number; name: string; enchant: number; count?: number };
+
+export type PackageOffer = {
+    enabled: boolean;
+    season: string;
+    currency: string;
+    tiers: { key: string; name: Localized; grade: string; price: number; enchant: number }[];
+    archetypes: { key: string; name: Localized; role: Localized; armor: 'heavy' | 'light' | 'robe'; contents: Record<string, PackageItem[]> }[];
+};
+
+/** A character that can pay in the store's checkout: its L-Coin in the bag (last save) and suggested archetype. */
+export type CheckoutCharacter = { id: number; name: string; level: number; className: string; archetype: string | null; coins: number };
+
+/** The store page's checkout for a signed-in player (app/Services/Orders.php checkout()). */
+export type StoreCheckout = {
+    characters: CheckoutCharacter[];
+    passClaimed: boolean;
+    /** "tier:archetype" keys bought this season. */
+    packagesBought: string[];
+};
+
+/** One entry of the Orders tab (app/Services/Orders.php history()): a gift box, Kage Pass or class package. */
+export type Order = {
+    id: string;
+    type: 'gift' | 'pass' | 'package';
+    name: Localized;
+    characterName: string;
+    price: { count: number; currency: string } | null;
+    status: 'pending' | 'processing' | 'done' | 'failed';
+    createdAt: string;
+    items: { name: string; count: number; enchant: number }[];
 };
 
 /** Item database (app/Services/L2j/ItemDatabase.php). */
