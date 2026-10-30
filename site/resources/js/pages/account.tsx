@@ -418,7 +418,7 @@ export default function Account({ account, characters = [], character, gift, ord
     return (
         <>
             <section className="lore-hero account-hero">
-                <HeroVideo src="/assets/video/account-hero.mp4" poster="/assets/video/account-hero-poster.jpg" />
+                <HeroVideo src="/assets/video/account-hero.mp4?v=3" poster="/assets/video/account-hero-poster.jpg" />
                 <div className="lore-hero-shade"></div>
                 <Embers />
                 <div className="lore-hero-content">
