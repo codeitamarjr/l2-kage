@@ -15,6 +15,8 @@ if [ "$APP_ENV" = "production" ]; then
 	php artisan optimize --no-interaction
 fi
 php artisan migrate --force --no-interaction
+# Uploaded images (News) live on a volume, served at /storage.
+php artisan storage:link --force --no-interaction
 # Item database (/items): reloads only when resources/data/itemdb.ndjson.gz changed.
 php artisan itemdb:import --no-interaction
 

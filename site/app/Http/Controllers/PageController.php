@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Game\Account;
+use App\Models\NewsPost;
 use App\Services\ClassPackages;
 use App\Services\GiftBox;
 use App\Services\KagePass;
@@ -35,6 +36,17 @@ class PageController extends Controller
             'pass' => $pass->offer(),
             'packages' => $packages->offer(),
             'giftMinLevel' => (int) config('l2j.gift_box.min_level'),
+            // Rescued like the game-database reads: the home page still renders without its news.
+            'news' => rescue(fn () => NewsPost::published()->limit(3)->get()->map(fn (NewsPost $post): array => $post->card()), []),
+            'banner' => rescue(function (): ?array {
+                $banner = NewsPost::onBanner()->first();
+
+                return $banner ? [
+                    ...$banner->card(),
+                    'until' => $banner->featured_until?->toIso8601String(),
+                    'theme' => $banner->banner_theme,
+                ] : null;
+            }),
             'seo' => Seo::make(
                 null,
                 __(':brand: a free Lineage II Essence server on the Samurai Crow update. x:xp XP, x:drop drop, x:adena Adena. Live bosses and sieges, a world map and an item database. Join now.', [

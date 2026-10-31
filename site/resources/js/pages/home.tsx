@@ -1,11 +1,13 @@
 import { Link, usePage, usePoll } from '@inertiajs/react';
+import { useEffect, useState } from 'react';
 import { Divider, Embers, LazyVideo } from '@/components/decor';
 import { HappeningSection, LivePill } from '@/components/happening';
 import { passEnds } from '@/components/kage-pass';
+import { FeaturedBanner, NewsCard } from '@/components/news';
 import RacesSection from '@/components/races-section';
 import { CLIENT_DOWNLOAD_URL } from '@/data/links';
 import { languageTag, pick, useLocale, useT, type Localized } from '@/i18n';
-import type { EventFeed, PackageOffer, PassOffer, ServerStatus, SharedProps } from '@/types';
+import type { EventFeed, NewsBanner, NewsCard as NewsCardData, PackageOffer, PassOffer, ServerStatus, SharedProps } from '@/types';
 
 type Props = {
     events?: EventFeed | null;
@@ -13,6 +15,8 @@ type Props = {
     pass: PassOffer;
     packages: PackageOffer;
     giftMinLevel: number;
+    news: NewsCardData[];
+    banner: NewsBanner | null;
 };
 
 /**
@@ -115,6 +119,80 @@ function StoreSection({ pass, packages, giftMinLevel }: { pass: PassOffer; packa
     );
 }
 
+/** The latest posts, written in the admin panel (News). Hidden until there is one. */
+function NewsSection({ posts }: { posts: NewsCardData[] }) {
+    const t = useT();
+
+    if (!posts.length) {
+        return null;
+    }
+
+    return (
+        <section id="news" className="news-section">
+            <div className="container">
+                <div className="section-head">
+                    <p className="reveal kicker">{t('The latest from the realm', 'O mais recente do reino')}</p>
+                    <h2 className="reveal section-title text-gold">{t('News from Aden', 'Notícias de Aden')}</h2>
+                    <Divider />
+                </div>
+                <div className="news-grid">
+                    {posts.map((post, i) => (
+                        <NewsCard key={post.slug} post={post} style={{ transitionDelay: `${i * 120}ms` }} />
+                    ))}
+                </div>
+                <div className="reveal actions">
+                    <Link href="/news" className="btn btn-outline">{t('All News', 'Todas as Notícias')}</Link>
+                </div>
+            </div>
+        </section>
+    );
+}
+
+const GIFT_BANNER_KEY = 'gift-banner-closed';
+
+/** A corner banner for the weekly gift box. Closing it is remembered in this browser. */
+function GiftBanner() {
+    const t = useT();
+    const [open, setOpen] = useState(false);
+
+    useEffect(() => {
+        try {
+            setOpen(localStorage.getItem(GIFT_BANNER_KEY) === null);
+        } catch {
+            setOpen(true);
+        }
+    }, []);
+
+    const close = () => {
+        setOpen(false);
+        try {
+            localStorage.setItem(GIFT_BANNER_KEY, '1');
+        } catch {
+            // The banner just comes back on the next visit.
+        }
+    };
+
+    if (!open) {
+        return null;
+    }
+
+    return (
+        <aside className="gift-banner">
+            <a href="/account/orders#gift-box" className="gift-banner-link">
+                <img src="/assets/kage-pass-chest.jpg?v=2" width={56} height={56} alt="" />
+                <span>
+                    <span className="gift-banner-kicker">{t('Every week, free', 'Toda semana, grátis')}</span>
+                    <span className="gift-banner-title text-gold">{t('Weekly Gift Box', 'Caixa de Presente Semanal')}</span>
+                    <span className="gift-banner-cta">{t('Open your box', 'Abrir sua caixa')}</span>
+                </span>
+            </a>
+            <button type="button" className="gift-banner-close" onClick={close} aria-label={t('Close', 'Fechar')}>
+                ×
+            </button>
+        </aside>
+    );
+}
+
 const LEGENDS: { href: string; chapter: Localized; title: Localized; text: Localized }[] = [
     { href: '/lore#giants', chapter: { en: 'Chapter III', pt: 'Capítulo III' }, title: { en: 'The Fall of the Giants', pt: 'A Queda dos Gigantes' },
         text: { en: 'They dared to create life. Einhasad answered with the Hammer of Despair, and Grandferion fell in a single day.',
@@ -140,7 +218,7 @@ const FEATURES: { title: Localized; text: Localized }[] = [
         text: { en: 'Prove yourself in the arena and earn the glory of Hero status.', pt: 'Prove seu valor na arena e conquiste a glória de se tornar Herói.' } },
 ];
 
-export default function Home({ events, rates, pass, packages, giftMinLevel }: Props) {
+export default function Home({ events, rates, pass, packages, giftMinLevel, news, banner }: Props) {
     usePoll(30_000, { only: ['events'] });
     const { serverName } = usePage<SharedProps>().props;
     const locale = useLocale();
@@ -155,6 +233,7 @@ export default function Home({ events, rates, pass, packages, giftMinLevel }: Pr
 
     return (
         <>
+            <GiftBanner />
             <section className="hero">
                 <div className="hero-media" data-parallax="hero">
                     {/* The Samurai Crow update's intro: the Kamael Samurai, the server's current chapter. */}
@@ -183,7 +262,11 @@ export default function Home({ events, rates, pass, packages, giftMinLevel }: Pr
                 <a href="#world" className="scroll-hint">{t('Scroll', 'Role')}</a>
             </section>
 
+            <FeaturedBanner banner={banner} />
+
             <HappeningSection feed={events} mode="compact" />
+
+            <NewsSection posts={news} />
 
             <StoreSection pass={pass} packages={packages} giftMinLevel={giftMinLevel} />
 

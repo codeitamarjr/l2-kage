@@ -375,6 +375,72 @@ img, video { display: block; max-width: 100%; }
 .site-footer { border-top: 1px solid var(--border); padding: 2.5rem 0; text-align: center; font-size: .875rem; line-height: 1.25rem; color: var(--muted-foreground); }
 .footer-brand { font-family: var(--font-display); letter-spacing: .3em; color: var(--primary); }
 .site-footer p + p { margin-top: .75rem; }
+.toplist-button { display: inline-block; line-height: 0; }
+/* The same in both themes: a banner stays a night scene. The theme class sets its colours. */
+.featured-banner { --accent: #d4a94f; --accent-hover: #edc76f; --kicker: #e6c67e; --title: #fff3d1; --glow: 212 169 79; --glow-end: 120 60 30; position: relative; border-block: 1px solid var(--accent); background: radial-gradient(ellipse 45% 160% at 12% 50%, rgb(var(--glow) / .34), transparent 70%), radial-gradient(ellipse 40% 140% at 92% 50%, rgb(var(--glow-end) / .38), transparent 70%), #120d0a; box-shadow: 0 0 44px -14px var(--accent); }
+.featured-banner.is-halloween { --accent: #e06c14; --accent-hover: #f59a3c; --kicker: #ffb45c; --title: #ffe9c4; --glow: 224 108 20; --glow-end: 122 40 150; background-color: #120a10; }
+.featured-inner { max-width: 72rem; margin: 0 auto; padding: 1.75rem 1.5rem; display: flex; align-items: center; gap: 1.75rem; }
+.featured-art { flex: none; width: 6.5rem; height: auto; filter: drop-shadow(0 0 18px rgb(var(--glow) / .75)); animation: featured-glow 2.8s ease-in-out infinite; }
+.featured-image { height: 6.5rem; object-fit: cover; }
+@keyframes featured-glow { 50% { filter: drop-shadow(0 0 30px rgb(var(--glow) / 1)); } }
+.featured-copy { flex: 1; min-width: 0; }
+.featured-kicker { font-family: var(--font-display); font-size: .72rem; letter-spacing: .28em; text-transform: uppercase; color: var(--kicker); }
+.featured-title { margin-top: .35rem; font-family: var(--font-display); font-size: clamp(1.5rem, 3.4vw, 2.4rem); line-height: 1.15; color: var(--title); text-shadow: 0 0 22px rgb(var(--glow) / .65); }
+.featured-text { margin-top: .5rem; font-size: 1.05rem; line-height: 1.5; color: #e6dacb; }
+.featured-cta { flex: none; padding: .85rem 1.6rem; background: var(--accent); color: #1a0d05; font-family: var(--font-display); font-size: .8rem; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; transition: background-color .15s; }
+.featured-cta:hover { background: var(--accent-hover); }
+@media (max-width: 767px) {
+	.featured-inner { flex-direction: column; text-align: center; gap: 1rem; }
+	.featured-art { width: 5rem; }
+	.featured-image { height: 5rem; }
+}
+@media (prefers-reduced-motion: reduce) { .featured-art { animation: none; } }
+.news-section { padding: 6rem 0; }
+.news-grid { margin-top: 3rem; display: grid; gap: 1.5rem; grid-template-columns: repeat(auto-fill, minmax(min(100%, 20rem), 1fr)); }
+.news-card { display: flex; flex-direction: column; gap: .75rem; padding: 1.75rem; border: 1px solid var(--border); background: color-mix(in oklab, var(--card) 60%, transparent); color: var(--foreground); transition-property: opacity, transform, border-color, background-color; transition-duration: .2s; }
+.news-card:hover { border-color: var(--primary); background: var(--card); }
+.news-card-art { display: block; margin: -1.75rem -1.75rem .25rem; aspect-ratio: 16 / 9; overflow: hidden; }
+.news-card-art img { width: 100%; height: 100%; object-fit: cover; }
+.news-card-meta { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: .35rem 1rem; font-size: .85rem; color: var(--muted-foreground); }
+.news-category { font-family: var(--font-display); font-size: .7rem; letter-spacing: .25em; text-transform: uppercase; color: var(--crimson); }
+.news-card-title { font-family: var(--font-display); font-size: 1.3rem; line-height: 1.3; font-weight: 700; color: var(--foreground); transition: color .15s; }
+.news-card:hover .news-card-title { color: var(--primary); }
+.news-card-summary { line-height: 1.55; color: var(--muted-foreground); }
+.news-page { padding: 4rem 0 6rem; }
+.news-page .news-grid .news-card { opacity: 1; transform: none; }
+.news-filters { display: flex; flex-wrap: wrap; justify-content: center; gap: .5rem; }
+.news-filters a { padding: .45rem 1rem; border: 1px solid var(--border); font-size: .85rem; color: var(--muted-foreground); transition: color .15s, border-color .15s; }
+.news-filters a:hover, .news-filters a.is-active { border-color: var(--primary); color: var(--primary); }
+.news-empty { margin-top: 3rem; text-align: center; color: var(--muted-foreground); }
+.news-article { padding: 8rem 1.5rem 6rem; }
+.news-article-inner { max-width: 46rem; margin: 0 auto; }
+.news-back { display: inline-block; margin-bottom: 2rem; font-size: .9rem; color: var(--primary); }
+.news-back::before { content: "← "; }
+.news-article-title { margin-top: 1rem; font-family: var(--font-display); font-size: clamp(2rem, 5vw, 3.25rem); line-height: 1.15; }
+.news-article-summary { margin-top: 1rem; font-size: 1.25rem; line-height: 1.5; color: var(--muted-foreground); }
+.news-article-image { margin-top: 2rem; width: 100%; height: auto; border: 1px solid var(--border); }
+.news-body { margin-top: 2rem; font-size: 1.15rem; line-height: 1.7; color: var(--foreground); }
+.news-body > * + * { margin-top: 1.1rem; }
+.news-body h2, .news-body h3 { margin-top: 2.25rem; font-family: var(--font-display); line-height: 1.25; color: var(--primary); }
+.news-body h2 { font-size: 1.6rem; }
+.news-body h3 { font-size: 1.25rem; }
+.news-body ul, .news-body ol { padding-left: 1.5rem; }
+.news-body ul { list-style: disc; }
+.news-body ol { list-style: decimal; }
+.news-body li + li { margin-top: .45rem; }
+.news-body a { color: var(--primary); text-decoration: underline; }
+.news-body strong { font-weight: 700; }
+.gift-banner { position: fixed; bottom: 1rem; left: 1rem; z-index: 40; border: 1px solid color-mix(in oklab, var(--primary) 45%, transparent); background: var(--card); box-shadow: 0 8px 28px -10px rgb(0 0 0 / .6); }
+.gift-banner-link { display: flex; align-items: center; gap: .85rem; padding: .65rem 2.25rem .65rem .65rem; color: var(--foreground); transition: background-color .15s; }
+.gift-banner-link:hover { background: color-mix(in oklab, var(--primary) 10%, var(--card)); }
+.gift-banner-link img { width: 3.5rem; height: 3.5rem; object-fit: cover; }
+.gift-banner-link > span { display: grid; gap: .1rem; }
+.gift-banner-kicker { font-size: .65rem; letter-spacing: .15em; text-transform: uppercase; color: var(--muted-foreground); }
+.gift-banner-title { font-family: var(--font-display); font-size: 1rem; line-height: 1.3; }
+.gift-banner-cta { font-size: .75rem; color: var(--primary); }
+.gift-banner-close { position: absolute; top: .15rem; right: .15rem; width: 1.75rem; height: 1.75rem; border: 0; background: none; color: var(--muted-foreground); font-size: 1.1rem; line-height: 1; cursor: pointer; }
+.gift-banner-close:hover { color: var(--foreground); }
+@media (max-width: 767px) { .gift-banner { display: none; } }
 .text-link { color: var(--primary); text-decoration: underline; text-decoration-color: color-mix(in oklab, var(--primary) 40%, transparent); text-underline-offset: 3px; transition: text-decoration-color .15s; }
 .text-link:hover { text-decoration-color: var(--primary); }
 
@@ -795,7 +861,7 @@ img, video { display: block; max-width: 100%; }
    and the popover sit outside the scaled layer at --mx/--my (percent of the map / 100), so they keep their size. */
 .world-map-section { position: relative; padding: 3rem 0 6rem; }
 /* The map page's banner shows the world map itself behind the shared page hero. */
-.map-hero .lore-hero-bg { background-image: url("/assets/map-hero.webp"); background-position: center 45%; opacity: .6; }
+.map-hero .lore-hero-bg { background-image: url("/assets/map-hero.jpg"); background-position: center 45%; opacity: .6; }
 .worldmap { display: grid; gap: 2rem; }
 .worldmap-frame {
 	position: relative; overflow: hidden; width: 100%; max-width: calc(80vh * 1977 / 2620); margin: 0 auto; aspect-ratio: 1977 / 2620;
@@ -838,6 +904,12 @@ img, video { display: block; max-width: 100%; }
 .map-marker.is-live::after { content: ""; position: absolute; inset: -7px; border-radius: 9999px; border: 2px solid oklch(66% .21 25); animation: map-pulse 1.8s ease-out infinite; pointer-events: none; }
 .map-marker.is-slain { filter: grayscale(1) brightness(.8); }
 .map-marker.is-scheduled { opacity: .85; }
+.map-marker.is-pumpkin { --cat: #f08a24; background: none; border: 0; box-shadow: none; }
+.map-marker.is-pumpkin svg { width: 2rem; height: auto; stroke: none; filter: drop-shadow(0 0 6px rgb(240 138 36 / .95)) drop-shadow(0 2px 3px rgb(0 0 0 / .8)); }
+.map-marker.is-pumpkin:hover, .map-marker.is-pumpkin:focus-visible, .map-marker.is-pumpkin.is-selected { box-shadow: none; }
+.map-marker.is-pumpkin:focus-visible { outline: 2px solid var(--cat); outline-offset: 2px; }
+.map-marker.is-pumpkin:hover svg, .map-marker.is-pumpkin.is-selected svg { scale: 1.25; }
+.map-marker.is-pumpkin.is-live::after { border-color: #f08a24; }
 @keyframes map-pulse { from { transform: scale(.85); opacity: .9; } to { transform: scale(1.9); opacity: 0; } }
 .map-marker-label, .map-raid::after {
 	position: absolute; top: calc(100% + 6px); left: 50%; transform: translateX(-50%); white-space: nowrap; pointer-events: none;
@@ -964,8 +1036,8 @@ img, video { display: block; max-width: 100%; }
 
 /* Item database (/items, /items/{id}) */
 .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
-.items-hero .lore-hero-bg { background-image: url("/assets/items-hero.jpg"); background-position: center 40%; opacity: .6; }
-.history-hero .lore-hero-bg { background-image: url("/assets/history-hero.webp"); background-position: center 40%; opacity: .5; }
+.items-hero .lore-hero-bg { background-image: url("/assets/items-hero.jpg?v=2"); background-position: center 40%; opacity: .6; }
+.history-hero .lore-hero-bg { background-image: url("/assets/lore-hero.jpg"); background-position: center 50%; opacity: .55; }
 .items-section { padding: 3rem 0 6rem; }
 .items-filters { display: flex; flex-wrap: wrap; align-items: center; gap: .75rem; }
 .items-query { flex: 1 1 18rem; }

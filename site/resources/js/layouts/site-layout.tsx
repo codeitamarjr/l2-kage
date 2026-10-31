@@ -10,6 +10,7 @@ type NavItem = { label: Localized; href: string; page?: string };
 const NAV: NavItem[] = [
     { label: { en: 'World', pt: 'Mundo' }, href: '/#world' },
     { label: { en: 'Races', pt: 'Raças' }, href: '/#races' },
+    { label: { en: 'News', pt: 'Notícias' }, href: '/news', page: 'news' },
     { label: { en: 'Map', pt: 'Mapa' }, href: '/map', page: 'map' },
     { label: { en: 'Items', pt: 'Itens' }, href: '/items', page: 'items' },
     { label: { en: 'Lore', pt: 'História' }, href: '/lore', page: 'lore' },
@@ -184,6 +185,12 @@ export default function SiteLayout({ children }: { children: ReactNode }) {
                         L2J Mobius
                     </a>{' '}
                     (GNU GPL v3).
+                </p>
+                {/* l2list.com only lists a server for free with its button on the home page. */}
+                <p>
+                    <a href="https://l2list.com" className="toplist-button" title="New private servers Lineage 2" target="_blank" rel="noopener">
+                        <img src="/assets/l2list-button.png" width={150} height={38} alt="New private servers Lineage 2" />
+                    </a>
                 </p>
             </footer>
         </main>

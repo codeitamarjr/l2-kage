@@ -94,6 +94,12 @@ class EventFeed
             'headline' => 'Letters are scattered across Aden. Gather them and spell the words to unseal their rewards.',
             'detail' => 'Monsters level 40+',
         ],
+        'SquashEvent' => [
+            'title' => 'Halloween Pumpkin Harvest',
+            'place' => 'Puss the Cat in every town',
+            'headline' => 'Strange pumpkins are sprouting across Aden. Gather Nectar, grow them and break them open for prizes.',
+            'detail' => 'All levels, Halloween Kits inside',
+        ],
     ];
 
     /** Events further away than this show "Happening now" instead of a countdown to their end. */
@@ -353,10 +359,18 @@ class EventFeed
      */
     private function seasonal(int $now): array
     {
-        $dir = rtrim((string) config('l2j.events_dir'), '/');
+        $files = [];
+
+        // An event's config in overrides/ replaces the datapack's, as it does on the game server.
+        foreach ([config('l2j.events_dir'), config('l2j.events_overrides_dir')] as $dir) {
+            foreach (glob(rtrim((string) $dir, '/').'/*/config.xml') ?: [] as $file) {
+                $files[basename(dirname($file))] = $file;
+            }
+        }
+
         $events = [];
 
-        foreach (glob("{$dir}/*/config.xml") ?: [] as $file) {
+        foreach ($files as $folder => $file) {
             $xml = @simplexml_load_file($file);
 
             if ($xml === false || ! preg_match('/^(\d{2} \d{2} \d{4})-(\d{2} \d{2} \d{4})$/', trim((string) $xml['active']), $dates)) {
@@ -370,7 +384,6 @@ class EventFeed
                 continue;
             }
 
-            $folder = basename(dirname($file));
             $info = self::SEASONAL[$folder] ?? [
                 'title' => (string) $xml['name'],
                 'place' => 'All across Aden',

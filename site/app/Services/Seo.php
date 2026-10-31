@@ -19,7 +19,7 @@ final class Seo
      * @param  list<array<string, mixed>>  $jsonLd  structured data blocks (schema.org)
      * @return array{title: string, description: string, canonical: string, image: string, robots: string, jsonLd: list<array<string, mixed>>}
      */
-    public static function make(?string $title, string $description, bool $index = true, array $jsonLd = [], ?string $canonical = null): array
+    public static function make(?string $title, string $description, bool $index = true, array $jsonLd = [], ?string $canonical = null, ?string $image = null): array
     {
         $brand = self::brand();
 
@@ -27,7 +27,7 @@ final class Seo
             'title' => $title === null ? __(':brand — Free Lineage II Essence Server', ['brand' => $brand]) : "{$title} | {$brand}",
             'description' => Str::limit(preg_replace('/\s+/', ' ', trim($description)), self::DESCRIPTION_LENGTH, '…', preserveWords: true),
             'canonical' => $canonical ?? url()->current(),
-            'image' => url('/assets/og-image.jpg'),
+            'image' => $image ?? url('/assets/og-image.jpg'),
             'robots' => $index ? 'index, follow' : 'noindex, follow',
             'jsonLd' => $jsonLd,
         ];

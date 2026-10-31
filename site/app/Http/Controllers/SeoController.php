@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\NewsPost;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\DB;
@@ -41,8 +42,12 @@ class SeoController extends Controller
             $itemsDate = $itemsUpdated ? substr($itemsUpdated, 0, 10) : null;
             $urls = [
                 ['/', 'daily', '1.0', null], ['/about', 'hourly', '0.8', null], ['/map', 'hourly', '0.8', null],
-                ['/lore', 'monthly', '0.7', null], ['/treasury', 'weekly', '0.8', null], ['/items', 'weekly', '0.8', $itemsDate], ['/register', 'monthly', '0.6', null],
+                ['/lore', 'monthly', '0.7', null], ['/treasury', 'weekly', '0.8', null], ['/news', 'weekly', '0.8', null], ['/items', 'weekly', '0.8', $itemsDate], ['/register', 'monthly', '0.6', null],
             ];
+
+            foreach (NewsPost::published()->get(['slug', 'updated_at']) as $post) {
+                $urls[] = ["/news/{$post->slug}", 'monthly', '0.6', $post->updated_at?->toDateString()];
+            }
 
             foreach (DB::table('itemdb_items')->orderBy('id')->pluck('id') as $id) {
                 $urls[] = ["/items/{$id}", 'monthly', '0.5', $itemsDate];

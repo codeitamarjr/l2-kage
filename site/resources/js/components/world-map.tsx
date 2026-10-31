@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useMemo, useRef, useState, type CSSProperties, type KeyboardEvent, type MouseEvent, type PointerEvent, type ReactNode } from 'react';
 import { BADGE, CATEGORY, countdown, span } from '@/components/happening';
+import { Pumpkin } from '@/components/news';
 import { eventLore } from '@/data/event-lore';
 import { landmarkLore, nearestLandmark } from '@/data/world-map';
 import { pick, useLocale, useT, type Localized } from '@/i18n';
@@ -210,6 +211,9 @@ function Popover({ view, point, onClose, children }: { view: View; point: { x: n
     );
 }
 
+/** The Halloween event: its markers are pumpkins. */
+const PUMPKIN_EVENT = 'event-SquashEvent';
+
 function EventDetails({ event: e, point, now }: { event: GameEvent; point: MapPoint; now: number }) {
     const locale = useLocale();
     const t = useT();
@@ -383,14 +387,18 @@ export function WorldMapSection({ feed, map }: { feed?: EventFeed | null; map?: 
                                     <button
                                         key={`${e.id}-${i}`}
                                         type="button"
-                                        className={`map-marker cat-${e.category} is-${e.state}${selectedEvent?.id === e.id && selection?.kind === 'event' && selection.point === i ? ' is-selected' : ''}`}
+                                        className={`map-marker cat-${e.category} is-${e.state}${e.id === PUMPKIN_EVENT ? ' is-pumpkin' : ''}${selectedEvent?.id === e.id && selection?.kind === 'event' && selection.point === i ? ' is-selected' : ''}`}
                                         style={pinStyle(point)}
                                         aria-label={`${e.title}, ${point.name}: ${pick(locale, BADGE[e.state])}`}
                                         onClick={() => !wasDrag() && selectEvent(e, i)}
                                     >
-                                        <svg viewBox="0 0 24 24" aria-hidden="true">
-                                            {ICONS[e.category as Exclude<Layer, 'raid'>]}
-                                        </svg>
+                                        {e.id === PUMPKIN_EVENT ? (
+                                            <Pumpkin />
+                                        ) : (
+                                            <svg viewBox="0 0 24 24" aria-hidden="true">
+                                                {ICONS[e.category as Exclude<Layer, 'raid'>]}
+                                            </svg>
+                                        )}
                                         {/* Live events are named on the map; ones spread over many sites only pulse. */}
                                         {e.state === 'live' && e.at!.length <= 2 ? (
                                             <span className="map-marker-label">{e.at!.length > 1 ? point.name : e.title}</span>

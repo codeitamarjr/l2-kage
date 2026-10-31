@@ -7,6 +7,7 @@ use App\Http\Controllers\AccountPassController;
 use App\Http\Controllers\AccountSecurityController;
 use App\Http\Controllers\AccountSessionController;
 use App\Http\Controllers\ItemController;
+use App\Http\Controllers\NewsController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\PasswordResetController;
 use App\Http\Controllers\RegistrationController;
@@ -26,6 +27,8 @@ Route::get('/items', [ItemController::class, 'index'])->name('items.index');
 Route::get('/items/{id}', [ItemController::class, 'show'])->whereNumber('id')->name('items.show');
 Route::get('/map', [PageController::class, 'map'])->name('map');
 Route::get('/about', [PageController::class, 'about'])->name('about');
+Route::get('/news', [NewsController::class, 'index'])->name('news.index');
+Route::get('/news/{slug}', [NewsController::class, 'show'])->name('news.show');
 Route::get('/treasury', [PageController::class, 'treasury'])->name('treasury');
 // The Treasury's old addresses.
 Route::permanentRedirect('/store', '/treasury');

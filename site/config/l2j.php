@@ -29,6 +29,7 @@ return [
 
     // The datapack's seasonal events (data/scripts/events) mounted read-only: which are running and where.
     'events_dir' => env('L2J_EVENTS_DIR', '/l2j/events'),
+    'events_overrides_dir' => env('L2J_EVENTS_OVERRIDES_DIR', '/l2j/events-overrides'),
 
     // data/geodata mounted read-only, only to count the loaded regions.
     'geodata_dir' => env('L2J_GEODATA_DIR', '/geodata'),

@@ -150,6 +150,9 @@ services:
       - ./L2J_Mobius_Essence_10.1_SamuraiCrow/dist/game/config:/l2j/config-defaults:ro
       # Seasonal events (which are running, and where their NPCs stand) for "Happening now".
       - ./L2J_Mobius_Essence_10.1_SamuraiCrow/dist/game/data/scripts/events:/l2j/events:ro
+      - ./overrides/game/data/scripts/events:/l2j/events-overrides:ro
+      # Images uploaded in the admin panel (News).
+      - ./data/site-uploads:/app/storage/app/public
       - ./data/geodata:/l2j/geodata:ro
     depends_on:
       db:

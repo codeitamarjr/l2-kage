@@ -37,6 +37,14 @@ export const EVENT_LORE_PT: EventLoreSet = {
         ],
     },
     seasonal: {
+        SquashEvent: {
+            lore: ['O jardineiro Fordson de Floran semeou suas sementes mágicas por mais um outono, e no Halloween elas crescem estranhas. Seu gato, Puss, procura heróis para cuidar das abóboras, e o que nascer dentro delas é seu.'],
+            howItWorks: [
+                'Monstros de toda Aden podem deixar cair Néctar. Troque com Puss the Cat na cidade: 10 por uma semente, 20 por uma semente grande, ou 100 ou mais por um instrumento chrono.',
+                'Clique duas vezes na semente para plantá-la e use Néctar na abóbora jovem até ela mudar. Ela pode ficar madura ou murcha, e as maduras guardam prêmios melhores. As abóboras somem depois de alguns minutos, então seja rápido.',
+                'Quebre a abóbora para pegar os prêmios. Abóboras grandes só podem ser quebradas com um instrumento chrono e podem conter Halloween Kits.',
+            ],
+        },
         LeonasDungeonEvent: {
             lore: [
                 'Leona Blackbird é uma guerreira lendária. Sua masmorra é um espaço que se desdobra com seu poder e sua memória: uma reencenação do momento em que ela despertou, onde cada batalha treina aventureiros para se tornarem heróis.',

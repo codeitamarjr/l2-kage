@@ -39,6 +39,10 @@ export type RaidPin = { id: number; name: string; level: number | null; x: numbe
 /** Every raid boss on the map, plus how many spawn in lands the map doesn't show. */
 export type WorldMapData = { raids: RaidPin[]; beyond: number };
 
+export type NewsCard = { slug: string; category: string; title: string; summary: string; image: string | null; publishedAt: string | null };
+
+export type NewsBanner = NewsCard & { until: string | null; theme: string };
+
 export type EventFeed = {
     generatedAt: string;
     live: number;

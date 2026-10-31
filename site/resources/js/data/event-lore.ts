@@ -61,6 +61,14 @@ const RAID: EventLore = {
 
 /** Seasonal events, by their folder in data/scripts/events (the card id is "event-<folder>"). */
 const SEASONAL: Record<string, EventLore> = {
+    SquashEvent: {
+        lore: ['Gardener Fordson of Floran has sown his magical seeds for one more autumn, and on Halloween they grow strange. His cat, Puss, is looking for heroes to tend the pumpkins, and whatever grows inside them is yours to keep.'],
+        howItWorks: [
+            'Monsters across Aden can drop Nectar. Trade it to Puss the Cat in town: 10 for a seed, 20 for a large seed, or 100 or more for a chrono instrument.',
+            'Double-click a seed to plant it, then use Nectar on the young pumpkin until it changes. It may turn ripe or withered, and ripe ones hold better prizes. Pumpkins vanish after a few minutes, so be quick.',
+            'Break the pumpkin to claim its prizes. Large pumpkins can only be broken with a chrono instrument, and they can hold Halloween Kits.',
+        ],
+    },
     LeonasDungeonEvent: {
         lore: [
             'Leona Blackbird is a warrior of legend. Her dungeon is a space that unfolds with her power and memory: a reenactment of the moment she awakened, where every battle trains adventurers to become heroes.',
